@@ -59,7 +59,7 @@ function HomePage() {
   return (
     <>
       {/* Hero Section (Section 1) */}
-      <section id="home" className="relative w-full overflow-hidden mb-10">
+      <section id="home" className="relative w-full overflow-hidden mb-[10px]">
         {/* Background Image that defines the height naturally */}
         <img
           src={section1Bg}

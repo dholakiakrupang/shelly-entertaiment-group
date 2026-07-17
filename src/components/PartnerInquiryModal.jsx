@@ -104,29 +104,39 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
       {/* Modal */}
       <div
         ref={modalRef}
-        className="relative bg-white border border-[#1a1a1a] rounded-2xl flex flex-col gap-8 items-end px-6 md:px-10 py-6 w-full max-w-[655px] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white rounded-2xl flex flex-col gap-8 items-start px-6 py-6 md:px-10 w-full max-w-[655px] max-h-[90vh] overflow-y-auto"
         style={{
           boxShadow: '0 20px 30px rgba(0,0,0,0.15)',
           animation: 'partnerSlideUp 0.3s ease-out',
         }}
       >
-        {/* Close button + heading */}
-        <div className="flex flex-col items-end w-full gap-6">
+        {/* Heading */}
+        <div className="flex flex-col items-start w-full relative">
+          {/* Close button */}
           <button
             onClick={onClose}
-            className="bg-white border border-[#e2e2e2] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer"
+            className="relative self-end bg-white border border-[#e2e2e2] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer z-50"
             aria-label="Close modal"
           >
             <svg className="w-5 h-5 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 5l10 10M15 5L5 15" strokeLinecap="round" />
             </svg>
           </button>
-          <div className="flex flex-col gap-3 items-start w-full">
-            <h2 className="font-adlam text-black text-3xl md:text-4xl tracking-wide">Partner Inquiry</h2>
-            <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
-              Fill out the form below and our team will respond within 24 business hours
-            </p>
-          </div>
+
+          <h2
+            className="text-[40px] text-black tracking-wide mb-3"
+            style={{
+              fontFamily: '"ADLaM Display", sans-serif',
+              fontWeight: 400,
+              lineHeight: '50px',
+              letterSpacing: '0.37px',
+            }}
+          >
+            Partner Inquiry
+          </h2>
+          <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
+            Fill out the form below and our team will respond within 24 business hours
+          </p>
         </div>
 
         {/* Success state */}
@@ -144,7 +154,7 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
           </div>
         ) : (
           /* Form */
-          <form className="flex flex-col gap-6 items-start w-full" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-6 items-start w-full mb-[10px]" onSubmit={handleSubmit}>
 
             {/* Select Partner */}
             <div className="flex flex-col gap-2 items-start w-full">
@@ -156,12 +166,12 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 <button
                   type="button"
                   onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-                  className="w-full flex items-center justify-between bg-black/[0.04] rounded-2xl px-4 h-12 text-base font-medium text-black outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow cursor-pointer text-left"
+                  className="w-full flex items-center justify-between bg-black/[0.04] rounded-2xl px-4 py-3 text-base font-medium text-black tracking-tight outline-none transition-shadow cursor-pointer text-left"
                   style={{ fontFamily: 'Inter' }}
                 >
                   <span>{formData.partner}</span>
                   <svg
-                    className="w-5 h-5 text-black"
+                    className="w-5 h-5 text-black/60 shrink-0"
                     viewBox="0 0 20 20"
                     fill="none"
                     stroke="currentColor"
@@ -174,19 +184,39 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 {/* Custom Expanded Dropdown List */}
                 {isOpenDropdown && (
                   <div
-                    className="absolute left-0 top-0 w-full bg-[#e2e2e2] rounded-[24px] py-3.5 z-50 flex flex-col shadow-[0_12px_30px_rgba(0,0,0,0.15)] transition-all overflow-hidden"
+                    className="absolute left-0 top-0 w-full bg-[#e2e2e2] rounded-[24px] p-3 z-50 flex items-start gap-[10px] shadow-[0_12px_30px_rgba(0,0,0,0.15)] transition-all"
                     style={{
                       animation: 'partnerDropdownOpen 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}
                   >
-                    {/* Header / Active Option (Clicking this closes the dropdown) */}
+                    {/* Options List */}
+                    <div className="flex-1 flex flex-col gap-1 items-start">
+                      {partnerOptions.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            setFormData((prev) => ({ ...prev, partner: opt }));
+                            setIsOpenDropdown(false);
+                          }}
+                          className={`w-full text-left py-1 px-3 rounded-lg text-[16px] leading-[24px] font-medium tracking-[-0.31px] transition-all duration-150 cursor-pointer focus:outline-none ${
+                            formData.partner === opt
+                              ? 'text-black font-semibold'
+                              : 'text-black/70 hover:text-black hover:bg-black/5'
+                          }`}
+                          style={{ fontFamily: 'Inter' }}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Arrow Button */}
                     <button
                       type="button"
                       onClick={() => setIsOpenDropdown(false)}
-                      className="w-full flex items-center justify-between px-6 py-1.5 text-base font-semibold text-black cursor-pointer text-left focus:outline-none"
-                      style={{ fontFamily: 'Inter' }}
+                      className="rounded-[20px] w-10 h-10 flex items-center justify-center shrink-0 hover:bg-black/5 cursor-pointer focus:outline-none mt-0"
                     >
-                      <span className="underline decoration-2 underline-offset-4">{formData.partner}</span>
                       <svg
                         className="w-5 h-5 text-black"
                         viewBox="0 0 20 20"
@@ -197,26 +227,6 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                         <path d="M15 13l-5-5-5 5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </button>
-
-                    {/* Options List */}
-                    <div className="flex flex-col px-6 pb-1.5 gap-2.5 mt-2">
-                      {partnerOptions
-                        .filter((opt) => opt !== formData.partner)
-                        .map((opt) => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => {
-                              setFormData((prev) => ({ ...prev, partner: opt }));
-                              setIsOpenDropdown(false);
-                            }}
-                            className="w-full text-left py-1 text-base font-medium text-black/70 hover:text-black hover:translate-x-0.5 transition-all duration-150 cursor-pointer focus:outline-none"
-                            style={{ fontFamily: 'Inter' }}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                    </div>
                   </div>
                 )}
               </div>

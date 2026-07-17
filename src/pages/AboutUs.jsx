@@ -225,7 +225,7 @@ function AboutUs() {
 
       {/* ════════════ WHO WE ARE ════════════ */}
       <section className="w-full bg-[#f8f8f8]">
-        <div className="max-w-[1440px] mx-auto py-[25px] md:py-[75px] px-6 md:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
+        <div className="max-w-[1440px] mx-auto pt-[25px] pb-[25px] md:pt-[25px] md:pb-[75px] px-6 md:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
           {/* Left Column */}
           <div className="flex w-full md:w-[657px] flex-col items-start gap-8">
             <SectionBadge label="Who We Are" />
@@ -286,7 +286,7 @@ function AboutUs() {
           <div className="flex w-full md:w-[548px] flex-col gap-5">
             {/* Mission Card */}
             <div
-              className="rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[24px] px-6"
+              className="rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
               style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
             >
               <div className="mb-4">
@@ -320,7 +320,7 @@ function AboutUs() {
             {/* Vision + Values Cards Row */}
             <div className="flex gap-3">
               <div
-                className="flex-1 rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[24px] px-6"
+                className="flex-1 rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
                 style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
               >
                 <div className="mb-3">
@@ -344,7 +344,7 @@ function AboutUs() {
                 </p>
               </div>
               <div
-                className="flex-1 rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[24px] px-6"
+                className="flex-1 rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
                 style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
               >
                 <div className="mb-3">
@@ -433,9 +433,9 @@ function AboutUs() {
       </section>
 
       {/* ════════════ LEADERSHIP TEAM ════════════ */}
-      <section className="w-full bg-white">
+      <section className="w-full bg-white my-[50px]">
         <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex flex-col items-center gap-[50px]">
-          <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex flex-col items-center gap-[24px] text-center">
             <SectionBadge label="Leadership Team" />
             <h2
               className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
@@ -464,7 +464,7 @@ function AboutUs() {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="h-[287px] w-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                 ) : (
                   <div className="h-[287px] w-full bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10 flex items-center justify-center">
@@ -520,7 +520,7 @@ function AboutUs() {
               Milestones <GradientText>&amp; Growth</GradientText>
             </h2>
             <p
-              className="text-[18px] text-[#989898]"
+              className="text-[18px] leading-[28px] font-normal tracking-[-0.44px] text-center text-[#989898]"
               style={{ fontFamily: "Inter" }}
             >
               A timeline of innovation, expansion, and commitment to excellence
@@ -541,7 +541,7 @@ function AboutUs() {
                   {isLeft ? (
                     <>
                       <div
-                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-8"
+                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
@@ -586,7 +586,7 @@ function AboutUs() {
                     <>
                       <div></div>
                       <div
-                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-8"
+                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
@@ -654,7 +654,7 @@ function AboutUs() {
           />
         </div>
 
-        <div className="relative z-20 max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
+        <div className="relative z-20 max-w-[1440px] mx-auto py-[50px] px-6 md:px-[208px] flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
           {/* Left Column */}
           <div className="flex w-full md:w-[487px] flex-col items-start gap-6">
             <SectionBadge label="Let's Connect" />
@@ -755,10 +755,10 @@ function AboutUs() {
               href="#contact"
               className="flex w-full items-center justify-center gap-[8px] rounded-[24px] bg-gradient-to-b from-[#ff6a00] to-[#ffb200] text-center text-white transition-transform hover:scale-[1.01]"
               style={{
-                paddingTop: "33.75px",
-                paddingRight: "67.5px",
-                paddingBottom: "34.25px",
-                paddingLeft: "67.5px",
+                paddingTop: "32.75px",
+                paddingRight: "66.5px",
+                paddingBottom: "33.25px",
+                paddingLeft: "66.5px",
               }}
             >
               <span className="flex flex-col gap-[6px]">

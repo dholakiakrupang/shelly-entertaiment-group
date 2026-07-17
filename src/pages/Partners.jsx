@@ -26,7 +26,7 @@ const partnersData = [
   {
     id: 1,
     name: 'Apex Gaming Solutions',
-    logo: '/partner-1.png',
+    logo: '/product/tec-partner-1.png',
     description:
       'Industry-leading manufacturer of skill-based gaming terminals and compliance software. Apex Gaming has been our hardware partner since 2019, providing enterprise-grade terminals engineered for high-traffic venues. Their products feature certified random number generation, tamper-proof hardware, and comprehensive audit logging for regulatory compliance.',
     associatedProducts: [
@@ -45,14 +45,14 @@ const partnersData = [
     ],
     gallery: {
       main: '/product/product-card-3.png',
-      left: '/product/product-card-1.png',
+      left: '/staff/Image (Venue Masters gallery 2).png',
       right: '/product/product-card-2.png',
     },
   },
   {
     id: 2,
     name: 'SecurePay Tech',
-    logo: '/partner-2.png',
+    logo: '/product/tec-partner-2.png',
     description:
       'Payment processing infrastructure for compliant gaming venues. SecurePay provides secure, PCI-compliant transaction processing with real-time fraud detection. Their platform integrates seamlessly with our gaming systems to provide transparent, auditable financial operations. SecurePay supports multi-currency transactions and offers comprehensive reporting tools for operators.',
     associatedProducts: [
@@ -64,7 +64,7 @@ const partnersData = [
       },
     ],
     gallery: {
-      main: '/product/product-card-5.png',
+      main: '/product/product-card-1.png',
       left: '/product/product-card-6.png',
       right: '/product/product-card-7.png',
     },
@@ -72,7 +72,7 @@ const partnersData = [
   {
     id: 3,
     name: 'Venue Masters',
-    logo: '/partner-3.png',
+    logo: '/product/tec-partner-3.png',
     description:
       'Commercial venue management and analytics platform. Venue Masters delivers centralized control systems for multi-location operators. Their software suite includes inventory management, player analytics, and compliance monitoring tools. Their real-time dashboards enable operators to track performance, manage hardware remotely, and ensure all systems remain within regulatory parameters.',
     associatedProducts: [
@@ -90,7 +90,7 @@ const partnersData = [
       },
     ],
     gallery: {
-      main: '/product/product-card-4.png',
+      main: '/staff/partner-img-grid.png',
       left: '/product/product-card-8.png',
       right: '/product/product-card-9.png',
     },
@@ -101,7 +101,7 @@ const partnersData = [
 const AssociatedProductCard = ({ product }) => (
   <Link
     to={`/products/${product.productId}`}
-    className="bg-white border border-[#e2e2e2] rounded-2xl flex items-center gap-4 p-[17px] w-full hover:shadow-md transition-shadow duration-300"
+    className="bg-white border border-[#e2e2e2] rounded-2xl flex items-center gap-4 py-4 px-[17px] w-full hover:shadow-md transition-shadow duration-300"
     style={{ boxShadow: '0 0 5px rgba(0,0,0,0.05)' }}
   >
     <div className="rounded-2xl w-16 h-16 overflow-hidden shrink-0 bg-[#111]">
@@ -121,7 +121,7 @@ const AssociatedProductCard = ({ product }) => (
 
 /* ──────────────────── Partner Section ──────────────────── */
 const PartnerSection = ({ partner, reversed, onInquire }) => (
-  <section className={`w-full bg-white flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-center justify-center px-6 md:px-[94px] py-[50px]`}>
+  <section className={`w-full bg-white flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-start justify-center px-6 md:px-[94px] py-[50px]`}>
     {/* Info side */}
     <div className="flex flex-col gap-9 items-start w-full lg:w-[516px] shrink-0">
       <div className="flex flex-col gap-6 items-start w-full">
@@ -137,7 +137,12 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
 
         {/* Name & Description */}
         <div className="flex flex-col gap-3 items-start w-full">
-          <h2 className="font-adlam text-black text-3xl md:text-4xl tracking-wide">{partner.name}</h2>
+          <h2
+            className="font-adlam text-black text-3xl md:text-[40px] font-normal leading-[50px]"
+            style={{ letterSpacing: '0.37px' }}
+          >
+            {partner.name}
+          </h2>
           <p className="text-[#989898] text-base leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
             {partner.description}
           </p>
@@ -172,26 +177,26 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
 
     {/* Gallery side */}
     <div className="flex flex-col gap-4 items-center justify-center w-full lg:w-[712px]">
-      <div className="rounded-[24px] overflow-hidden w-full aspect-[712/378]">
+      <div className="rounded-[24px] overflow-hidden w-full aspect-[712/366]">
         <img
           src={partner.gallery.main}
           alt={`${partner.name} showcase`}
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex gap-4 items-center w-full h-[256px] rounded-[24px] overflow-hidden">
-        <div className="flex-1 h-full overflow-hidden rounded-[24px]">
+      <div className="flex items-center w-full h-[256px] rounded-[24px] overflow-hidden">
+        <div className={`h-full overflow-hidden ${reversed ? 'w-[348px] shrink-0' : 'flex-1'}`}>
           <img
             src={partner.gallery.left}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-[1.08]"
           />
         </div>
-        <div className="w-[348px] h-full shrink-0 overflow-hidden rounded-[24px]">
+        <div className={`h-full overflow-hidden ${reversed ? 'flex-1' : 'w-[348px] shrink-0'}`}>
           <img
             src={partner.gallery.right}
             alt=""
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-[1.08]"
           />
         </div>
       </div>
@@ -217,8 +222,8 @@ function Partners() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[140px] pb-[60px]">
-        <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center relative w-full">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[77px] min-h-[420px]">
+        <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
 
           {/* Back link */}
           <Link
@@ -229,20 +234,25 @@ function Partners() {
             BACK TO HOME
           </Link>
 
-          {/* Title */}
-          <h1 className="font-adlam text-white text-4xl md:text-[64px] leading-[1.15] tracking-wide">
-            Our Partners
-          </h1>
+          <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center w-full">
+            {/* Title */}
+            <h1
+              className="font-adlam text-white text-4xl md:text-[64px] font-normal leading-tight md:leading-[74px]"
+              style={{ letterSpacing: '0.22px' }}
+            >
+              Our Partners
+            </h1>
 
-          {/* Description */}
-          <p
-            className="text-[#b5b5b5] text-lg leading-7 tracking-tight max-w-[844px]"
-            style={{ fontFamily: 'Inter' }}
-          >
-            Liberty Rewards collaborates with industry-trusted hardware and service providers. Our partners
-            share our commitment to compliance, quality, and professional gaming solutions. This page provides
-            information on our ecosystem brands and their offerings.
-          </p>
+            {/* Description */}
+            <p
+              className="text-[#b5b5b5] text-lg leading-7 tracking-tight max-w-none"
+              style={{ fontFamily: 'Inter' }}
+            >
+              Liberty Rewards collaborates with industry-trusted hardware and service providers. Our partners
+              share our commitment to compliance, quality, and professional gaming solutions. This page provides
+              information on our ecosystem brands and their offerings.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -259,22 +269,30 @@ function Partners() {
       {/* ════════════════ CTA ════════════════ */}
       <section
         id="inquiry"
-        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-16 bg-white"
+        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-[64px] bg-white"
       >
         {/* Decorative side images */}
-        <div className="absolute right-0 top-0 h-full w-[300px] hidden lg:block overflow-hidden opacity-90 pointer-events-none">
-          <img src="/about-us/about-element-2.png" alt="" className="h-full w-full object-cover" />
+        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+          <img
+            src="/about-us/about-element.png"
+            alt="Arcade Machine Cabinet Left"
+            className="h-[442px] w-auto object-contain"
+          />
         </div>
-        <div className="absolute left-0 top-0 h-full w-[250px] hidden lg:block overflow-hidden opacity-90 pointer-events-none">
-          <img src="/about-us/about-element.png" alt="" className="h-full w-full object-cover" />
+        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+          <img
+            src="/about-us/about-element-2.png"
+            alt="Arcade Machine Cabinet Right"
+            className="h-[442px] w-auto object-contain"
+          />
         </div>
 
-        <div className="flex flex-col gap-3 items-center text-center relative z-10">
+        <div className="flex flex-col gap-3 items-center text-center relative z-20">
           <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide">
             Explore Partnership Opportunities
           </h2>
           <p
-            className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-2xl"
+            className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-[800px]"
             style={{ fontFamily: 'Inter' }}
           >
             Interested in partnering with Liberty Rewards or learning more about our ecosystem? Reach out to
@@ -284,7 +302,7 @@ function Partners() {
 
         <button
           onClick={() => handleInquire('')}
-          className="relative z-10 bg-gradient-to-b from-[#ff8a00] to-[#ff6a00] border border-[#ffb200] rounded-full px-6 py-3 flex items-center gap-3 text-white font-bold text-lg tracking-tight hover:shadow-[0_0_25px_rgba(255,138,0,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+          className="relative z-20 bg-gradient-to-b from-[#ff8a00] to-[#ff6a00] border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight hover:shadow-[0_0_25px_rgba(255,138,0,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
           style={{ fontFamily: 'Inter' }}
         >
           General Inquiry
@@ -293,7 +311,7 @@ function Partners() {
           </svg>
         </button>
 
-        <p className="relative z-10 text-[#b3b3b3] text-xs text-center" style={{ fontFamily: 'Inter' }}>
+        <p className="relative z-20 text-[#b3b3b3] text-xs text-center" style={{ fontFamily: 'Inter' }}>
           Response time: Within 24 business hours
         </p>
       </section>

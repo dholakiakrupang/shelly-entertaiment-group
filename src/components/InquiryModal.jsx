@@ -74,34 +74,44 @@ const InquiryModal = ({ isOpen, onClose, productTitle, productImage }) => {
       {/* Modal */}
       <div
         ref={modalRef}
-        className="relative bg-white rounded-2xl flex flex-col gap-8 items-end px-6 md:px-10 py-6 w-full max-w-[655px] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white rounded-2xl flex flex-col gap-8 items-start px-6 py-6 md:px-10 w-full max-w-[655px] max-h-[90vh] overflow-y-auto"
         style={{
           boxShadow: '0 20px 30px rgba(0,0,0,0.15)',
           animation: 'slideUp 0.3s ease-out',
         }}
       >
-        {/* Close button + heading */}
-        <div className="flex flex-col items-end w-full gap-6">
+        {/* Heading */}
+        <div className="flex flex-col items-start w-full relative">
+          {/* Close button */}
           <button
             onClick={onClose}
-            className="bg-white border border-[#e2e2e2] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer"
+            className="relative self-end bg-white border border-[#e2e2e2] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer z-50"
             aria-label="Close modal"
           >
             <svg className="w-5 h-5 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 5l10 10M15 5L5 15" strokeLinecap="round" />
             </svg>
           </button>
-          <div className="flex flex-col gap-3 items-start w-full">
-            <h2 className="font-adlam text-black text-3xl md:text-4xl tracking-wide">Product Inquiry</h2>
-            <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
-              Fill out the form below and our team will respond within 24 business hours
-            </p>
-          </div>
+
+          <h2
+            className="text-[40px] text-black tracking-wide mb-3"
+            style={{
+              fontFamily: '"ADLaM Display", sans-serif',
+              fontWeight: 400,
+              lineHeight: '50px',
+              letterSpacing: '0.37px',
+            }}
+          >
+            Product Inquiry
+          </h2>
+          <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
+            Fill out the form below and our team will respond within 24 business hours
+          </p>
         </div>
 
         {/* Product info card */}
         <div
-          className="bg-white border border-[#e2e2e2] rounded-2xl flex items-center gap-4 p-5 w-full"
+          className="bg-[#fafafa] border border-[#e2e2e2] rounded-2xl flex items-center gap-4 py-[15px] px-4 md:py-[19px] md:px-5 w-full"
         >
           <div className="rounded-[10px] w-[50px] h-[50px] overflow-hidden shrink-0 bg-[#111]">
             <img
@@ -110,11 +120,11 @@ const InquiryModal = ({ isOpen, onClose, productTitle, productImage }) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col gap-1.5 items-start">
-            <p className="font-semibold text-sm text-black uppercase tracking-wide" style={{ fontFamily: 'Inter' }}>
+          <div className="flex flex-col gap-1 items-start">
+            <p className="font-semibold text-xs text-black uppercase tracking-wider" style={{ fontFamily: 'Inter' }}>
               Inquiring About
             </p>
-            <p className="text-sm text-[#989898]" style={{ fontFamily: 'Inter' }}>
+            <p className="text-sm text-[#989898] font-medium" style={{ fontFamily: 'Inter' }}>
               {productTitle}
             </p>
           </div>

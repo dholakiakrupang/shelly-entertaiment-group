@@ -228,22 +228,22 @@ const partners = [
   {
     name: 'Apex Gaming Solutions',
     description: 'Leading provider of advanced skill-gaming software engines.',
-    logo: '/partner-1.png',
+    logo: '/product/tec-partner-1.png',
   },
   {
     name: 'SecurePay Tech',
     description: 'Trusted payment integration for commercial gaming platforms.',
-    logo: '/partner-2.png',
+    logo: '/product/tec-partner-2.png',
   },
   {
     name: 'Venue Masters',
     description: 'End-to-end venue management and deployment specialists.',
-    logo: '/partner-3.png',
+    logo: '/product/tec-partner-3.png',
   },
   {
     name: 'Excel Gaming Studio',
     description: 'Innovative game content creators for entertainment venues.',
-    logo: '/partner-4.png',
+    logo: '/product/tec-partner-4.png',
   },
 ];
 
@@ -268,9 +268,12 @@ const resources = [
 
 /* ──────────────────── SVG Icons ──────────────────── */
 const DocIcon = () => (
-  <svg className="w-5 h-5 text-[#ff8a00]" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M4 2h8l4 4v12H4V2z" strokeLinejoin="round" />
-    <path d="M12 2v4h4" strokeLinejoin="round" />
+  <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.4997 1.66699H4.99967C4.55765 1.66699 4.13372 1.84259 3.82116 2.15515C3.5086 2.46771 3.33301 2.89163 3.33301 3.33366V16.667C3.33301 17.109 3.5086 17.5329 3.82116 17.8455C4.13372 18.1581 4.55765 18.3337 4.99967 18.3337H14.9997C15.4417 18.3337 15.8656 18.1581 16.1782 17.8455C16.4907 17.5329 16.6663 17.109 16.6663 16.667V5.83366L12.4997 1.66699Z" stroke="#FF8A00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M11.667 1.66699V5.00033C11.667 5.44235 11.8426 5.86628 12.1551 6.17884C12.4677 6.4914 12.8916 6.66699 13.3337 6.66699H16.667" stroke="#C68A2B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M8.33366 7.5H6.66699" stroke="#C68A2B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M13.3337 10.833H6.66699" stroke="#C68A2B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M13.3337 14.167H6.66699" stroke="#C68A2B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -281,9 +284,10 @@ const ShieldIcon = () => (
 );
 
 const DownloadIcon = () => (
-  <svg className="w-5 h-5 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M10 3v11M5 10l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M3 16h14" strokeLinecap="round" />
+  <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="#777777" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M5.83301 8.33301L9.99967 12.4997L14.1663 8.33301" stroke="#777777" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M10 12.5V2.5" stroke="#777777" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -333,9 +337,8 @@ function ProductDetail() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[140px] pb-[60px] min-h-[420px]">
-        <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center relative w-full">
-
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[27px] min-h-[420px]">
+        <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
           {/* Back link */}
           <Link
             to="/products"
@@ -345,37 +348,41 @@ function ProductDetail() {
             BACK TO CATALOG
           </Link>
 
-          {/* Category pill */}
-          <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-4 py-2 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
-            <span className="text-[#b5b5b5] text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
-              {product.category}
-            </span>
+          <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center w-full">
+            {/* Category pill */}
+            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-[15px] py-[7px] flex items-center gap-2 mb-[2px]">
+              <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
+              <span className="text-[#b5b5b5] text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
+                {product.category}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h1
+              className="font-adlam text-white text-4xl md:text-[64px] font-normal leading-tight md:leading-[74px]"
+              style={{ letterSpacing: '0.22px' }}
+            >
+              {product.title}
+            </h1>
+
+            {/* Description */}
+            <p className="text-[#b5b5b5] text-lg leading-7 tracking-tight max-w-xl" style={{ fontFamily: 'Inter' }}>
+              {product.description}
+            </p>
+
+            {/* CTA button */}
+            <button
+              onClick={() => setIsInquiryOpen(true)}
+              className="border border-[#ffb200] rounded-full px-[15px] py-[11px] flex items-center gap-3 text-[#ffb200] font-bold text-lg tracking-tight hover:bg-[#ffb200]/10 transition-colors cursor-pointer"
+              style={{ fontFamily: 'Inter' }}
+            >
+              Inquiry Now
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.16992 10H15.8366" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10 4.16504L15.8333 9.99837L10 15.8317" stroke="currentColor" strokeWidth="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
           </div>
-
-          {/* Title */}
-          <h1
-            className="font-adlam text-white text-4xl md:text-[64px] leading-[1.15] tracking-wide"
-          >
-            {product.title}
-          </h1>
-
-          {/* Description */}
-          <p className="text-[#b5b5b5] text-lg leading-7 tracking-tight max-w-xl" style={{ fontFamily: 'Inter' }}>
-            {product.description}
-          </p>
-
-          {/* CTA button */}
-          <button
-            onClick={() => setIsInquiryOpen(true)}
-            className="border border-[#ffb200] rounded-full px-6 py-3 flex items-center gap-3 text-[#ffb200] font-bold text-lg tracking-tight hover:bg-[#ffb200]/10 transition-colors cursor-pointer"
-            style={{ fontFamily: 'Inter' }}
-          >
-            Inquiry Now
-            <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 10h12M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
         </div>
       </section>
 
@@ -384,7 +391,7 @@ function ProductDetail() {
         <div className="flex flex-col lg:flex-row gap-16 items-start w-full max-w-[1440px] mx-auto">
 
           {/* ── Gallery ── */}
-          <div className="flex-1 flex flex-col gap-6 items-start w-full">
+          <div className="flex-1 flex flex-col gap-6 items-start w-full max-w-[629px]">
             {/* Main image */}
             <div className="rounded-[24px] w-full overflow-hidden aspect-[4/3] bg-[#111]">
               <img
@@ -394,7 +401,7 @@ function ProductDetail() {
               />
             </div>
             {/* Thumbnails */}
-            <div className="flex gap-4 items-center w-full overflow-x-auto pb-1">
+            <div className="flex gap-4 items-center w-full overflow-x-auto pb-1 no-scrollbar">
               {product.gallery.map((img, idx) => (
                 <button
                   key={idx}
@@ -412,7 +419,7 @@ function ProductDetail() {
           </div>
 
           {/* ── Info ── */}
-          <div className="flex flex-col gap-6 items-start justify-center w-full lg:w-[559px] shrink-0">
+          <div className="flex-1 flex flex-col gap-6 items-start justify-center w-full">
             <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide">
               Product Overview
             </h2>
@@ -429,22 +436,21 @@ function ProductDetail() {
 
             {/* Technical Highlights card */}
             <div
-              className="bg-white border border-[#e2e2e2] rounded-2xl px-8 pt-8 pb-2 flex flex-col gap-6 w-full"
+              className="bg-white border border-[#e2e2e2] rounded-2xl p-8 flex flex-col gap-6 w-full lg:w-[calc(100%-69px)]"
               style={{ boxShadow: '0 0 5px rgba(0,0,0,0.05)' }}
             >
               <h3 className="font-semibold text-lg text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Technical Highlights
               </h3>
-              <div className="flex flex-col gap-0 w-full text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
+              <div className="flex flex-col gap-4 w-full text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
                 {specEntries.map(([key, value], idx) => (
                   <div
                     key={key}
-                    className={`flex items-center justify-between w-full py-4 ${
-                      idx < specEntries.length - 1 ? 'border-b border-[#f0f0f0]' : ''
-                    }`}
+                    className="flex items-center justify-between w-full"
+                    style={{ paddingTop: '8.5px', paddingBottom: '8.5px' }}
                   >
-                    <span className="text-[#989898]">{key}</span>
-                    <span className="font-medium text-black text-right">{value}</span>
+                    <span className="text-[14px] leading-[20px] text-[#989898] font-normal" style={{ letterSpacing: '-0.15px' }}>{key}</span>
+                    <span className="text-[14px] leading-[20px] font-medium text-black text-right" style={{ letterSpacing: '-0.15px' }}>{value}</span>
                   </div>
                 ))}
               </div>
@@ -456,7 +462,7 @@ function ProductDetail() {
       {/* ════════════════ PRODUCT RESOURCES ════════════════ */}
       <section className="bg-white w-full flex flex-col gap-12 items-start px-6 md:px-[94px] py-[50px]">
         <div className="max-w-[1440px] mx-auto w-full">
-          <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-12">
+          <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-[50px]">
             Product Resources
           </h2>
 
@@ -478,7 +484,7 @@ function ProductDetail() {
                           'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
                       }}
                     >
-                      {res.icon === 'doc' ? <DocIcon /> : <ShieldIcon />}
+                      <DocIcon />
                     </div>
                     <div>
                       <p className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
@@ -514,7 +520,7 @@ function ProductDetail() {
       {/* ════════════════ TECHNOLOGY PARTNER ════════════════ */}
       <section className="bg-[#f6f6f6] w-full flex flex-col gap-12 items-start px-6 md:px-[94px] py-[50px]">
         <div className="max-w-[1440px] mx-auto w-full">
-          <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-12">
+          <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-[50px]">
             Technology Partner
           </h2>
 
@@ -522,7 +528,7 @@ function ProductDetail() {
             {partners.map((partner, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-[#e2e2e2] rounded-2xl p-8 flex gap-6 items-start hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-[#e2e2e2] rounded-2xl py-[31px] px-8 flex gap-6 items-start hover:shadow-lg transition-shadow duration-300"
                 style={{ boxShadow: '0 0 5px rgba(0,0,0,0.05)' }}
               >
                 <div
@@ -563,22 +569,30 @@ function ProductDetail() {
       {/* ════════════════ CTA ════════════════ */}
       <section
         id="contact"
-        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-[78px] bg-white"
+        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-[64px] bg-white"
       >
         {/* Decorative side images */}
-        <div className="absolute right-0 top-0 h-full w-[300px] hidden lg:block overflow-hidden opacity-90 pointer-events-none">
-          <img src="/about-us/about-element-2.png" alt="" className="h-full w-full object-cover" />
+        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+          <img
+            src="/about-us/about-element.png"
+            alt="Arcade Machine Cabinet Left"
+            className="h-[442px] w-auto object-contain"
+          />
         </div>
-        <div className="absolute left-0 top-0 h-full w-[250px] hidden lg:block overflow-hidden opacity-90 pointer-events-none">
-          <img src="/about-us/about-element.png" alt="" className="h-full w-full object-cover" />
+        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+          <img
+            src="/about-us/about-element-2.png"
+            alt="Arcade Machine Cabinet Right"
+            className="h-[442px] w-auto object-contain"
+          />
         </div>
 
-        <div className="flex flex-col gap-3 items-center text-center relative z-10">
+        <div className="flex flex-col gap-3 items-center text-center relative z-20">
           <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide">
             Interested in this Product?
           </h2>
           <p
-            className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-2xl"
+            className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-none"
             style={{ fontFamily: 'Inter' }}
           >
             Our team is ready to provide specifications, compliance documentation, and deployment guidance.
@@ -587,12 +601,13 @@ function ProductDetail() {
 
         <button
           onClick={() => setIsInquiryOpen(true)}
-          className="relative z-10 bg-gradient-to-b from-[#ff8a00] to-[#ff6a00] border border-[#ffb200] rounded-full px-6 py-3 flex items-center gap-3 text-white font-bold text-lg tracking-tight hover:shadow-[0_0_25px_rgba(255,138,0,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+          className="relative z-20 bg-gradient-to-b from-[#ff8a00] to-[#ff6a00] border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight hover:shadow-[0_0_25px_rgba(255,138,0,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
           style={{ fontFamily: 'Inter' }}
         >
           Start Inquiry
-          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 10h12M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.16992 10H15.8366" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M10 4.16504L15.8333 9.99837L10 15.8317" stroke="currentColor" strokeWidth="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
 
