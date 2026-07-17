@@ -108,7 +108,7 @@ const StaffCard = ({ member }) => (
     style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}
   >
     {/* Photo */}
-    <div className="h-[467px] overflow-hidden relative">
+    <div className="h-[350px] md:h-[400px] lg:h-[467px] overflow-hidden relative">
       <img
         src={member.image}
         alt={member.name}
@@ -189,13 +189,13 @@ function StaffDirectory() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[50px] min-h-[341px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
         <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
 
           {/* Back link */}
           <Link
             to="/"
-            className="absolute left-0 top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors"
+            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
           >
             <BackArrowIcon />
             BACK TO HOME
@@ -263,7 +263,7 @@ function StaffDirectory() {
       </section>
 
       {/* ════════════════ STAFF GRID ════════════════ */}
-      <section className="bg-white w-full flex flex-col gap-8 items-center px-6 md:px-[94px] pb-[50px]">
+      <section className="bg-white w-full flex flex-col gap-8 items-center px-5 md:px-8 lg:px-12 xl:px-[94px] pb-[50px]">
         <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
           Showing <span className="font-semibold text-black">{filteredStaff.length}</span> staff member{filteredStaff.length !== 1 ? 's' : ''}
         </p>

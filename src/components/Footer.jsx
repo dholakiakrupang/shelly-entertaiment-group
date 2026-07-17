@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="max-w-[1440px] mx-auto bg-[#080809] border-t border-white/5 pt-[100px] pb-0 px-6 md:px-[94px] relative overflow-hidden">
+    <footer className="max-w-[1440px] mx-auto bg-[#080809] border-t border-white/5 pt-16 lg:pt-[100px] pb-0 px-5 md:px-8 lg:px-12 xl:px-[94px] relative overflow-hidden">
       {/* Background glow effects */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -37,7 +37,7 @@ const Footer = () => {
 
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-[24px] items-start justify-between relative z-10">
         {/* Brand Column - Fixed width 313px */}
-        <div className="w-full md:w-[313px] shrink-0 flex flex-col">
+        <div className="w-full lg:w-[313px] shrink-0 flex flex-col">
           <a
             href="#home"
             className="flex items-center space-x-3 cursor-pointer mb-4"
@@ -182,7 +182,7 @@ const Footer = () => {
         </div>
 
         {/* Right side 3 Columns sharing the remaining space equally */}
-        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-[24px] w-full">
+        <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-[24px] w-full">
           {/* Quick Links Column */}
           <div>
             <h4

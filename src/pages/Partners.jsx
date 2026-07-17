@@ -121,7 +121,7 @@ const AssociatedProductCard = ({ product }) => (
 
 /* ──────────────────── Partner Section ──────────────────── */
 const PartnerSection = ({ partner, reversed, onInquire }) => (
-  <section className={`w-full bg-white flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-start justify-center px-6 md:px-[94px] py-[50px]`}>
+  <section className={`w-full bg-white flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-start justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]`}>
     {/* Info side */}
     <div className="flex flex-col gap-9 items-start w-full lg:w-[516px] shrink-0">
       <div className="flex flex-col gap-6 items-start w-full">
@@ -184,15 +184,15 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex items-center w-full h-[256px] rounded-[24px] overflow-hidden">
-        <div className={`h-full overflow-hidden ${reversed ? 'w-[348px] shrink-0' : 'flex-1'}`}>
+      <div className="flex flex-col sm:flex-row items-center w-full h-[512px] sm:h-[256px] rounded-[24px] overflow-hidden">
+        <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'sm:w-[348px] sm:shrink-0' : 'flex-1'}`}>
           <img
             src={partner.gallery.left}
             alt=""
             className="w-full h-full object-cover scale-[1.08]"
           />
         </div>
-        <div className={`h-full overflow-hidden ${reversed ? 'flex-1' : 'w-[348px] shrink-0'}`}>
+        <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'flex-1' : 'sm:w-[348px] sm:shrink-0'}`}>
           <img
             src={partner.gallery.right}
             alt=""
@@ -222,13 +222,13 @@ function Partners() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[77px] min-h-[420px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[77px] min-h-[420px]">
         <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
 
           {/* Back link */}
           <Link
             to="/"
-            className="absolute left-0 top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors"
+            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
           >
             <BackArrowIcon />
             BACK TO HOME
@@ -269,17 +269,17 @@ function Partners() {
       {/* ════════════════ CTA ════════════════ */}
       <section
         id="inquiry"
-        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-[64px] bg-white"
+        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-5 md:px-8 lg:px-12 xl:px-[94px] py-[64px] bg-white"
       >
         {/* Decorative side images */}
-        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
             className="h-[442px] w-auto object-contain"
           />
         </div>
-        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"

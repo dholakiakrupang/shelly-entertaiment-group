@@ -141,7 +141,7 @@ function AboutUs() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ════════════ HERO ════════════ */}
-      <section className="relative h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
+      <section className="relative h-[500px] md:h-[650px] lg:h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
         <div className="absolute inset-0">
           <img
             src="/about-us/about-us-banner.png"
@@ -152,7 +152,7 @@ function AboutUs() {
           <div className="absolute inset-x-0 bottom-0 h-[145px] bg-gradient-to-b from-black/0 to-black"></div>
         </div>
 
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-[1440px] mx-auto inset-x-0 px-6 md:px-[94px]">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="max-w-[935px]">
             <h1
               className="text-4xl md:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px]"
@@ -177,7 +177,7 @@ function AboutUs() {
 
       {/* ════════════ STATS / INTRO ════════════ */}
       <section className="w-full bg-white my-[50px]">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-4 text-center">
             <SectionBadge label="About Liberty Rewards" />
             <h2
@@ -198,7 +198,7 @@ function AboutUs() {
             </p>
           </div>
 
-          <div className="grid w-full max-w-[1252px] grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-[178px]">
+          <div className="grid w-full max-w-[1252px] grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 px-0">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -225,9 +225,9 @@ function AboutUs() {
 
       {/* ════════════ WHO WE ARE ════════════ */}
       <section className="w-full bg-[#f8f8f8]">
-        <div className="max-w-[1440px] mx-auto pt-[25px] pb-[25px] md:pt-[25px] md:pb-[75px] px-6 md:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
+        <div className="max-w-[1440px] mx-auto pt-[25px] pb-[25px] md:pt-[25px] md:pb-[75px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
           {/* Left Column */}
-          <div className="flex w-full md:w-[657px] flex-col items-start gap-8">
+          <div className="flex w-full lg:w-[657px] flex-col items-start gap-8">
             <SectionBadge label="Who We Are" />
 
             <div className="flex flex-col gap-6">
@@ -283,7 +283,7 @@ function AboutUs() {
           </div>
 
           {/* Right Column — Mission / Vision / Values Cards */}
-          <div className="flex w-full md:w-[548px] flex-col gap-5">
+          <div className="flex w-full lg:w-[548px] flex-col gap-5">
             {/* Mission Card */}
             <div
               className="rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
@@ -318,7 +318,7 @@ function AboutUs() {
             </div>
 
             {/* Vision + Values Cards Row */}
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <div
                 className="flex-1 rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
                 style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
@@ -374,7 +374,7 @@ function AboutUs() {
 
       {/* ════════════ BUILT ON TRUST (Dark) ════════════ */}
       <section className="relative overflow-hidden bg-[#0a0a0b] w-full">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px]">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="flex flex-col md:flex-row md:flex-nowrap items-start md:items-center gap-12">
             <h2
               className="text-3xl md:text-[40px] font-adlam font-normal text-white uppercase shrink-0 whitespace-nowrap"
@@ -395,7 +395,7 @@ function AboutUs() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-[76px] pb-[32px]">
+          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8 xl:gap-[76px] pb-[32px]">
             {trustValues.map((item, index) => {
               const offsetClass =
                 index % 2 === 1 ? "lg:translate-y-[32px]" : "";
@@ -434,7 +434,7 @@ function AboutUs() {
 
       {/* ════════════ LEADERSHIP TEAM ════════════ */}
       <section className="w-full bg-white my-[50px]">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-[24px] text-center">
             <SectionBadge label="Leadership Team" />
             <h2
@@ -510,7 +510,7 @@ function AboutUs() {
 
       {/* ════════════ MILESTONES TIMELINE ════════════ */}
       <section className="w-full bg-[#f6f6f6]">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-3 text-center">
             <SectionBadge label="Our Journey" />
             <h2
@@ -580,11 +580,11 @@ function AboutUs() {
                           {item.description}
                         </p>
                       </div>
-                      <div></div>
+                      <div className="hidden md:block"></div>
                     </>
                   ) : (
                     <>
-                      <div></div>
+                      <div className="hidden md:block"></div>
                       <div
                         className="rounded-[24px] border border-[#e2e2e2] bg-white p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
@@ -637,7 +637,7 @@ function AboutUs() {
       {/* ════════════ LET'S CONNECT / CTA ════════════ */}
       <section id="contact" className="relative w-full bg-white overflow-hidden">
         {/* Left Side Cabinet Element */}
-        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
@@ -646,7 +646,7 @@ function AboutUs() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"
@@ -654,9 +654,9 @@ function AboutUs() {
           />
         </div>
 
-        <div className="relative z-20 max-w-[1440px] mx-auto py-[50px] px-6 md:px-[208px] flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
+        <div className="relative z-20 max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-16 xl:px-[208px] flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
           {/* Left Column */}
-          <div className="flex w-full md:w-[487px] flex-col items-start gap-6">
+          <div className="flex w-full lg:w-[487px] flex-col items-start gap-6">
             <SectionBadge label="Let's Connect" />
             <div className="flex flex-col gap-4">
               <h2
@@ -750,7 +750,7 @@ function AboutUs() {
           </div>
 
           {/* Right Column — CTA */}
-          <div className="flex w-full md:w-[487px] flex-col items-center gap-8">
+          <div className="flex w-full lg:w-[487px] flex-col items-center gap-8">
             <a
               href="#contact"
               className="flex w-full items-center justify-center gap-[8px] rounded-[24px] bg-gradient-to-b from-[#ff6a00] to-[#ffb200] text-center text-white transition-transform hover:scale-[1.01]"

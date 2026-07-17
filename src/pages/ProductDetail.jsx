@@ -337,12 +337,12 @@ function ProductDetail() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[27px] min-h-[420px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[27px] min-h-[420px]">
         <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
           {/* Back link */}
           <Link
             to="/products"
-            className="absolute left-0 top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors"
+            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
           >
             <BackArrowIcon />
             BACK TO CATALOG
@@ -387,7 +387,7 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ PRODUCT OVERVIEW ════════════════ */}
-      <section className="bg-white w-full flex flex-col items-start px-6 md:px-[94px] py-[60px] md:py-[100px]">
+      <section className="bg-white w-full flex flex-col items-start px-5 md:px-8 lg:px-12 xl:px-[94px] py-[60px] md:py-[100px]">
         <div className="flex flex-col lg:flex-row gap-16 items-start w-full max-w-[1440px] mx-auto">
 
           {/* ── Gallery ── */}
@@ -460,7 +460,7 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ PRODUCT RESOURCES ════════════════ */}
-      <section className="bg-white w-full flex flex-col gap-12 items-start px-6 md:px-[94px] py-[50px]">
+      <section className="bg-white w-full flex flex-col gap-12 items-start px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]">
         <div className="max-w-[1440px] mx-auto w-full">
           <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-[50px]">
             Product Resources
@@ -518,7 +518,7 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ TECHNOLOGY PARTNER ════════════════ */}
-      <section className="bg-[#f6f6f6] w-full flex flex-col gap-12 items-start px-6 md:px-[94px] py-[50px]">
+      <section className="bg-[#f6f6f6] w-full flex flex-col gap-12 items-start px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]">
         <div className="max-w-[1440px] mx-auto w-full">
           <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide mb-[50px]">
             Technology Partner
@@ -569,17 +569,17 @@ function ProductDetail() {
       {/* ════════════════ CTA ════════════════ */}
       <section
         id="contact"
-        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-6 md:px-[94px] py-[64px] bg-white"
+        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-5 md:px-8 lg:px-12 xl:px-[94px] py-[64px] bg-white"
       >
         {/* Decorative side images */}
-        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
             className="h-[442px] w-auto object-contain"
           />
         </div>
-        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"

@@ -132,12 +132,12 @@ function ContactUs() {
   return (
     <div className="bg-white text-[#0c0c0d] min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-6 md:px-[94px] pt-[167px] pb-[50px] min-h-[341px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
         <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
           {/* Back link */}
           <Link
             to="/products"
-            className="absolute left-0 top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors"
+            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
           >
             <BackArrowIcon />
             BACK TO CATALOG
@@ -169,7 +169,7 @@ function ContactUs() {
       </section>
 
       {/* Contact Info + Form */}
-      <section className="bg-white w-full flex flex-col lg:flex-row gap-[36px] items-start justify-center px-6 md:px-[94px] py-[50px]">
+      <section className="bg-white w-full flex flex-col lg:flex-row gap-[36px] items-start justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]">
         {/* Contact Information Cards */}
         <div className="flex flex-col gap-8 items-start w-full lg:w-[440px] shrink-0">
           <h2 className="font-adlam text-black text-3xl tracking-wide">Contact Information</h2>

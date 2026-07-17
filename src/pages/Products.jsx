@@ -96,7 +96,7 @@ function Products() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ============ HERO ============ */}
-      <section className="relative h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
+      <section className="relative h-[500px] md:h-[650px] lg:h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
         <div className="absolute inset-0">
           <img
             src="/product/product-banner.png"
@@ -107,7 +107,7 @@ function Products() {
           <div className="absolute inset-x-0 bottom-0 h-[145px] bg-gradient-to-b from-black/0 to-black"></div>
         </div>
 
-        <div className="absolute left-0 top-[calc(50%+28px)] w-full max-w-[1440px] mx-auto inset-x-0 px-6 md:px-[94px] -translate-y-1/2">
+        <div className="absolute left-0 top-[calc(50%+28px)] w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px] -translate-y-1/2">
           <div className="max-w-[935px]">
             <h1
               className="text-4xl md:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px]"
@@ -131,7 +131,7 @@ function Products() {
 
       {/* ============ FILTER BAR ============ */}
       <section className="w-full bg-white my-[50px]">
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-6 md:px-[94px] flex flex-col items-center gap-[50px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-6">
             <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-black px-[15px] py-[7px] text-sm text-white font-medium">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
@@ -205,9 +205,9 @@ function Products() {
 
       {/* ============ COMPLIANCE & LEGAL NOTE ============ */}
       <section className="w-full bg-black">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-6 md:px-[94px] flex justify-center">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex justify-center">
           <div
-            className="flex w-full max-w-[1252px] flex-col md:flex-row items-start gap-6 rounded-[24px] border border-[#ffb200]/10 p-6 md:pt-[40px] md:pr-[96px] md:pb-[40px] md:pl-[39px] bg-gradient-to-br from-[#111111]/85 to-[#0b0b0f]/85"
+            className="flex w-full max-w-[1252px] flex-col md:flex-row items-start gap-6 rounded-[24px] border border-[#ffb200]/10 p-6 md:pt-[40px] md:pr-8 lg:md:pr-[96px] md:pb-[40px] md:pl-[39px] bg-gradient-to-br from-[#111111]/85 to-[#0b0b0f]/85"
             style={{
               backgroundImage:
                 "linear-gradient(168deg, rgba(17,17,17,0.8) 0%, rgba(11,11,15,0.8) 100%)",
@@ -280,10 +280,10 @@ function Products() {
       {/* ============ LET'S TALK / CTA ============ */}
       <section
         id="contact"
-        className="relative flex flex-wrap items-center justify-center gap-12 overflow-hidden bg-white w-full py-[78px] px-6 md:px-[211.5px]"
+        className="relative flex flex-wrap items-center justify-center gap-12 overflow-hidden bg-white w-full py-[78px] px-5 md:px-8 lg:px-16 xl:px-[211.5px]"
       >
         {/* Left Side Cabinet Element */}
-        <div className="hidden md:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
@@ -292,7 +292,7 @@ function Products() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden md:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"
@@ -300,7 +300,7 @@ function Products() {
           />
         </div>
 
-        <div className="relative flex w-full md:w-[487px] flex-col items-start gap-6 z-10">
+        <div className="relative flex w-full lg:w-[487px] flex-col items-start gap-6 z-10">
           <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-[15px] py-[7px] text-sm text-white">
             <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
             We're Here To Help
@@ -330,22 +330,22 @@ function Products() {
               24-hour response time
             </li>
             <li className="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
               Custom configuration options
             </li>
             <li className="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
               Compliance documentation
             </li>
             <li className="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
               Technical specifications
             </li>
           </ul>
         </div>
 
         <div
-          className="relative w-full md:w-[480px] rounded-[24px] border border-gray-200 bg-white p-10 z-10"
+          className="relative w-full lg:w-[480px] rounded-[24px] border border-gray-200 bg-white p-8 md:p-10 z-10"
           style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
         >
           <span

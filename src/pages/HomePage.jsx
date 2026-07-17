@@ -60,114 +60,110 @@ function HomePage() {
   return (
     <>
       {/* Hero Section (Section 1) */}
-      <section id="home" className="relative w-full overflow-hidden mb-[10px]">
-        {/* Background Image that defines the height naturally */}
+      <section id="home" className="relative w-full overflow-hidden mb-[10px] min-h-[580px] lg:h-[816px] flex items-center">
+        {/* Background Image that covers the hero section */}
         <img
           src={section1Bg}
           alt="Hero Background"
-          className="w-full h-auto block select-none pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none z-10"
         />
 
-        {/* Content Container (Max width 1440px centered, padding: left/right 94px responsive) */}
-        <div className="absolute inset-0 z-20">
-          <div className="mx-auto max-w-[1440px] h-full w-full flex items-center justify-between relative px-6 md:px-[94px]">
-            {/* Left Column (Width 687px) */}
-            <div className="max-w-[687px] w-full text-left flex flex-col">
-              <div className="flex flex-col space-y-[24px]">
-                <p
-                  className="flex items-center space-x-2 font-medium uppercase text-[16px] leading-[24px] text-white"
-                  style={{ fontFamily: "Inter", letterSpacing: "0.4px" }}
-                >
-                  <img
-                    src="/shield-check.svg"
-                    alt="Shield Icon"
-                    className="w-5 h-5"
-                  />
-                  <span>
-                    Designed for Adult Audiences • Transparent • Compliant
-                  </span>
-                </p>
+        {/* Content Container */}
+        <div className="relative z-20 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[120px] pb-[80px] lg:pt-0 lg:pb-0 flex items-center justify-between">
+          {/* Left Column (Width 687px) */}
+          <div className="max-w-[687px] w-full text-left flex flex-col">
+            <div className="flex flex-col space-y-[24px]">
+              <p
+                className="flex items-center space-x-2 font-medium uppercase text-[16px] leading-[24px] text-white"
+                style={{ fontFamily: "Inter", letterSpacing: "0.4px" }}
+              >
+                <img
+                  src="/shield-check.svg"
+                  alt="Shield Icon"
+                  className="w-5 h-5"
+                />
+                <span>
+                  Designed for Adult Audiences • Transparent • Compliant
+                </span>
+              </p>
 
-                <h1
-                  className="text-4xl md:text-[64px] text-white uppercase flex flex-col font-adlam font-normal"
-                  style={{ letterSpacing: "-1.11px" }}
-                >
-                  <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
-                    Liberty Rewards
-                  </span>
-                  <span className="leading-tight md:leading-[74px] md:whitespace-nowrap mt-[4px]">
-                    Premium Sweepstakes
-                  </span>
-                  <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
-                    & Skill-Based Gaming
-                  </span>
-                </h1>
+              <h1
+                className="text-4xl md:text-[64px] text-white uppercase flex flex-col font-adlam font-normal"
+                style={{ letterSpacing: "-1.11px" }}
+              >
+                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
+                  Liberty Rewards
+                </span>
+                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap mt-[4px]">
+                  Premium Sweepstakes
+                </span>
+                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
+                  & Skill-Based Gaming
+                </span>
+              </h1>
 
-                <p
-                  className="text-gray-400 text-[16px] leading-[28px] font-normal"
-                  style={{ fontFamily: "Inter", letterSpacing: "0px" }}
-                >
-                  Liberty Rewards is an informational platform showcasing
-                  sweepstakes-based and skill-driven gaming products designed
-                  for transparent, compliant, and engaging digital
-                  entertainment.
-                </p>
-              </div>
-
-              <div className="mt-[32px]">
-                <a
-                  href="#products"
-                  className="inline-flex items-center transition-all duration-300 hover:bg-[#FFB200]/10"
-                  style={{
-                    border: "1px solid #FFB200",
-                    paddingTop: "11px",
-                    paddingBottom: "11px",
-                    paddingLeft: "16px",
-                    paddingRight: "16px",
-                    borderRadius: "24px",
-                    color: "#FFB200",
-                    fontFamily: "Inter",
-                    fontWeight: 700,
-                    fontSize: "18px",
-                    lineHeight: "28px",
-                    textAlign: "center",
-                    letterSpacing: "-0.44px",
-                    gap: "14px",
-                  }}
-                >
-                  <span className="uppercase">
-                    Explore Products
-                  </span>
-                  <ArrowIcon color="#FFB200" />
-                </a>
-              </div>
+              <p
+                className="text-gray-400 text-[16px] leading-[28px] font-normal"
+                style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+              >
+                Liberty Rewards is an informational platform showcasing
+                sweepstakes-based and skill-driven gaming products designed
+                for transparent, compliant, and engaging digital
+                entertainment.
+              </p>
             </div>
 
-            {/* Right Cabinet Element */}
-            <img
-              src={section1BgElement}
-              alt="Arcade Machine Cabinet"
-              className="absolute select-none pointer-events-none"
-              style={{
-                top: "74.54px",
-                right: "-98.61px",
-                width: "590.26px",
-                height: "732.93px",
-                transform: "rotate(3.23deg)",
-                borderRadius: "295.13px",
-              }}
-            />
+            <div className="mt-[32px]">
+              <a
+                href="#products"
+                className="inline-flex items-center transition-all duration-300 hover:bg-[#FFB200]/10"
+                style={{
+                  border: "1px solid #FFB200",
+                  paddingTop: "11px",
+                  paddingBottom: "11px",
+                  paddingLeft: "16px",
+                  paddingRight: "16px",
+                  borderRadius: "24px",
+                  color: "#FFB200",
+                  fontFamily: "Inter",
+                  fontWeight: 700,
+                  fontSize: "18px",
+                  lineHeight: "28px",
+                  textAlign: "center",
+                  letterSpacing: "-0.44px",
+                  gap: "14px",
+                }}
+              >
+                <span className="uppercase">
+                  Explore Products
+                </span>
+                <ArrowIcon color="#FFB200" />
+              </a>
+            </div>
           </div>
+
+          {/* Right Cabinet Element */}
+          <img
+            src={section1BgElement}
+            alt="Arcade Machine Cabinet"
+            className="absolute select-none pointer-events-none hidden lg:block"
+            style={{
+              top: "74.54px",
+              right: "-98.61px",
+              width: "clamp(350px, 41vw, 590.26px)",
+              height: "auto",
+              transform: "rotate(3.23deg)",
+              borderRadius: "295.13px",
+            }}
+          />
         </div>
 
         {/* Bottom Horizontal Overlay/Gradient */}
         <div
-          className="absolute left-1/2 -translate-x-1/2 z-30 pointer-events-none"
+          className="absolute left-1/2 -translate-x-1/2 z-15 pointer-events-none w-full h-[80px] md:h-[120px] lg:h-[174px]"
           style={{
             background:
               "linear-gradient(180deg, rgba(43, 7, 18, 0.1) 0%, #0E0509 49.74%, #000000 100%)",
-            width: "100%",
-            height: "174px",
             bottom: "0px",
             opacity: 1,
           }}
@@ -179,7 +175,7 @@ function HomePage() {
         id="products"
         className="bg-white text-brand-bg relative z-20 w-full"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-6 md:px-[94px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end">
             <div>
               <h2
@@ -237,7 +233,7 @@ function HomePage() {
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-[32px] left-[32px] text-white space-y-2">
+                  <div className="absolute bottom-6 left-6 md:bottom-[32px] md:left-[32px] pr-6 md:pr-0 text-white space-y-2">
                     <h3 className="text-xl md:text-[28px] font-bold uppercase tracking-wide font-sans">
                       {product.title}
                     </h3>
@@ -258,7 +254,7 @@ function HomePage() {
         id="about"
         className="bg-[#F6F6F6] text-[#0c0c0d] relative z-20 w-full"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-6 md:px-[94px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="text-center">
             <h2
               className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center"
@@ -359,7 +355,7 @@ function HomePage() {
         id="partners"
         className="bg-white text-brand-bg relative z-20 w-full pt-[50px] pb-[100px] overflow-hidden"
       >
-        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-[94px] text-center">
+        <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] text-center">
           <h2
             className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[32px] text-center"
             style={{ letterSpacing: "0.07px", lineHeight: "50px" }}
@@ -401,7 +397,7 @@ function HomePage() {
       {/* Bottom CTA Section */}
       <section className="relative w-full bg-[#0a0a0b] overflow-hidden z-20">
         {/* Left Side Cabinet Element */}
-        <div className="hidden md:block absolute left-0 bottom-[25px] select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute left-0 bottom-[25px] select-none pointer-events-none z-10">
           <img
             src="/section-elemnt.png"
             alt="Arcade Machine Cabinet Left"
@@ -410,7 +406,7 @@ function HomePage() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden md:block absolute right-0 bottom-[25px] select-none pointer-events-none z-10">
+        <div className="hidden lg:block absolute right-0 bottom-[25px] select-none pointer-events-none z-10">
           <img
             src={section1BgElement}
             alt="Arcade Machine Cabinet Right"
@@ -438,7 +434,7 @@ function HomePage() {
         ></div>
 
         {/* Content Container (Max width 1440px centered, padding: top/bottom 75px, left/right 318px) */}
-        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[75px] px-6 md:px-[318px] z-30">
+        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[75px] px-5 md:px-8 lg:px-20 xl:px-[318px] z-30">
           {/* Center Content Column */}
           <div className="w-full text-center flex flex-col items-center">
             <h2
@@ -495,7 +491,7 @@ function HomePage() {
         id="about-details"
         className="bg-white text-[#0c0c0d] relative z-20 w-full py-[50px] overflow-hidden"
       >
-        <div className="max-w-[1440px] mx-auto w-full px-6 md:px-[94px] relative">
+        <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
           <h2
             className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[50px]"
             style={{ letterSpacing: "0.37px", lineHeight: "50px" }}
