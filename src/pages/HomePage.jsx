@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import ArrowIcon from "../components/ArrowIcon";
 import section1Bg from "../assets/section-1-bg.png";
 import section1BgElement from "../assets/section-1-bg-element.png";
@@ -199,14 +200,14 @@ function HomePage() {
                 skill-based gaming solutions.
               </p>
             </div>
-            <a
-              href="#all-products"
+            <Link
+              to="/products"
               className="mt-4 md:mt-0 inline-flex items-center text-[16px] font-semibold text-[#FF5A00] hover:text-[#0c0c0d] transition-colors py-[2px]"
               style={{ fontFamily: "Inter", gap: "8px" }}
             >
               <span>View All Products</span>
               <ArrowIcon size={18} className="inline-block" />
-            </a>
+            </Link>
           </div>
 
           {/* Products Grid */}
