@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="max-w-[1440px] mx-auto bg-[#080809] border-t border-white/5 pt-16 lg:pt-[100px] pb-0 px-5 md:px-8 lg:px-12 xl:px-[94px] relative overflow-hidden">
+    <footer className="w-full bg-[#080809] border-t border-white/5 pt-[50px] pb-0 relative overflow-hidden">
       {/* Background glow effects */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -35,35 +35,35 @@ const Footer = () => {
         }}
       ></div>
 
-      <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row gap-[24px] items-start justify-between relative z-10">
-        {/* Brand Column - Fixed width 313px */}
-        <div className="w-full lg:w-[313px] shrink-0 flex flex-col">
-          <a
-            href="#home"
+      <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-10 lg:gap-12 xl:gap-[64px] items-start justify-between relative z-10">
+        {/* Brand Column - Fixed width 313px on desktop */}
+        <div className="w-full lg:w-[313px] shrink-0 flex flex-col items-start">
+          <Link
+            to="/"
             className="flex items-center space-x-3 cursor-pointer mb-4"
           >
             <img
               src="/brand-logo.png"
               alt="Shelly Entertainment Group Logo"
-              className="h-10 w-auto"
+              className="h-9 sm:h-10 w-auto"
             />
-          </a>
+          </Link>
           <p
-            className="text-[#B5B5B5] text-[14px] leading-[22px] font-normal mb-[16px]"
+            className="text-[#B5B5B5] text-xs sm:text-[14px] leading-relaxed font-normal mb-5 max-w-[500px] lg:max-w-none"
             style={{ fontFamily: "Inter", letterSpacing: "-0.15px" }}
           >
-            A premium sweepstakes & skill-based gaming platform designed for
-            transparent, compliant, and engaging digital entertainment.
+            A premium sweepstakes & skill-based gaming platform designed for transparent, compliant, and engaging digital entertainment.
           </p>
 
           {/* Social Media Links */}
-          <div className="flex items-center mt-[8px] gap-[24px]">
+          <div className="flex items-center gap-5 sm:gap-[24px]">
             {/* Facebook */}
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors"
+              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors p-1"
+              aria-label="Facebook"
             >
               <svg
                 width="20"
@@ -86,7 +86,8 @@ const Footer = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors"
+              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors p-1"
+              aria-label="Twitter"
             >
               <svg
                 width="22"
@@ -109,7 +110,8 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors"
+              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors p-1"
+              aria-label="LinkedIn"
             >
               <svg
                 width="20"
@@ -146,7 +148,8 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors"
+              className="text-[#D8D8D8] hover:text-[#FFB200] transition-colors p-1"
+              aria-label="Instagram"
             >
               <svg
                 width="20"
@@ -182,20 +185,19 @@ const Footer = () => {
         </div>
 
         {/* Right side 3 Columns sharing the remaining space equally */}
-        <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-[24px] w-full">
+        <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 w-full">
           {/* Quick Links Column */}
           <div>
             <h4
-              className="text-white font-semibold text-[18px] mb-[16px]"
+              className="text-white font-semibold text-base sm:text-[18px] mb-3 sm:mb-[16px]"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
-                lineHeight: "27px",
               }}
             >
               Quick Links
             </h4>
-            <ul className="space-y-[8px]">
+            <ul className="space-y-2.5 sm:space-y-[10px]">
               {[
                 { label: "Home", to: "/" },
                 { label: "About Us", to: "/about-us" },
@@ -206,16 +208,15 @@ const Footer = () => {
               ].map((link) => (
                 <li
                   key={link.label}
-                  className="text-[#B5B5B5] hover:text-white transition-colors text-[14px] font-normal"
+                  className="text-[#B5B5B5] hover:text-white transition-colors text-xs sm:text-[14px] font-normal"
                   style={{
                     fontFamily: "Inter",
                     letterSpacing: "-0.15px",
-                    lineHeight: "20px",
                   }}
                 >
                   <Link
                     to={link.to}
-                    className="text-inherit hover:text-white transition-colors block w-full"
+                    className="text-inherit hover:text-white transition-colors block w-full py-0.5"
                   >
                     {link.label}
                   </Link>
@@ -227,59 +228,56 @@ const Footer = () => {
           {/* Legal Links Column */}
           <div>
             <h4
-              className="text-white font-semibold text-[18px] mb-[16px]"
+              className="text-white font-semibold text-base sm:text-[18px] mb-3 sm:mb-[16px]"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
-                lineHeight: "27px",
               }}
             >
               Legal
             </h4>
-            <ul className="space-y-[8px]">
+            <ul className="space-y-2.5 sm:space-y-[10px]">
               {[
-                { label: "Privacy Policy", href: "#privacy" },
-                { label: "Terms & Conditions", href: "#terms" },
-                { label: "Compliance", href: "#compliance" },
+                { label: "Privacy Policy", to: "/privacy-policy" },
+                { label: "Terms & Conditions", to: "/terms-conditions" },
+                { label: "Compliance", to: "/about-us" },
               ].map((link) => (
                 <li
                   key={link.label}
-                  className="text-[#B5B5B5] hover:text-white transition-colors text-[14px] font-normal"
+                  className="text-[#B5B5B5] hover:text-white transition-colors text-xs sm:text-[14px] font-normal"
                   style={{
                     fontFamily: "Inter",
                     letterSpacing: "-0.15px",
-                    lineHeight: "20px",
                   }}
                 >
-                  <a
-                    href={link.href}
-                    className="text-inherit hover:text-white transition-colors block w-full"
+                  <Link
+                    to={link.to}
+                    className="text-inherit hover:text-white transition-colors block w-full py-0.5"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Contact Column */}
-          <div>
+          <div className="col-span-2 sm:col-span-1 mt-2 sm:mt-0">
             <h4
-              className="text-white font-semibold text-[18px] mb-[16px]"
+              className="text-white font-semibold text-base sm:text-[18px] mb-3 sm:mb-[16px]"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
-                lineHeight: "27px",
               }}
             >
               Contact Us
             </h4>
-            <ul className="space-y-[12px]">
+            <ul className="space-y-3 sm:space-y-[14px]">
               {/* Email Row */}
-              <li className="flex items-center gap-[12px]">
+              <li className="flex items-center gap-3">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -301,11 +299,10 @@ const Footer = () => {
                   />
                 </svg>
                 <span
-                  className="text-[#B5B5B5] text-[14px] font-normal"
+                  className="text-[#B5B5B5] text-xs sm:text-[14px] font-normal"
                   style={{
                     fontFamily: "Inter",
                     letterSpacing: "-0.15px",
-                    lineHeight: "20px",
                   }}
                 >
                   <a
@@ -317,10 +314,10 @@ const Footer = () => {
                 </span>
               </li>
               {/* Phone Row */}
-              <li className="flex items-center gap-[12px]">
+              <li className="flex items-center gap-3">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 32 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -335,11 +332,10 @@ const Footer = () => {
                   />
                 </svg>
                 <span
-                  className="text-[#B5B5B5] text-[14px] font-normal"
+                  className="text-[#B5B5B5] text-xs sm:text-[14px] font-normal"
                   style={{
                     fontFamily: "Inter",
                     letterSpacing: "-0.15px",
-                    lineHeight: "20px",
                   }}
                 >
                   <a
@@ -351,10 +347,10 @@ const Footer = () => {
                 </span>
               </li>
               {/* Location Row */}
-              <li className="flex items-start gap-[12px]">
+              <li className="flex items-start gap-3">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 64 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -376,11 +372,10 @@ const Footer = () => {
                   />
                 </svg>
                 <span
-                  className="text-[#B5B5B5] text-[14px] font-normal"
+                  className="text-[#B5B5B5] text-xs sm:text-[14px] font-normal"
                   style={{
                     fontFamily: "Inter",
                     letterSpacing: "-0.15px",
-                    lineHeight: "20px",
                   }}
                 >
                   1234 Digital Blvd, Tech City, TC 90210
@@ -392,17 +387,17 @@ const Footer = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="max-w-[1440px] mx-auto border-t border-[#FFFFFF33] mt-12 pt-[32px] flex flex-col items-center justify-center text-center space-y-2 relative z-10">
+      <div className="max-w-[1440px] mx-auto border-t border-white/10 mt-10 sm:mt-12 py-6 sm:py-[32px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-3 sm:gap-4 relative z-10">
         <p
-          className="text-[#D8D8D8] text-[12px] leading-[16px] font-normal"
-          style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+          className="text-[#D8D8D8] text-[11px] sm:text-[12px] font-normal"
+          style={{ fontFamily: "Inter" }}
         >
           &copy; {new Date().getFullYear()} Liberty Rewards. All Rights
           Reserved.
         </p>
         <p
-          className="text-[#D8D8D8] text-[12px] leading-[16px] font-normal"
-          style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+          className="text-[#D8D8D8] text-[11px] sm:text-[12px] font-normal"
+          style={{ fontFamily: "Inter" }}
         >
           Designed for adult audiences • Transparent • Compliant • Premium
         </p>

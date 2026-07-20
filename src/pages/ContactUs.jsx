@@ -1,12 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
-/* ──────────────────── SVG Icons ──────────────────── */
-const BackArrowIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+
 
 const EmailIcon = () => (
   <svg className="w-5 h-5 text-[#ff8a00]" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,13 +25,13 @@ const AddressIcon = () => (
 );
 
 const DropdownIcon = () => (
-  <svg className="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-black/60" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+  <svg className="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-black/60" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
     <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const SubmitIcon = () => (
-  <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+  <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
     <path d="M18 2L2 8l6 3 3 6 7-15z" strokeLinejoin="round" />
   </svg>
 );
@@ -66,10 +62,10 @@ const ContactInfoCard = ({ icon, title, subtitle, value, href }) => {
         </div>
         <ValueElement
           href={isLink ? href : undefined}
-          className={`font-medium text-sm text-[#777] tracking-tight ${
+          className={`font-medium text-sm text-[#777777] tracking-tight ${
             isLink ? 'hover:text-[#ff8a00] transition-colors duration-200' : ''
           }`}
-          style={{ fontFamily: 'Inter' }}
+          style={{ fontFamily: 'Inter', color: '#777777' }}
         >
           {value}
         </ValueElement>
@@ -134,16 +130,9 @@ function ContactUs() {
       {/* Hero Section */}
       <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
         <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
-          {/* Back link */}
-          <Link
-            to="/products"
-            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
-          >
-            <BackArrowIcon />
-            BACK TO CATALOG
-          </Link>
 
-          <div className="flex flex-col gap-6 items-center w-full">
+
+          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-6 items-center w-full">
             {/* Badge */}
             <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-[24px] px-[15px] py-[7px] flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
@@ -153,248 +142,222 @@ function ContactUs() {
             </div>
 
             {/* Heading */}
-            <h1 className="font-adlam text-white text-5xl md:text-[64px] leading-[1.15] tracking-wide text-center">
+            <h1 className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
               Contact Us
             </h1>
-          </div>
+          </AnimateOnScroll>
 
           {/* Description */}
-          <p
-            className="text-[#b5b5b5] text-lg leading-7 tracking-tight text-center max-w-[738px]"
-            style={{ fontFamily: 'Inter' }}
+          <AnimateOnScroll animation="fade-up" delay={200} as="p"
+            className="text-[#FAFAFA] text-lg leading-7 tracking-tight text-center max-w-[738px]"
+            style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
           >
             Have a question or need more information? Get in touch with the Liberty Rewards team using the inquiry form below or reach out through our sales and support channels.
-          </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* Contact Info + Form */}
-      <section className="bg-white w-full flex flex-col lg:flex-row gap-[36px] items-start justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]">
-        {/* Contact Information Cards */}
-        <div className="flex flex-col gap-8 items-start w-full lg:w-[440px] shrink-0">
-          <h2 className="font-adlam text-black text-3xl tracking-wide">Contact Information</h2>
+      <section className="bg-white w-full overflow-hidden">
+        <div className="max-w-[1440px] mx-auto w-full py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-[36px] items-start justify-center">
+          {/* Contact Information Cards */}
+          <AnimateOnScroll animation="fade-right" className="flex flex-col gap-8 items-start w-full lg:w-[440px] shrink-0">
+            <h2 className="font-adlam text-black text-3xl tracking-wide">Contact Information</h2>
 
-          <div className="flex flex-col gap-5 items-start w-full">
-            <ContactInfoCard
-              icon={<EmailIcon />}
-              title="Sales Contact"
-              subtitle="For product demos and commercial inquiries"
-              value="sales@libertyrewards.com"
-              href="mailto:sales@libertyrewards.com"
-            />
-            <ContactInfoCard
-              icon={<EmailIcon />}
-              title="Support Contact"
-              subtitle="For technical assistance and compliance"
-              value="support@libertyrewards.com"
-              href="mailto:support@libertyrewards.com"
-            />
-            <ContactInfoCard
-              icon={<PhoneIcon />}
-              title="Phone"
-              subtitle="Mon–Fri 9am–6pm EST"
-              value="(555) 123-4567"
-              href="tel:+15551234567"
-            />
-            <ContactInfoCard
-              icon={<AddressIcon />}
-              title="Address"
-              subtitle="123 Freedom Blvd, Suite 100"
-              value="Business District, NY"
-            />
-          </div>
-        </div>
-
-        {/* Inquiry Form */}
-        {isSubmitted ? (
-          <div className="bg-white border border-[#e2e2e2] shadow-[0_0_5px_rgba(0,0,0,0.05)] rounded-2xl p-[23px] md:p-[39px] flex flex-col items-center justify-center gap-6 w-full lg:w-[628px] min-h-[580px] self-stretch">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#ff8a00] to-[#ffb200] flex items-center justify-center shadow-md">
-              <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <div className="flex flex-col gap-5 items-start w-full">
+              <ContactInfoCard
+                icon={<EmailIcon />}
+                title="Sales Contact"
+                subtitle="For product demos and commercial inquiries"
+                value="sales@libertyrewards.com"
+                href="mailto:sales@libertyrewards.com"
+              />
+              <ContactInfoCard
+                icon={<EmailIcon />}
+                title="Support Contact"
+                subtitle="For technical assistance and compliance"
+                value="support@libertyrewards.com"
+                href="mailto:support@libertyrewards.com"
+              />
+              <ContactInfoCard
+                icon={<PhoneIcon />}
+                title="Direct Phone Support"
+                subtitle="Available Mon-Fri, 9am - 5pm EST"
+                value="+1 (555) 123-4567"
+                href="tel:+15551234567"
+              />
+              <ContactInfoCard
+                icon={<AddressIcon />}
+                title="Corporate Location"
+                subtitle="Liberty Rewards HQ"
+                value="1234 Digital Blvd, Tech City, TC 90210"
+              />
             </div>
-            <h2 className="font-adlam text-black text-3xl tracking-wide text-center">Inquiry Submitted!</h2>
-            <p className="text-[#989898] text-base text-center max-w-sm" style={{ fontFamily: 'Inter' }}>
-              Thank you, {formData.fullName}. Your inquiry has been received. Our team will review your request and get back to you within 24 business hours.
-            </p>
-            <button
-              onClick={() => {
-                setIsSubmitted(false);
-                setFormData({ fullName: '', email: '', company: '', inquiryType: 'General Inquiry', message: '' });
-              }}
-              className="mt-2 text-[#ff8a00] hover:text-[#ffb200] font-semibold text-sm transition-colors cursor-pointer"
-              style={{ fontFamily: 'Inter' }}
-            >
-              Send another inquiry
-            </button>
-          </div>
-        ) : (
-          <div className="bg-white border border-[#e2e2e2] shadow-[0_0_5px_rgba(0,0,0,0.05)] rounded-2xl p-[23px] md:p-[39px] flex flex-col gap-8 items-start w-full lg:w-[628px]">
-            <div className="flex flex-col gap-2 items-start w-full">
-              <h2 className="font-adlam text-black text-3xl tracking-wide">Send Us an Inquiry</h2>
-              <p className="text-[#989898] text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
-                Fill out the form below and we will route your request to the right department.
+          </AnimateOnScroll>
+
+          {/* Inquiry Form */}
+          {isSubmitted ? (
+            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-[24px] p-8 md:p-12 flex flex-col items-center justify-center text-center gap-4 min-h-[500px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200] flex items-center justify-center text-white mb-2">
+                <svg className="w-8 h-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="font-adlam text-black text-2xl tracking-wide">Thank You!</h3>
+              <p className="text-gray-500 max-w-sm" style={{ fontFamily: 'Inter' }}>
+                Your inquiry has been submitted successfully, {formData.fullName}. Our team will review it and get back to you within 24 business hours.
               </p>
-            </div>
-
-            <form className="flex flex-col gap-6 items-start w-full" onSubmit={handleSubmit}>
-              {/* Full Name */}
-              <div className="flex flex-col gap-2 items-start w-full">
-                <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
-                  Full Name <span className="text-[#ff8a00]">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  placeholder="John Doe"
-                  required
-                  className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
-                  style={{ fontFamily: 'Inter' }}
-                />
-              </div>
-
-              {/* Email Address */}
-              <div className="flex flex-col gap-2 items-start w-full">
-                <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
-                  Email Address <span className="text-[#ff8a00]">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="john@company.com"
-                  required
-                  className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
-                  style={{ fontFamily: 'Inter' }}
-                />
-              </div>
-
-              {/* Company Name */}
-              <div className="flex flex-col gap-2 items-start w-full">
-                <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Company Ltd."
-                  className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
-                  style={{ fontFamily: 'Inter' }}
-                />
-              </div>
-
-              {/* Inquiry Type */}
-              <div className="flex flex-col gap-2 items-start w-full">
-                <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
-                  Inquiry Type
-                </label>
-                <div className="relative w-full" ref={dropdownRef}>
-                  {/* Trigger Button */}
-                  <button
-                    type="button"
-                    onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-                    className="w-full flex items-center justify-between bg-black/[0.04] rounded-2xl px-4 py-3 text-sm font-medium text-black tracking-tight outline-none transition-shadow cursor-pointer text-left"
-                    style={{ fontFamily: 'Inter' }}
-                  >
-                    <span>{formData.inquiryType}</span>
-                    <svg
-                      className="w-5 h-5 text-black/60 shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    >
-                      <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-
-                  {/* Custom Expanded Dropdown List */}
-                  {isOpenDropdown && (
-                    <div
-                      className="absolute left-0 top-0 w-full bg-[#e2e2e2] rounded-[24px] p-3 z-50 flex items-start gap-[10px] shadow-[0_12px_30px_rgba(0,0,0,0.15)] transition-all"
-                      style={{
-                        animation: 'dropdownOpen 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
-                      }}
-                    >
-                      {/* Options List */}
-                      <div className="flex-1 flex flex-col gap-1 items-start">
-                        {inquiryOptions.map((opt) => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => {
-                              setFormData((prev) => ({ ...prev, inquiryType: opt }));
-                              setIsOpenDropdown(false);
-                            }}
-                            className={`w-full text-left py-1 px-3 rounded-lg text-[16px] leading-[24px] font-medium tracking-[-0.31px] transition-all duration-150 cursor-pointer focus:outline-none ${
-                              formData.inquiryType === opt
-                                ? 'text-black font-semibold'
-                                : 'text-black/70 hover:text-black hover:bg-black/5'
-                            }`}
-                            style={{ fontFamily: 'Inter' }}
-                          >
-                            {opt}
-                          </button>
-                        ))}
-                      </div>
-
-                      {/* Arrow Button */}
-                      <button
-                        type="button"
-                        onClick={() => setIsOpenDropdown(false)}
-                        className="rounded-[20px] w-10 h-10 flex items-center justify-center shrink-0 hover:bg-black/5 cursor-pointer focus:outline-none"
-                      >
-                        <svg
-                          className="w-5 h-5 text-black"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                        >
-                          <path d="M15 13l-5-5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="flex flex-col gap-2 items-start w-full mb-[6px]">
-                <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
-                  Message <span className="text-[#ff8a00]">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="How can we help you?"
-                  required
-                  rows="4"
-                  className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[126px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
-                  style={{ fontFamily: 'Inter' }}
-                ></textarea>
-              </div>
-
-              {/* Submit Button */}
               <button
-                type="submit"
-                className="bg-black border border-[#1a1a1a] rounded-2xl py-[15px] w-full flex items-center justify-center gap-3 text-white text-sm font-semibold tracking-tight hover:bg-[#1a1a1a] hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer"
-                style={{
-                  fontFamily: 'Inter',
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData({ fullName: '', email: '', company: '', inquiryType: 'General Inquiry', message: '' });
                 }}
+                className="mt-2 text-[#ff8a00] hover:text-[#ffb200] font-semibold text-sm transition-colors cursor-pointer"
+                style={{ fontFamily: 'Inter' }}
               >
-                Submit Inquiry
-                <SubmitIcon />
+                Send another inquiry
               </button>
-            </form>
-          </div>
-        )}
+            </div>
+          ) : (
+            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-[24px] p-6 md:p-[40px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
+                {/* Full Name */}
+                <div className="flex flex-col gap-2 items-start w-full">
+                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                    Full Name <span className="text-[#ff8a00]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder="John Doe"
+                    required
+                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    style={{ fontFamily: 'Inter' }}
+                  />
+                </div>
+
+                {/* Email Address */}
+                <div className="flex flex-col gap-2 items-start w-full">
+                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                    Email Address <span className="text-[#ff8a00]">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@company.com"
+                    required
+                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    style={{ fontFamily: 'Inter' }}
+                  />
+                </div>
+
+                {/* Company Name */}
+                <div className="flex flex-col gap-2 items-start w-full">
+                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Company Ltd."
+                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    style={{ fontFamily: 'Inter' }}
+                  />
+                </div>
+
+                {/* Inquiry Type Custom Dropdown */}
+                <div className="flex flex-col gap-2 items-start w-full">
+                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                    Inquiry Type <span className="text-[#ff8a00]">*</span>
+                  </label>
+                  <div ref={dropdownRef} className="relative w-full">
+                    <button
+                      type="button"
+                      onClick={() => setIsOpenDropdown(!isOpenDropdown)}
+                      className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-left text-black tracking-tight outline-none flex items-center justify-between border-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow cursor-pointer"
+                      style={{ fontFamily: 'Inter' }}
+                    >
+                      <span>{formData.inquiryType}</span>
+                      <svg
+                        className={`w-4 h-4 text-black/50 transition-transform duration-300 ${isOpenDropdown ? 'rotate-180' : ''}`}
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                      >
+                        <path d="M5 7.5l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+
+                    {isOpenDropdown && (
+                      <div
+                        className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#e2e2e2] rounded-2xl overflow-hidden z-50 flex flex-col"
+                        style={{
+                          boxShadow: '0 10px 25px rgba(0,0,0,0.08)',
+                          animation: 'dropdownOpen 200ms ease-out forwards',
+                        }}
+                      >
+                        <div className="max-h-[160px] overflow-y-auto flex flex-col py-2">
+                          {inquiryOptions.map((opt) => (
+                            <button
+                              key={opt}
+                              type="button"
+                              onClick={() => {
+                                setFormData((prev) => ({ ...prev, inquiryType: opt }));
+                                setIsOpenDropdown(false);
+                              }}
+                              className={`w-full text-left px-5 py-2.5 text-sm hover:bg-black/[0.03] transition-colors focus:outline-none cursor-pointer ${
+                                formData.inquiryType === opt ? 'text-[#ff8a00] font-medium' : 'text-black'
+                              }`}
+                              style={{ fontFamily: 'Inter' }}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-2 items-start w-full mb-[6px]">
+                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                    Message <span className="text-[#ff8a00]">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?"
+                    required
+                    rows="4"
+                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[126px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    style={{ fontFamily: 'Inter' }}
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="rounded-2xl py-[15px] w-full flex items-center justify-center gap-3 text-white text-sm font-semibold tracking-tight border border-[#1a1a1a] bg-black btn-dark-fill cursor-pointer"
+                  style={{
+                    fontFamily: 'Inter',
+                  }}
+                >
+                  Submit Inquiry
+                  <SubmitIcon />
+                </button>
+              </form>
+            </div>
+          )}
+        </div>
       </section>
 
       {/* Dropdown Keyframes */}

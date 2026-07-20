@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PartnerInquiryModal from '../components/PartnerInquiryModal';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
-/* ──────────────────── SVG Icons ──────────────────── */
-const BackArrowIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+
 
 const ArrowRightIcon = () => (
   <svg className="w-5 h-5 text-black shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -119,87 +115,90 @@ const AssociatedProductCard = ({ product }) => (
   </Link>
 );
 
-/* ──────────────────── Partner Section ──────────────────── */
 const PartnerSection = ({ partner, reversed, onInquire }) => (
-  <section className={`w-full bg-white flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-start justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] py-[50px]`}>
-    {/* Info side */}
-    <div className="flex flex-col gap-9 items-start w-full lg:w-[516px] shrink-0">
-      <div className="flex flex-col gap-6 items-start w-full">
-        {/* Logo */}
-        <div
-          className="rounded-[20px] w-20 h-20 flex items-center justify-center overflow-hidden border border-[rgba(255,138,0,0.1)]"
-          style={{
-            backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
-          }}
-        >
-          <img src={partner.logo} alt={partner.name} className="w-full h-full object-cover" />
-        </div>
-
-        {/* Name & Description */}
-        <div className="flex flex-col gap-3 items-start w-full">
-          <h2
-            className="font-adlam text-black text-3xl md:text-[40px] font-normal leading-[50px]"
-            style={{ letterSpacing: '0.37px' }}
+  <section className="w-full bg-white overflow-hidden">
+    <div className={`max-w-[1440px] mx-auto w-full py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 items-start justify-center`}>
+      {/* Info side */}
+      <AnimateOnScroll animation={reversed ? 'fade-left' : 'fade-right'} className="flex flex-col gap-9 items-start w-full lg:w-[516px] shrink-0">
+        <div className="flex flex-col gap-6 items-start w-full">
+          {/* Logo */}
+          <div
+            className="rounded-[20px] w-20 h-20 flex items-center justify-center overflow-hidden border border-[rgba(255,138,0,0.1)]"
+            style={{
+              backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
+            }}
           >
-            {partner.name}
-          </h2>
-          <p className="text-[#989898] text-base leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
-            {partner.description}
+            <img src={partner.logo} alt={partner.name} className="w-full h-full object-cover" />
+          </div>
+
+          {/* Name & Description */}
+          <div className="flex flex-col gap-3 items-start w-full">
+            <h2
+              className="font-adlam text-black text-2xl sm:text-3xl lg:text-[40px] font-normal leading-tight lg:leading-[50px]"
+              style={{ letterSpacing: '0.37px' }}
+            >
+              {partner.name}
+            </h2>
+            <p className="text-[#989898] text-base leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
+              {partner.description}
+            </p>
+          </div>
+
+          {/* Inquire link */}
+          <button
+            onClick={() => onInquire(partner.name)}
+            className="flex items-center gap-2 text-[#ff8a00] text-sm font-medium tracking-tight btn-text-link cursor-pointer"
+            style={{ fontFamily: 'Inter' }}
+          >
+            Inquire about this partner
+            <SmallArrowIcon />
+          </button>
+        </div>
+
+        {/* Associated Products */}
+        <div className="flex flex-col gap-2 items-start w-full">
+          <p
+            className="font-semibold text-base text-[#777777] tracking-widest uppercase"
+            style={{ fontFamily: 'Inter', color: '#777777' }}
+          >
+            Associated Products
           </p>
+          <div className="flex flex-col gap-3 items-start w-full stagger-children">
+            {partner.associatedProducts.map((product, idx) => (
+              <AnimateOnScroll key={idx} animation="fade-up" delay={idx * 150} className="w-full">
+                <AssociatedProductCard product={product} />
+              </AnimateOnScroll>
+            ))}
+          </div>
         </div>
+      </AnimateOnScroll>
 
-        {/* Inquire link */}
-        <button
-          onClick={() => onInquire(partner.name)}
-          className="flex items-center gap-2 text-[#ff8a00] text-sm font-medium tracking-tight hover:text-[#ffb200] transition-colors cursor-pointer"
-          style={{ fontFamily: 'Inter' }}
-        >
-          Inquire about this partner
-          <SmallArrowIcon />
-        </button>
-      </div>
-
-      {/* Associated Products */}
-      <div className="flex flex-col gap-2 items-start w-full">
-        <p
-          className="font-semibold text-base text-[#777] tracking-widest uppercase"
-          style={{ fontFamily: 'Inter' }}
-        >
-          Associated Products
-        </p>
-        <div className="flex flex-col gap-3 items-start w-full">
-          {partner.associatedProducts.map((product, idx) => (
-            <AssociatedProductCard key={idx} product={product} />
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* Gallery side */}
-    <div className="flex flex-col gap-4 items-center justify-center w-full lg:w-[712px]">
-      <div className="rounded-[24px] overflow-hidden w-full aspect-[712/366]">
-        <img
-          src={partner.gallery.main}
-          alt={`${partner.name} showcase`}
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="flex flex-col sm:flex-row items-center w-full h-[512px] sm:h-[256px] rounded-[24px] overflow-hidden">
-        <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'sm:w-[348px] sm:shrink-0' : 'flex-1'}`}>
+      {/* Gallery side */}
+      <AnimateOnScroll animation={reversed ? 'fade-right' : 'fade-left'} delay={200} className="flex flex-col gap-4 items-center justify-center w-full lg:w-[712px]">
+        <div className="rounded-[24px] overflow-hidden w-full aspect-[712/366] shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#e2e2e2]">
           <img
-            src={partner.gallery.left}
-            alt=""
-            className="w-full h-full object-cover scale-[1.08]"
+            src={partner.gallery.main}
+            alt={`${partner.name} showcase`}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
-        <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'flex-1' : 'sm:w-[348px] sm:shrink-0'}`}>
-          <img
-            src={partner.gallery.right}
-            alt=""
-            className="w-full h-full object-cover scale-[1.08]"
-          />
+        <div className="flex flex-col sm:flex-row items-center w-full h-[300px] sm:h-[256px] rounded-[24px] overflow-hidden border border-[#e2e2e2]">
+          <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'sm:w-[348px] sm:shrink-0' : 'flex-1'}`}>
+            <img
+              src={partner.gallery.left}
+              alt=""
+              className="w-full h-full object-cover scale-[1.08] hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'flex-1' : 'sm:w-[348px] sm:shrink-0'}`}>
+            <img
+              src={partner.gallery.right}
+              alt=""
+              className="w-full h-full object-cover scale-[1.08] hover:scale-110 transition-transform duration-700"
+            />
+          </div>
         </div>
-      </div>
+      </AnimateOnScroll>
     </div>
   </section>
 );
@@ -225,33 +224,26 @@ function Partners() {
       <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[77px] min-h-[420px]">
         <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
 
-          {/* Back link */}
-          <Link
-            to="/"
-            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
-          >
-            <BackArrowIcon />
-            BACK TO HOME
-          </Link>
+
 
           <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center w-full">
             {/* Title */}
-            <h1
-              className="font-adlam text-white text-4xl md:text-[64px] font-normal leading-tight md:leading-[74px]"
+            <AnimateOnScroll animation="fade-up" as="h1"
+              className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: '0.22px' }}
             >
               Our Partners
-            </h1>
+            </AnimateOnScroll>
 
             {/* Description */}
-            <p
-              className="text-[#b5b5b5] text-lg leading-7 tracking-tight max-w-none"
-              style={{ fontFamily: 'Inter' }}
+            <AnimateOnScroll animation="fade-up" delay={200} as="p"
+              className="text-[#FAFAFA] text-lg leading-7 tracking-tight max-w-none"
+              style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
             >
               Liberty Rewards collaborates with industry-trusted hardware and service providers. Our partners
               share our commitment to compliance, quality, and professional gaming solutions. This page provides
               information on our ecosystem brands and their offerings.
-            </p>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -269,17 +261,17 @@ function Partners() {
       {/* ════════════════ CTA ════════════════ */}
       <section
         id="inquiry"
-        className="w-full flex flex-col gap-6 items-center justify-center overflow-hidden relative px-5 md:px-8 lg:px-12 xl:px-[94px] py-[64px] bg-white"
+        className="relative w-full bg-white overflow-hidden z-20"
       >
         {/* Decorative side images */}
-        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
             className="h-[442px] w-auto object-contain"
           />
         </div>
-        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"
@@ -287,33 +279,36 @@ function Partners() {
           />
         </div>
 
-        <div className="flex flex-col gap-3 items-center text-center relative z-20">
-          <h2 className="font-adlam text-black text-3xl md:text-[40px] leading-[50px] tracking-wide">
-            Explore Partnership Opportunities
-          </h2>
-          <p
-            className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-[800px]"
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-6 items-center justify-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-3 items-center text-center">
+            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+              Explore Partnership Opportunities
+            </h2>
+            <p
+              className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-[800px]"
+              style={{ fontFamily: 'Inter' }}
+            >
+              Interested in partnering with Liberty Rewards or learning more about our ecosystem? Reach out to
+              discuss collaboration opportunities.
+            </p>
+          </AnimateOnScroll>
+
+          <button
+            onClick={() => handleInquire('')}
+            className="border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight btn-gradient-primary cursor-pointer"
             style={{ fontFamily: 'Inter' }}
           >
-            Interested in partnering with Liberty Rewards or learning more about our ecosystem? Reach out to
-            discuss collaboration opportunities.
+            General Inquiry
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4.16992 10H15.8366" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 4.16504L15.8333 9.99837L10 15.8317" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          <p className="text-[#b3b3b3] text-xs text-center" style={{ fontFamily: 'Inter' }}>
+            Response time: Within 24 business hours
           </p>
         </div>
-
-        <button
-          onClick={() => handleInquire('')}
-          className="relative z-20 bg-gradient-to-b from-[#ff8a00] to-[#ff6a00] border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight hover:shadow-[0_0_25px_rgba(255,138,0,0.5)] hover:scale-[1.02] transition-all duration-300 cursor-pointer"
-          style={{ fontFamily: 'Inter' }}
-        >
-          General Inquiry
-          <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M4 10h12M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-
-        <p className="relative z-20 text-[#b3b3b3] text-xs text-center" style={{ fontFamily: 'Inter' }}>
-          Response time: Within 24 business hours
-        </p>
       </section>
 
       {/* ════════════════ PARTNER INQUIRY MODAL ════════════════ */}

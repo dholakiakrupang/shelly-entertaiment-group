@@ -1,5 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ArrowIcon from "../components/ArrowIcon";
+import AnimateOnScroll from "../components/AnimateOnScroll";
+import useCountUp from "../hooks/useCountUp";
 
 const stats = [
   { value: "500+", label: "Venues Served" },
@@ -137,6 +140,33 @@ const BulletDot = () => (
   </span>
 );
 
+/* Counter-animated stat card */
+const StatCard = ({ value, label, delay = 0 }) => {
+  const { ref, displayValue } = useCountUp(value, 2000);
+  return (
+    <AnimateOnScroll animation="scale-up" delay={delay} className="h-full">
+      <div
+        ref={ref}
+        className="rounded-2xl border border-[#e2e2e2] bg-white py-4 sm:py-6 px-3 sm:px-6 text-center h-full flex flex-col justify-center items-center"
+        style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
+      >
+        <p
+          className="text-gradient text-2xl sm:text-3xl lg:text-[36px] xl:text-[40px] font-bold leading-tight"
+          style={{ fontFamily: "Inter" }}
+        >
+          {displayValue}
+        </p>
+        <p
+          className="mt-1.5 sm:mt-2 text-xs sm:text-sm md:text-[15px] font-semibold text-[#666666] leading-snug"
+          style={{ fontFamily: "Inter" }}
+        >
+          {label}
+        </p>
+      </div>
+    </AnimateOnScroll>
+  );
+};
+
 function AboutUs() {
   return (
     <div className="bg-white text-[#0c0c0d]">
@@ -154,23 +184,23 @@ function AboutUs() {
 
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="max-w-[935px]">
-            <h1
-              className="text-4xl md:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px]"
+            <AnimateOnScroll animation="fade-up" as="h1"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: "-1.11px" }}
             >
-              <span className="leading-tight md:leading-[74px]">About</span>
-              <span className="leading-tight md:leading-[74px]">
+              <span>About</span>
+              <span>
                 Liberty Rewards
               </span>
-            </h1>
-            <p
-              className="mt-6 max-w-[606px] text-gray-400 text-[16px] leading-[28px] font-normal"
-              style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-up" delay={200} as="p"
+              className="mt-6 max-w-[606px] text-[#FAFAFA] text-sm sm:text-base md:text-lg leading-[28px] font-normal"
+              style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#FAFAFA" }}
             >
               An informational platform showcasing compliant, sweepstakes-based
               and skill-driven gaming products designed for transparent,
               compliant, and engaging digital entertainment.
-            </p>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -178,46 +208,28 @@ function AboutUs() {
       {/* ════════════ STATS / INTRO ════════════ */}
       <section className="w-full bg-white my-[50px]">
         <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
-          <div className="flex flex-col items-center gap-4 text-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-4 text-center">
             <SectionBadge label="About Liberty Rewards" />
             <h2
-              className="text-3xl md:text-[48px] font-adlam font-normal text-[#0c0c0d]"
-              style={{ lineHeight: "58px" }}
+              className="text-2xl sm:text-3xl lg:text-[48px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[58px]"
             >
               Building the Future
               <br />
               of <GradientText>Gaming</GradientText>
             </h2>
             <p
-              className="max-w-[756px] text-[18px] leading-[28px] font-normal text-[#989898]"
+              className="max-w-[756px] text-base sm:text-lg leading-[28px] font-normal text-[#777777]"
               style={{ fontFamily: "Inter" }}
             >
               Liberty Rewards is pioneering compliant, transparent gaming
               experiences that redefine entertainment for modern venues and
               digital platforms
             </p>
-          </div>
+          </AnimateOnScroll>
 
           <div className="grid w-full max-w-[1252px] grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 px-0">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-[#e2e2e2] bg-white py-[24px] px-6 text-center"
-                style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
-              >
-                <p
-                  className="text-gradient text-[36px] font-bold leading-[40px]"
-                  style={{ fontFamily: "Inter" }}
-                >
-                  {stat.value}
-                </p>
-                <p
-                  className="mt-2 text-sm font-medium text-[#989898]"
-                  style={{ fontFamily: "Inter" }}
-                >
-                  {stat.label}
-                </p>
-              </div>
+            {stats.map((stat, idx) => (
+              <StatCard key={stat.label} value={stat.value} label={stat.label} delay={idx * 150} />
             ))}
           </div>
         </div>
@@ -225,22 +237,22 @@ function AboutUs() {
 
       {/* ════════════ WHO WE ARE ════════════ */}
       <section className="w-full bg-[#f8f8f8]">
-        <div className="max-w-[1440px] mx-auto pt-[25px] pb-[25px] md:pt-[25px] md:pb-[75px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
+        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col md:flex-row items-center justify-center gap-12">
           {/* Left Column */}
-          <div className="flex w-full lg:w-[657px] flex-col items-start gap-8">
+          <AnimateOnScroll animation="fade-right" className="flex w-full lg:w-[657px] flex-col items-start gap-8">
             <SectionBadge label="Who We Are" />
 
             <div className="flex flex-col gap-6">
               <h2
-                className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
-                style={{ lineHeight: "50px", margin: "1px 0" }}
+                className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
+                style={{ lineHeight: "clamp(32px, 6vw, 50px)", margin: "1px 0" }}
               >
                 Redefining
                 <br />
                 <GradientText>Digital Entertainment</GradientText>
               </h2>
               <p
-                className="text-[18px] leading-[28px] font-normal text-[#989898]"
+                className="text-base sm:text-[18px] leading-[28px] font-normal text-[#777777]"
                 style={{
                   fontFamily: "Inter",
                   marginTop: "1px",
@@ -253,7 +265,7 @@ function AboutUs() {
                 modern digital experiences.
               </p>
               <p
-                className="text-[16px] leading-[24px] font-normal text-[#b5b5b5]"
+                className="text-sm sm:text-[16px] leading-[24px] font-normal text-[#888888]"
                 style={{
                   fontFamily: "Inter",
                   marginTop: "0.25px",
@@ -271,7 +283,7 @@ function AboutUs() {
                   <li key={item} className="flex items-center gap-3">
                     <BulletDot />
                     <span
-                      className="text-sm text-[#b5b5b5]"
+                      className="text-sm text-[#777777]"
                       style={{ fontFamily: "Inter" }}
                     >
                       {item}
@@ -280,10 +292,10 @@ function AboutUs() {
                 ))}
               </ul>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Right Column — Mission / Vision / Values Cards */}
-          <div className="flex w-full lg:w-[548px] flex-col gap-5">
+          <AnimateOnScroll animation="fade-left" delay={200} className="flex w-full lg:w-[548px] flex-col gap-5">
             {/* Mission Card */}
             <div
               className="rounded-[24px] border border-[#e2e2e2] bg-white pt-[23px] pb-[23px] px-6"
@@ -293,23 +305,17 @@ function AboutUs() {
                 <img
                   src="/about-us/our-mission-icon.svg"
                   alt="Mission Icon"
-                  className="w-12 h-12 object-contain"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                 />
               </div>
               <p
-                className="text-[#0c0c0d]"
-                style={{
-                  fontFamily: "Inter",
-                  fontWeight: 700,
-                  fontSize: "24px",
-                  lineHeight: "32px",
-                  letterSpacing: "0.07px",
-                }}
+                className="text-[#0c0c0d] font-bold text-xl sm:text-2xl leading-tight"
+                style={{ fontFamily: "Inter" }}
               >
                 Our Mission
               </p>
               <p
-                className="mt-2 text-sm text-[#989898]"
+                className="mt-2 text-xs sm:text-sm md:text-base text-[#777777]"
                 style={{ fontFamily: "Inter" }}
               >
                 To deliver transparent, compliant gaming experiences that
@@ -327,17 +333,17 @@ function AboutUs() {
                   <img
                     src="/about-us/vision-icon.svg"
                     alt="Vision Icon"
-                    className="w-10 h-10 object-contain"
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
                 </div>
                 <p
-                  className="text-xl font-bold text-[#0c0c0d]"
+                  className="text-lg sm:text-xl font-bold text-[#0c0c0d]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Vision
                 </p>
                 <p
-                  className="mt-2 text-xs text-[#989898]"
+                  className="mt-2 text-xs sm:text-sm text-[#777777]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Industry-leading compliant gaming platform
@@ -351,65 +357,66 @@ function AboutUs() {
                   <img
                     src="/about-us/value-icon.svg"
                     alt="Values Icon"
-                    className="w-10 h-10 object-contain"
+                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
                   />
                 </div>
                 <p
-                  className="text-xl font-bold text-[#0c0c0d]"
+                  className="text-lg sm:text-xl font-bold text-[#0c0c0d]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Values
                 </p>
                 <p
-                  className="mt-2 text-xs text-[#989898]"
+                  className="mt-2 text-xs sm:text-sm text-[#777777]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Transparency, compliance, innovation
                 </p>
               </div>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ════════════ BUILT ON TRUST (Dark) ════════════ */}
       <section className="relative overflow-hidden bg-[#0a0a0b] w-full">
         <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
-          <div className="flex flex-col md:flex-row md:flex-nowrap items-start md:items-center gap-12">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col md:flex-row md:flex-nowrap items-start md:items-center gap-6 lg:gap-12">
             <h2
-              className="text-3xl md:text-[40px] font-adlam font-normal text-white uppercase shrink-0 whitespace-nowrap"
-              style={{ lineHeight: "50px" }}
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-white uppercase shrink-0 leading-tight lg:leading-[50px]"
             >
-              Built on Trust
+              Built on
               <br />
               <GradientText>Trust and Transparency</GradientText>
             </h2>
             <p
-              className="flex-1 text-[18px] leading-[28px] font-normal text-gray-400"
-              style={{ fontFamily: "Inter" }}
+              className="flex-1 text-base sm:text-lg leading-[28px] font-normal text-[#B5B5B5]"
+              style={{ fontFamily: "Inter", color: "#B5B5B5" }}
             >
               These core values guide everything we do, from the products we
               showcase to the partnerships we build. They're not just words —
               they're the foundation of our commitment to excellence in the
               gaming industry.
             </p>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8 xl:gap-[76px] pb-[32px]">
+          <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-8 xl:gap-[76px] pb-[32px] stagger-children">
             {trustValues.map((item, index) => {
               const offsetClass =
                 index % 2 === 1 ? "lg:translate-y-[32px]" : "";
-              return (
-                <div
+                return (
+                <AnimateOnScroll
                   key={item.title}
+                  animation="fade-up"
+                  delay={index * 120}
                   className={`flex flex-col items-center gap-6 rounded-[24px] border border-white/5 bg-[#111111] p-8 text-center transition-transform duration-300 ${offsetClass}`}
                 >
                   <div className="flex w-16 h-16 items-center justify-center rounded-2xl border border-[#ffb200]/10 bg-gradient-to-br from-[#ff6a00]/10 to-[#ffb200]/10">
-                    <img
-                      src={item.icon}
-                      alt={item.title}
-                      className="w-8 h-8 object-contain"
-                    />
+                     <img
+                       src={item.icon}
+                       alt={item.title}
+                       className="w-8 h-8 object-contain"
+                     />
                   </div>
                   <div>
                     <p
@@ -419,13 +426,13 @@ function AboutUs() {
                       {item.title}
                     </p>
                     <p
-                      className="mt-2 text-sm text-[#fafafa]"
-                      style={{ fontFamily: "Inter" }}
+                      className="mt-2 text-sm text-[#FAFAFA]"
+                      style={{ fontFamily: "Inter", color: "#FAFAFA" }}
                     >
                       {item.description}
                     </p>
                   </div>
-                </div>
+                </AnimateOnScroll>
               );
             })}
           </div>
@@ -435,11 +442,10 @@ function AboutUs() {
       {/* ════════════ LEADERSHIP TEAM ════════════ */}
       <section className="w-full bg-white my-[50px]">
         <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
-          <div className="flex flex-col items-center gap-[24px] text-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-[24px] text-center">
             <SectionBadge label="Leadership Team" />
             <h2
-              className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
-              style={{ lineHeight: "50px" }}
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
             >
               Meet the <GradientText>Experts</GradientText>
             </h2>
@@ -450,59 +456,61 @@ function AboutUs() {
               Our leadership team brings decades of combined experience in
               gaming, technology, and regulatory compliance
             </p>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="grid w-full max-w-[1252px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[33px]">
+          <div className="grid w-full max-w-[1252px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-[33px] stagger-children">
             {teamMembers.map((member) => (
-              <div
+              <AnimateOnScroll
                 key={member.name}
-                className="overflow-hidden rounded-[24px] border border-[#e2e2e2] bg-white"
+                animation="fade-up"
+                delay={teamMembers.indexOf(member) * 150}
+                className="overflow-hidden rounded-[24px] border border-[#e2e2e2] bg-white flex flex-col h-full max-w-[360px] sm:max-w-none mx-auto w-full"
                 style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
               >
                 {/* Member Image or Placeholder */}
                 {member.image ? (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-auto object-cover"
-                  />
+                  <div className="w-full aspect-[3/4] sm:aspect-[4/5] md:h-[260px] lg:h-[287px] overflow-hidden bg-gray-100">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
                 ) : (
-                  <div className="h-[287px] w-full bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10 flex items-center justify-center">
+                  <div className="w-full aspect-[3/4] sm:aspect-[4/5] md:h-[260px] lg:h-[287px] bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10 flex items-center justify-center shrink-0">
                     <span
-                      className="text-[48px] font-bold text-[#ff8a00]/40"
+                      className="text-4xl sm:text-5xl lg:text-[48px] font-bold text-[#ff8a00]/40"
                       style={{ fontFamily: "Inter" }}
                     >
                       {member.initials}
                     </span>
                   </div>
                 )}
-                <div className="p-6">
+                <div className="p-5 sm:p-6 flex flex-col flex-1">
                   <p
-                    className="text-xl font-bold text-[#0c0c0d]"
+                    className="text-lg sm:text-xl font-bold text-[#0c0c0d] leading-snug"
                     style={{ fontFamily: "Inter" }}
                   >
                     {member.name}
                   </p>
                   <p
-                    className="text-sm font-medium text-[#cc8e00] mt-[4px]"
+                    className="text-xs sm:text-sm font-semibold text-[#cc8e00] mt-1"
                     style={{ fontFamily: "Inter" }}
                   >
                     {member.role}
                   </p>
                   <p
-                    className="mt-3 text-[#989898]"
+                    className="mt-3 text-xs sm:text-sm text-[#777777] leading-relaxed"
                     style={{
                       fontFamily: "Inter",
                       fontWeight: 400,
-                      fontSize: "12px",
-                      lineHeight: "19.5px",
                       letterSpacing: "0px",
                     }}
                   >
                     {member.bio}
                   </p>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -511,11 +519,10 @@ function AboutUs() {
       {/* ════════════ MILESTONES TIMELINE ════════════ */}
       <section className="w-full bg-[#f6f6f6]">
         <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
-          <div className="flex flex-col items-center gap-3 text-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-3 text-center">
             <SectionBadge label="Our Journey" />
             <h2
-              className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
-              style={{ lineHeight: "50px" }}
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
             >
               Milestones <GradientText>&amp; Growth</GradientText>
             </h2>
@@ -525,9 +532,9 @@ function AboutUs() {
             >
               A timeline of innovation, expansion, and commitment to excellence
             </p>
-          </div>
+          </AnimateOnScroll>
 
-          <ol className="relative flex w-full max-w-[1024px] flex-col gap-[64px] timeline-line">
+          <ol className="relative flex w-full max-w-[1024px] flex-col gap-10 md:gap-[64px] timeline-line">
             {milestones.map((item, idx) => {
               const isLeft = idx % 2 === 0;
               return (
@@ -540,8 +547,8 @@ function AboutUs() {
 
                   {isLeft ? (
                     <>
-                      <div
-                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-[31px] mb-[7.5px]"
+                      <AnimateOnScroll animation="fade-right" delay={idx * 100}
+                        className="relative z-10 rounded-[24px] border border-[#e2e2e2] bg-white p-5 sm:p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
@@ -562,31 +569,31 @@ function AboutUs() {
                           </div>
                         )}
                         <p
-                          className="text-gradient text-3xl font-bold"
+                          className="text-gradient text-2xl sm:text-3xl font-bold"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.year}
                         </p>
                         <p
-                          className="mt-4 text-2xl font-bold text-[#0c0c0d]"
+                          className="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold text-[#0c0c0d]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.title}
                         </p>
                         <p
-                          className="mt-4 text-sm text-[#989898]"
+                          className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#989898]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.description}
                         </p>
-                      </div>
+                      </AnimateOnScroll>
                       <div className="hidden md:block"></div>
                     </>
                   ) : (
                     <>
                       <div className="hidden md:block"></div>
-                      <div
-                        className="rounded-[24px] border border-[#e2e2e2] bg-white p-[31px] mb-[7.5px]"
+                      <AnimateOnScroll animation="fade-left" delay={idx * 100}
+                        className="relative z-10 rounded-[24px] border border-[#e2e2e2] bg-white p-5 sm:p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
@@ -607,24 +614,24 @@ function AboutUs() {
                           </div>
                         )}
                         <p
-                          className="text-gradient text-3xl font-bold"
+                          className="text-gradient text-2xl sm:text-3xl font-bold"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.year}
                         </p>
                         <p
-                          className="mt-4 text-2xl font-bold text-[#0c0c0d]"
+                          className="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold text-[#0c0c0d]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.title}
                         </p>
                         <p
-                          className="mt-4 text-sm text-[#989898]"
+                          className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#989898]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.description}
                         </p>
-                      </div>
+                      </AnimateOnScroll>
                     </>
                   )}
                 </li>
@@ -637,7 +644,7 @@ function AboutUs() {
       {/* ════════════ LET'S CONNECT / CTA ════════════ */}
       <section id="contact" className="relative w-full bg-white overflow-hidden">
         {/* Left Side Cabinet Element */}
-        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
@@ -646,7 +653,7 @@ function AboutUs() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"
@@ -654,14 +661,14 @@ function AboutUs() {
           />
         </div>
 
-        <div className="relative z-20 max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-16 xl:px-[208px] flex flex-col md:flex-row flex-wrap items-center justify-center gap-12">
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col xl:flex-row items-center justify-between gap-12">
           {/* Left Column */}
-          <div className="flex w-full lg:w-[487px] flex-col items-start gap-6">
+          <AnimateOnScroll animation="fade-right" className="flex w-full lg:w-[487px] flex-col items-start gap-6">
             <SectionBadge label="Let's Connect" />
             <div className="flex flex-col gap-4">
               <h2
-                className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
-                style={{ lineHeight: "50px" }}
+                className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
+                style={{ lineHeight: "clamp(32px, 6vw, 50px)" }}
               >
                 Ready to <GradientText>Partner</GradientText>
                 <br />
@@ -747,23 +754,23 @@ function AboutUs() {
                 </span>
               </a>
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* Right Column — CTA */}
-          <div className="flex w-full lg:w-[487px] flex-col items-center gap-8">
-            <a
-              href="#contact"
-              className="flex w-full items-center justify-center gap-[8px] rounded-[24px] bg-gradient-to-b from-[#ff6a00] to-[#ffb200] text-center text-white transition-transform hover:scale-[1.01]"
+          <AnimateOnScroll animation="fade-left" delay={200} className="flex w-full lg:w-[487px] flex-col items-center gap-8">
+            <Link
+              to="/contact"
+              className="flex w-full items-center justify-center gap-[8px] rounded-[24px] text-center text-white btn-gradient-primary"
               style={{
-                paddingTop: "32.75px",
-                paddingRight: "66.5px",
-                paddingBottom: "33.25px",
-                paddingLeft: "66.5px",
+                paddingTop: "clamp(20px, 4vw, 32.75px)",
+                paddingRight: "clamp(24px, 8vw, 66.5px)",
+                paddingBottom: "clamp(20px, 4vw, 33.25px)",
+                paddingLeft: "clamp(24px, 8vw, 66.5px)",
               }}
             >
               <span className="flex flex-col gap-[6px]">
                 <span
-                  className="block text-[30px] font-bold tracking-[0.4px] leading-[36px]"
+                  className="block text-xl sm:text-2xl md:text-[30px] font-bold tracking-[0.4px] leading-tight sm:leading-[36px]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Get Started Today
@@ -776,7 +783,7 @@ function AboutUs() {
                 </span>
               </span>
               <ArrowIcon size={32} color="white" />
-            </a>
+            </Link>
             <div
               className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#989898]"
               style={{ fontFamily: "Inter" }}
@@ -795,12 +802,12 @@ function AboutUs() {
               </span>
             </div>
             <p
-              className="text-sm text-[#989898] text-center"
-              style={{ fontFamily: "Inter" }}
+              className="text-sm text-[#b3b3b3] text-center"
+              style={{ fontFamily: "Inter", color: "#b3b3b3" }}
             >
               Join 500+ venues already using Liberty Rewards
             </p>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </div>

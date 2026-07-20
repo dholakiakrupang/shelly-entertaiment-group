@@ -94,11 +94,10 @@ const InquiryModal = ({ isOpen, onClose, productTitle, productImage }) => {
           </button>
 
           <h2
-            className="text-[40px] text-black tracking-wide mb-3"
+            className="text-2xl sm:text-3xl lg:text-[40px] text-black tracking-wide mb-3 leading-tight lg:leading-[50px]"
             style={{
               fontFamily: '"ADLaM Display", sans-serif',
               fontWeight: 400,
-              lineHeight: '50px',
               letterSpacing: '0.37px',
             }}
           >

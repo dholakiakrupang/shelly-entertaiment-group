@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
-/* ──────────────────── Departments ──────────────────── */
+/* ──────────────────── Departments & Sort Options ──────────────────── */
 const departments = [
   'All Departments',
   'Management',
@@ -9,6 +10,12 @@ const departments = [
   'Support',
   'Operations',
   'Partnerships',
+];
+
+const sortOptions = [
+  { value: 'default', label: 'Default Order' },
+  { value: 'name-asc', label: 'Name (A to Z)' },
+  { value: 'name-desc', label: 'Name (Z to A)' },
 ];
 
 /* ──────────────────── Staff Data ──────────────────── */
@@ -90,17 +97,13 @@ const SearchIcon = () => (
   </svg>
 );
 
-const FilterIcon = () => (
-  <svg className="w-4 h-4 text-black/60" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+const FilterIcon = ({ color = "currentColor" }) => (
+  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke={color} strokeWidth="1.5">
     <path d="M2 3h12M4 8h8M6 13h4" strokeLinecap="round" />
   </svg>
 );
 
-const BackArrowIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+
 
 /* ──────────────────── Staff Card Component ──────────────────── */
 const StaffCard = ({ member }) => (
@@ -108,11 +111,11 @@ const StaffCard = ({ member }) => (
     style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}
   >
     {/* Photo */}
-    <div className="h-[350px] md:h-[400px] lg:h-[467px] overflow-hidden relative">
+    <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-[467px] overflow-hidden relative bg-gray-100">
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+        className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
       />
       <span className="absolute top-[11px] right-[12px] bg-black/80 border border-[#1a1a1a] rounded-full px-[10px] py-2 text-white text-[10px] font-medium tracking-widest uppercase">
         {member.department}
@@ -143,7 +146,7 @@ const StaffCard = ({ member }) => (
           >
             <EmailIcon />
           </div>
-          <a href={`mailto:${member.email}`} className="text-xs text-black/40 hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter' }}>
+          <a href={`mailto:${member.email}`} className="text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter', color: '#00000066' }}>
             {member.email}
           </a>
         </div>
@@ -156,7 +159,7 @@ const StaffCard = ({ member }) => (
           >
             <PhoneIcon />
           </div>
-          <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="text-xs text-black/40 hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter' }}>
+          <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter', color: '#00000066' }}>
             {member.phone}
           </a>
         </div>
@@ -169,21 +172,31 @@ const StaffCard = ({ member }) => (
 function StaffDirectory() {
   const [activeDepartment, setActiveDepartment] = useState('All Departments');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isFilterDropdownOpen, setIsFilterDropdownOpen] = useState(false);
+  const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
+  const [sortBy, setSortBy] = useState('default');
+  const [tempSortBy, setTempSortBy] = useState('default');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const filteredStaff = staffMembers.filter((m) => {
-    const matchesDept =
-      activeDepartment === 'All Departments' || m.department === activeDepartment;
-    const matchesSearch =
-      searchQuery === '' ||
-      m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      m.department.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesDept && matchesSearch;
-  });
+  const filteredStaff = staffMembers
+    .filter((m) => {
+      const matchesDept =
+        activeDepartment === 'All Departments' || m.department === activeDepartment;
+      const matchesSearch =
+        searchQuery === '' ||
+        m.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.department.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesDept && matchesSearch;
+    })
+    .sort((a, b) => {
+      if (sortBy === 'name-asc') return a.name.localeCompare(b.name);
+      if (sortBy === 'name-desc') return b.name.localeCompare(a.name);
+      return 0;
+    });
 
   return (
     <div className="bg-white text-[#0c0c0d]">
@@ -192,16 +205,9 @@ function StaffDirectory() {
       <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
         <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
 
-          {/* Back link */}
-          <Link
-            to="/"
-            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
-          >
-            <BackArrowIcon />
-            BACK TO HOME
-          </Link>
 
-          <div className="flex flex-col gap-6 items-center w-full">
+
+          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-6 items-center w-full">
             {/* Category pill */}
             <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-[15px] py-[7px] flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
@@ -211,86 +217,232 @@ function StaffDirectory() {
             </div>
 
             {/* Title */}
-            <h1 className="font-adlam text-white text-4xl md:text-[64px] leading-[1.15] tracking-wide text-center">
+            <h1 className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
               Staff Directory
             </h1>
-          </div>
+          </AnimateOnScroll>
 
           {/* Description */}
-          <p className="text-[#b5b5b5] text-lg leading-7 tracking-tight text-center max-w-[580px]" style={{ fontFamily: 'Inter' }}>
+          <AnimateOnScroll animation="fade-up" delay={200} as="p"
+            className="text-[#FAFAFA] text-lg leading-7 tracking-tight text-center max-w-[580px]"
+            style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
+          >
             Meet the Liberty Rewards team. Connect with our dedicated professionals across all departments.
-          </p>
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ════════════════ SEARCH & FILTERS ════════════════ */}
-      <section className="bg-white w-full flex flex-col gap-8 items-center py-[50px] px-6">
-        {/* Search bar */}
-        <div className="bg-black/[0.04] border border-[#e2e2e2] rounded-2xl px-[11px] py-[6px] w-full max-w-[576px]">
-          <div className="flex gap-4 items-center w-full">
-            <SearchIcon />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search name, role..."
-              className="flex-1 bg-transparent outline-none text-base text-black placeholder:text-black/60 tracking-tight"
-              style={{ fontFamily: 'Inter' }}
-            />
-            <button className="bg-white/10 rounded-[20px] w-10 h-10 flex items-center justify-center shrink-0">
-              <FilterIcon />
-            </button>
-          </div>
-        </div>
+      <section className="bg-white w-full relative z-30">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-8 items-center py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
+          {/* Search bar */}
+          <AnimateOnScroll animation="fade-down" className="bg-black/[0.03] border border-[#e2e2e2] hover:border-[#ff8a00]/40 focus-within:border-[#ff8a00] focus-within:shadow-[0_0_15px_rgba(255,138,0,0.2)] focus-within:bg-white rounded-full px-5 py-2.5 w-full max-w-[576px] transition-all duration-300">
+            <div className="flex gap-3 items-center w-full">
+              <SearchIcon />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search name, role..."
+                className="flex-1 bg-transparent outline-none text-base text-black placeholder:text-black/50 tracking-tight"
+                style={{ fontFamily: 'Inter' }}
+              />
+              {/* Clear button */}
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="text-black/40 hover:text-black transition-colors p-1"
+                  aria-label="Clear search"
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 4l8 8M12 4L4 12" strokeLinecap="round" />
+                  </svg>
+                </button>
+              )}
+              {/* Filter button & Dropdown Menu */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!isFilterDropdownOpen) {
+                      setTempSortBy(sortBy);
+                    }
+                    setIsFilterDropdownOpen((prev) => !prev);
+                  }}
+                  className={`relative rounded-full w-9 h-9 flex items-center justify-center shrink-0 transition-all cursor-pointer ${
+                    isFilterDropdownOpen || sortBy !== 'default'
+                      ? 'bg-[#ff8a00] text-white shadow-md hover:bg-[#e07900]'
+                      : 'bg-black/[0.04] text-black/60 hover:bg-black/10'
+                  }`}
+                  title="Filter & Sort options"
+                >
+                  <FilterIcon color={isFilterDropdownOpen || sortBy !== 'default' ? '#ffffff' : '#666666'} />
+                  {sortBy !== 'default' && (
+                    <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#ff6a00] ring-2 ring-white" />
+                  )}
+                </button>
 
-        {/* Department filters */}
-        <div className="flex flex-wrap gap-4 items-center justify-center">
-          {departments.map((dept) => (
-            <button
-              key={dept}
-              onClick={() => setActiveDepartment(dept)}
-              className={`rounded-full px-[23px] py-[11px] text-sm font-semibold tracking-tight transition-all duration-300 border cursor-pointer ${
-                activeDepartment === dept
-                  ? 'border-[#ff8a00] bg-white text-[#ff8a00]'
-                  : 'border-[#e2e2e2] text-black hover:border-[#ff8a00]/40'
-              }`}
-              style={{ fontFamily: 'Inter' }}
-            >
-              {dept}
-            </button>
-          ))}
+                {/* Filter Dropdown Menu */}
+                {isFilterDropdownOpen && (
+                  <div
+                    className="absolute right-0 top-full mt-3 w-72 bg-white rounded-2xl border border-[#e2e2e2] shadow-2xl p-5 z-[100] flex flex-col gap-4 text-left"
+                    style={{ animation: 'fadeIn 0.2s ease-out' }}
+                  >
+                    <div className="flex items-center justify-between border-b border-[#eee] pb-3">
+                      <span className="font-semibold text-sm text-black font-sans">Filter & Sort Staff</span>
+                      <button
+                        type="button"
+                        onClick={() => setIsFilterDropdownOpen(false)}
+                        className="text-gray-400 hover:text-black text-xs font-bold"
+                      >
+                        ✕
+                      </button>
+                    </div>
+
+                    {/* Custom Sort Select Dropdown */}
+                    <div className="flex flex-col gap-2 relative">
+                      <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider font-sans">Sort Results</span>
+                      
+                      {/* Custom Select Trigger Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsSortDropdownOpen((prev) => !prev)}
+                        className="w-full bg-[#f8f9fa] border border-[#e2e2e2] hover:border-[#ff8a00]/60 rounded-xl px-3.5 py-2.5 flex items-center justify-between text-sm text-black font-sans transition-all cursor-pointer outline-none"
+                      >
+                        <span className="font-medium">
+                          {sortOptions.find((opt) => opt.value === tempSortBy)?.label || 'Default Order'}
+                        </span>
+                        <svg
+                          className={`w-4 h-4 text-black/60 transition-transform duration-200 ${
+                            isSortDropdownOpen ? 'rotate-180 text-[#ff8a00]' : ''
+                          }`}
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                        >
+                          <path d="M5 7.5l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+
+                      {/* Custom Expanded Options List */}
+                      {isSortDropdownOpen && (
+                        <div className="mt-1 w-full bg-white border border-[#e2e2e2] rounded-xl shadow-xl p-1.5 flex flex-col gap-1 z-10 transition-all">
+                          {sortOptions.map((opt) => (
+                            <button
+                              key={opt.value}
+                              type="button"
+                              onClick={() => {
+                                setTempSortBy(opt.value);
+                                setIsSortDropdownOpen(false);
+                              }}
+                              className={`w-full text-left px-3 py-2 rounded-lg text-sm font-sans flex items-center justify-between transition-colors cursor-pointer ${
+                                tempSortBy === opt.value
+                                  ? 'bg-[#ff8a00]/10 text-[#ff8a00] font-semibold'
+                                  : 'text-gray-700 hover:bg-black/5 hover:text-black'
+                              }`}
+                            >
+                              <span>{opt.label}</span>
+                              {tempSortBy === opt.value && (
+                                <svg className="w-4 h-4 text-[#ff8a00]" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                </svg>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Reset & Apply Actions */}
+                    <div className="flex items-center justify-between pt-2 border-t border-[#eee]">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setTempSortBy('default');
+                          setSortBy('default');
+                          setActiveDepartment('All Departments');
+                          setSearchQuery('');
+                          setIsFilterDropdownOpen(false);
+                          setIsSortDropdownOpen(false);
+                        }}
+                        className="text-xs text-[#ff8a00] font-semibold hover:underline font-sans cursor-pointer"
+                      >
+                        Reset All
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSortBy(tempSortBy);
+                          setIsFilterDropdownOpen(false);
+                          setIsSortDropdownOpen(false);
+                        }}
+                        className="bg-[#0c0c0d] text-white text-xs font-semibold px-4 py-2 rounded-xl hover:bg-black transition-colors cursor-pointer"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Department filters */}
+          <AnimateOnScroll animation="fade-up" delay={100} className="flex flex-wrap gap-3 md:gap-4 items-center justify-center">
+            {departments.map((dept) => (
+              <button
+                key={dept}
+                type="button"
+                onClick={() => setActiveDepartment(dept)}
+                className={`rounded-full px-[14px] py-[8px] sm:px-[23px] sm:py-[11px] text-sm font-semibold tracking-tight transition-all duration-300 border cursor-pointer ${
+                  activeDepartment === dept
+                    ? 'border-[#ff8a00] bg-white text-[#ff8a00] shadow-[0_2px_10px_rgba(255,138,0,0.15)] scale-[1.02]'
+                    : 'border-[#e2e2e2] bg-white text-black hover:border-[#ff8a00]/50 hover:text-[#ff8a00]'
+                }`}
+                style={{ fontFamily: 'Inter' }}
+              >
+                {dept}
+              </button>
+            ))}
+          </AnimateOnScroll>
         </div>
       </section>
 
       {/* ════════════════ STAFF GRID ════════════════ */}
-      <section className="bg-white w-full flex flex-col gap-8 items-center px-5 md:px-8 lg:px-12 xl:px-[94px] pb-[50px]">
-        <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
-          Showing <span className="font-semibold text-black">{filteredStaff.length}</span> staff member{filteredStaff.length !== 1 ? 's' : ''}
-        </p>
+      <section className="bg-white w-full pb-[50px] relative z-20">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-8 items-center px-5 md:px-8 lg:px-12 xl:px-[94px]">
+          <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
+            Showing <span className="font-semibold text-black">{filteredStaff.length}</span> staff member{filteredStaff.length !== 1 ? 's' : ''}
+          </p>
 
-        {filteredStaff.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[26px] gap-y-[34px] w-full max-w-[1252px]">
-            {filteredStaff.map((member) => (
-              <StaffCard key={member.id} member={member} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex flex-col items-center gap-4 py-16">
-            <div className="w-16 h-16 rounded-full bg-black/[0.04] flex items-center justify-center">
-              <SearchIcon />
+          {filteredStaff.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[26px] gap-y-[34px] w-full max-w-[1252px] stagger-children">
+              {filteredStaff.map((member) => (
+                <AnimateOnScroll key={member.id} animation="fade-up" delay={(filteredStaff.indexOf(member) % 3) * 100} className="h-full flex flex-col">
+                  <StaffCard member={member} />
+                </AnimateOnScroll>
+              ))}
             </div>
-            <p className="text-[#989898] text-lg" style={{ fontFamily: 'Inter' }}>
-              No staff members found
-            </p>
-            <button
-              onClick={() => { setSearchQuery(''); setActiveDepartment('All Departments'); }}
-              className="text-[#ff8a00] text-sm font-medium hover:underline cursor-pointer"
-              style={{ fontFamily: 'Inter' }}
-            >
-              Clear filters
-            </button>
-          </div>
-        )}
+          ) : (
+            <div className="flex flex-col items-center gap-4 py-16">
+              <div className="w-16 h-16 rounded-full bg-black/[0.04] flex items-center justify-center">
+                <SearchIcon />
+              </div>
+              <p className="text-[#989898] text-lg" style={{ fontFamily: 'Inter' }}>
+                No staff members found
+              </p>
+              <button
+                onClick={() => { setSearchQuery(''); setActiveDepartment('All Departments'); }}
+                className="text-[#ff8a00] text-sm font-medium hover:underline cursor-pointer"
+                style={{ fontFamily: 'Inter' }}
+              >
+                Clear filters
+              </button>
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );

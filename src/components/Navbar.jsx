@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -22,6 +23,25 @@ const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
+  // Handle scroll to update navbar background color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check in case page starts scrolled
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const menuItems = [
     { label: 'Home', to: '/' },
     { label: 'About Us', to: '/about-us' },
@@ -36,12 +56,13 @@ const Navbar = () => {
     if (to === '/products') return location.pathname.startsWith('/products');
     if (to === '/partners') return location.pathname === '/partners';
     if (to === '/staff') return location.pathname === '/staff';
+    if (to === '/contact') return location.pathname === '/contact';
     return false;
   };
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      <nav className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ease-in-out ${scrolled ? 'bg-black shadow-md py-1' : 'bg-transparent py-0'}`}>
         <div className="mx-auto max-w-[1440px] flex justify-between items-center px-5 md:px-8 lg:px-12 xl:px-[94px] py-[15px]">
           {/* Brand Logo & Name Anchor */}
           <Link to="/" className="flex items-center space-x-3 cursor-pointer relative z-[60]">
@@ -49,7 +70,7 @@ const Navbar = () => {
           </Link>
 
           {/* Center Menu Links — Desktop */}
-          <div className="hidden md:flex items-center space-x-3 bg-white/10 rounded-full border border-white/10" style={{ padding: '10px' }}>
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 bg-white/10 rounded-full border border-white/10 p-1.5 lg:p-2.5">
             {menuItems.map((item) => {
               const active = isActive(item.to);
               const isHashLink = item.to.startsWith('/#');
@@ -59,12 +80,11 @@ const Navbar = () => {
                   <a
                     key={item.label}
                     href={item.to}
-                    className={`rounded-full text-sm font-medium transition-all duration-300 border ${
+                    className={`rounded-full text-xs lg:text-sm font-medium px-2.5 lg:px-3.5 py-1.5 lg:py-2 transition-all duration-300 border ${
                       active
                         ? 'border-[#FFB200]/40 bg-[#FFB200]/10 text-[#FFB200]'
                         : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                     }`}
-                    style={{ padding: '8px 12px' }}
                   >
                     {item.label}
                   </a>
@@ -75,12 +95,11 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   to={item.to}
-                  className={`rounded-full text-sm font-medium transition-all duration-300 border ${
+                  className={`rounded-full text-xs lg:text-sm font-medium px-2.5 lg:px-3.5 py-1.5 lg:py-2 transition-all duration-300 border ${
                     active
                       ? 'border-[#FFB200]/40 bg-[#FFB200]/10 text-[#FFB200]'
                       : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                   }`}
-                  style={{ padding: '8px 12px' }}
                 >
                   {item.label}
                 </Link>
@@ -92,8 +111,12 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <Link
               to="/contact"
-              className="hidden md:inline-block text-white hover:text-brand-gold rounded-full text-sm font-medium transition-all duration-300 border border-white/20 bg-white/10 hover:bg-white/20"
-              style={{ padding: '8px 12px' }}
+              className={`hidden md:inline-block rounded-full text-sm font-medium transition-all duration-300 border ${
+                isActive('/contact')
+                  ? 'border-[#FFB200]/40 bg-[#FFB200]/10 text-[#FFB200]'
+                  : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
+              }`}
+              style={{ padding: '8px 16px' }}
             >
               Contact Us
             </Link>
@@ -134,6 +157,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.to}
+                onClick={() => setMobileMenuOpen(false)}
                 className={`text-2xl font-medium transition-colors duration-300 ${
                   active ? 'text-[#FFB200]' : 'text-white/80 hover:text-white'
                 }`}
@@ -145,6 +169,7 @@ const Navbar = () => {
           })}
           <Link
             to="/contact"
+            onClick={() => setMobileMenuOpen(false)}
             className="mt-4 border border-[#FFB200] rounded-full px-6 py-3 text-[#FFB200] font-bold text-lg hover:bg-[#FFB200]/10 transition-colors"
             style={{ fontFamily: 'Inter' }}
           >

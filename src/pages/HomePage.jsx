@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ArrowIcon from "../components/ArrowIcon";
+import AnimateOnScroll from "../components/AnimateOnScroll";
 import section1Bg from "../assets/section-1-bg.png";
 import section1BgElement from "../assets/section-1-bg-element.png";
 
@@ -31,21 +32,25 @@ function HomePage() {
       title: "Skill Match Game System",
       category: "Skill-Based Games",
       bgImage: "/Image (Skill Match Game System).png",
+      link: "/products?category=Skill-Based Games",
     },
     {
       title: "Arcade Skill-Challenge Platform",
       category: "Skill-Based Games",
       bgImage: "/Image (Arcade Skill-Challenge Platform).png",
+      link: "/products?category=Skill-Based Games",
     },
     {
       title: "Digital Fan Table",
-      category: "RNG Tables",
+      category: "Fish Tables",
       bgImage: "/Image (Digital Fan Table) (1).png",
+      link: "/products?category=Fish Tables",
     },
     {
       title: "Gaming Terminal Hardware",
-      category: "Gaming Hardware",
+      category: "Gaming Hardware & Systems",
       bgImage: "/Image (Gaming Terminal Hardware).png",
+      link: "/products?category=Gaming Hardware %26 Systems",
     },
   ];
 
@@ -60,7 +65,10 @@ function HomePage() {
   return (
     <>
       {/* Hero Section (Section 1) */}
-      <section id="home" className="relative w-full overflow-hidden mb-[10px] min-h-[580px] lg:h-[816px] flex items-center">
+      <section
+        id="home"
+        className="relative w-full overflow-hidden mb-[10px] min-h-[580px] lg:h-[816px] flex items-center"
+      >
         {/* Background Image that covers the hero section */}
         <img
           src={section1Bg}
@@ -69,54 +77,70 @@ function HomePage() {
         />
 
         {/* Content Container */}
-        <div className="relative z-20 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[120px] pb-[80px] lg:pt-0 lg:pb-0 flex items-center justify-between">
-          {/* Left Column (Width 687px) */}
-          <div className="max-w-[687px] w-full text-left flex flex-col">
+        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[120px] pb-[80px] lg:pt-0 lg:pb-0 flex items-center justify-between">
+          {/* Left Column (Width 687px on desktop) */}
+          <div className="max-w-[687px] w-full text-left flex flex-col relative z-30">
             <div className="flex flex-col space-y-[24px]">
-              <p
-                className="flex items-center space-x-2 font-medium uppercase text-[16px] leading-[24px] text-white"
+              <AnimateOnScroll
+                animation="fade-up"
+                delay={0}
+                as="p"
+                className="flex items-center space-x-2 font-medium uppercase text-xs sm:text-sm md:text-base leading-snug text-white"
                 style={{ fontFamily: "Inter", letterSpacing: "0.4px" }}
               >
                 <img
                   src="/shield-check.svg"
                   alt="Shield Icon"
-                  className="w-5 h-5"
+                  className="w-5 h-5 shrink-0"
                 />
                 <span>
                   Designed for Adult Audiences • Transparent • Compliant
                 </span>
-              </p>
+              </AnimateOnScroll>
 
-              <h1
-                className="text-4xl md:text-[64px] text-white uppercase flex flex-col font-adlam font-normal"
+              <AnimateOnScroll
+                animation="fade-up"
+                delay={150}
+                as="h1"
+                className="text-2xl sm:text-3xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase flex flex-col font-adlam font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
                 style={{ letterSpacing: "-1.11px" }}
               >
-                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
+                <span className="lg:whitespace-nowrap">
                   Liberty Rewards
                 </span>
-                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap mt-[4px]">
+                <span className="lg:whitespace-nowrap mt-[4px]">
                   Premium Sweepstakes
                 </span>
-                <span className="leading-tight md:leading-[74px] md:whitespace-nowrap">
+                <span className="lg:whitespace-nowrap">
                   & Skill-Based Gaming
                 </span>
-              </h1>
+              </AnimateOnScroll>
 
-              <p
-                className="text-gray-400 text-[16px] leading-[28px] font-normal"
-                style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+              <AnimateOnScroll
+                animation="fade-up"
+                delay={300}
+                as="p"
+                className="text-[#FAFAFA] text-sm sm:text-base leading-[24px] sm:leading-[28px] font-normal max-w-[560px] lg:max-w-none"
+                style={{
+                  fontFamily: "Inter",
+                  letterSpacing: "0px",
+                  color: "#FAFAFA",
+                }}
               >
                 Liberty Rewards is an informational platform showcasing
-                sweepstakes-based and skill-driven gaming products designed
-                for transparent, compliant, and engaging digital
-                entertainment.
-              </p>
+                sweepstakes-based and skill-driven gaming products designed for
+                transparent, compliant, and engaging digital entertainment.
+              </AnimateOnScroll>
             </div>
 
-            <div className="mt-[32px]">
+            <AnimateOnScroll
+              animation="fade-up"
+              delay={450}
+              className="mt-[32px]"
+            >
               <a
                 href="#products"
-                className="inline-flex items-center transition-all duration-300 hover:bg-[#FFB200]/10"
+                className="btn-outline-gold inline-flex items-center"
                 style={{
                   border: "1px solid #FFB200",
                   paddingTop: "11px",
@@ -127,30 +151,30 @@ function HomePage() {
                   color: "#FFB200",
                   fontFamily: "Inter",
                   fontWeight: 700,
-                  fontSize: "18px",
+                  fontSize: "clamp(14px, 3vw, 18px)",
                   lineHeight: "28px",
                   textAlign: "center",
                   letterSpacing: "-0.44px",
                   gap: "14px",
                 }}
               >
-                <span className="uppercase">
-                  Explore Products
-                </span>
+                <span className="uppercase">Explore Products</span>
                 <ArrowIcon color="#FFB200" />
               </a>
-            </div>
+            </AnimateOnScroll>
           </div>
+        </div>
 
-          {/* Right Cabinet Element */}
+        {/* Right Cabinet Element — Absolute Background Graphic scaling from 1440px down to mobile */}
+        <div className="absolute inset-0 w-full max-w-[1440px] mx-auto pointer-events-none z-20 overflow-hidden">
           <img
             src={section1BgElement}
             alt="Arcade Machine Cabinet"
-            className="absolute select-none pointer-events-none hidden lg:block"
+            className="absolute select-none pointer-events-none transition-all duration-300 opacity-40 sm:opacity-60 md:opacity-85 lg:opacity-100"
             style={{
               top: "74.54px",
-              right: "-98.61px",
-              width: "clamp(350px, 41vw, 590.26px)",
+              right: "-22.61px",
+              width: "clamp(260px, 41vw, 590.2625931217872px)",
               height: "auto",
               transform: "rotate(3.23deg)",
               borderRadius: "295.13px",
@@ -176,20 +200,24 @@ function HomePage() {
         className="bg-white text-brand-bg relative z-20 w-full"
       >
         <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end">
-            <div>
+          <AnimateOnScroll
+            animation="fade-up"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end w-full gap-4 md:gap-8"
+          >
+            <div className="max-w-[700px] w-full">
               <h2
-                className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d]"
-                style={{ letterSpacing: "0.26px", lineHeight: "50px" }}
+                className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] leading-tight lg:leading-[50px]"
+                style={{ letterSpacing: "0.26px" }}
               >
                 Featured Products
               </h2>
               <p
-                className="text-gray-500 text-[16px] font-normal mt-[24px]"
+                className="text-[#989898] text-[16px] font-normal mt-4 sm:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.44px",
                   lineHeight: "24px",
+                  color: "#989898",
                 }}
               >
                 Discover our curated selection of premium arcade machines and
@@ -198,51 +226,102 @@ function HomePage() {
             </div>
             <Link
               to="/products"
-              className="mt-4 md:mt-0 inline-flex items-center text-[16px] font-semibold text-[#FF5A00] hover:text-[#0c0c0d] transition-colors py-[2px]"
-              style={{ fontFamily: "Inter", gap: "8px" }}
+              className="mt-2 md:mt-0 inline-flex items-center whitespace-nowrap shrink-0 text-[16px] font-semibold text-[#CC8E00] py-[2px] btn-text-link gap-2"
+              style={{ fontFamily: "Inter" }}
             >
-              <span>View All Products</span>
-              <ArrowIcon size={18} className="inline-block" />
+              <span className="whitespace-nowrap">View All Products</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="inline-block shrink-0"
+              >
+                <path
+                  d="M4.16406 10H15.8307"
+                  stroke="#CC8E00"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M10 4.16406L15.8333 9.9974L10 15.8307"
+                  stroke="#CC8E00"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
-          </div>
+          </AnimateOnScroll>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-[24px] mt-[50px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-[24px] mt-[50px] stagger-children">
             {products.map((product, index) => {
               const colSpan =
                 index === 0 || index === 3 ? "md:col-span-7" : "md:col-span-5";
-              const cardHeight = index < 2 ? "h-[350px]" : "h-[250px]";
+              const cardHeight = index < 2 ? "h-[250px] sm:h-[300px] md:h-[350px]" : "h-[200px] sm:h-[220px] md:h-[250px]";
               return (
-                <div
+                <AnimateOnScroll
                   key={index}
-                  className={`group relative ${cardHeight} rounded-[24px] overflow-hidden cursor-pointer ${colSpan}`}
+                  animation="fade-up"
+                  delay={index * 150}
+                  className={colSpan}
                 >
-                  {/* Background Image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url("${product.bgImage}")` }}
-                  ></div>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                  <Link
+                    to={product.link}
+                    className={`group relative ${cardHeight} w-full block rounded-[24px] overflow-hidden cursor-pointer`}
+                  >
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                      style={{ backgroundImage: `url("${product.bgImage}")` }}
+                    ></div>
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
-                  {/* Tags & Badges */}
-                  <div className="absolute top-[24px] right-[24px]">
-                    <span className="bg-black/80 backdrop-blur-md text-[12px] uppercase text-white font-medium px-4 py-1.5 rounded-full font-sans">
-                      {product.category}
-                    </span>
-                  </div>
+                    {/* Tags & Badges */}
+                    <div className="absolute top-[24px] right-[24px]">
+                      <span className="bg-black/80 backdrop-blur-md text-[12px] uppercase text-white font-medium px-4 py-1.5 rounded-full font-sans">
+                        {product.category}
+                      </span>
+                    </div>
 
-                  {/* Content */}
-                  <div className="absolute bottom-6 left-6 md:bottom-[32px] md:left-[32px] pr-6 md:pr-0 text-white space-y-2">
-                    <h3 className="text-xl md:text-[28px] font-bold uppercase tracking-wide font-sans">
-                      {product.title}
-                    </h3>
-                    <p className="text-[14px] font-medium tracking-wide flex items-center space-x-1.5 opacity-90 group-hover:opacity-100 transition-opacity font-sans">
-                      <span>View Machine</span>
-                      <ArrowIcon size={16} color="white" />
-                    </p>
-                  </div>
-                </div>
+                    {/* Content */}
+                    <div className="absolute bottom-6 left-6 md:bottom-[32px] md:left-[32px] pr-6 md:pr-0 text-white space-y-2">
+                      <h3 className="text-xl md:text-[28px] font-bold uppercase tracking-wide font-sans">
+                        {product.title}
+                      </h3>
+                      <p className="text-[14px] font-medium tracking-wide flex items-center space-x-1.5 text-[#B5B5B5] font-sans">
+                        <span>View Machine</span>
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="inline-block transition-transform duration-300 group-hover:translate-x-1"
+                        >
+                          <path
+                            d="M4.16406 10H15.8307"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="M10 4.16406L15.8333 9.9974L10 15.8307"
+                            stroke="currentColor"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </p>
+                    </div>
+                  </Link>
+                </AnimateOnScroll>
               );
             })}
           </div>
@@ -256,97 +335,170 @@ function HomePage() {
       >
         <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="text-center">
-            <h2
-              className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center"
-              style={{ letterSpacing: "0.37px", lineHeight: "50px" }}
+            <AnimateOnScroll
+              animation="fade-up"
+              as="h2"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center leading-tight lg:leading-[50px]"
+              style={{ letterSpacing: "0.37px" }}
             >
               Built on Trust and Transparency
-            </h2>
-            <p
-              className="text-gray-500 text-[16px] font-normal mt-[24px] text-center"
+            </AnimateOnScroll>
+            <AnimateOnScroll
+              animation="fade-up"
+              delay={150}
+              as="p"
+              className="text-[#989898] text-[16px] font-normal mt-[24px] text-center"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
                 lineHeight: "24px",
+                color: "#989898",
               }}
             >
               Liberty Rewards offers a streamlined platform for showcasing
               sweepstakes and skill-based gaming products that are built with
               transparency, compliance, and professionalism at the core.
-            </p>
+            </AnimateOnScroll>
           </div>
 
           {/* Features Quadrant Grid */}
-          <div className="max-w-[1252px] mx-auto bg-white rounded-[24px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.01)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-[50px]">
-            
+          <AnimateOnScroll
+            animation="scale-up"
+            delay={200}
+            className="max-w-[1252px] mx-auto bg-white rounded-[24px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.01)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-[50px]"
+          >
             {/* quadrant 1 */}
             <div className="border-b md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
-              <img src="/icon-transparent.svg" alt="Transparent Icon" className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]" />
-              <h3 
-                className="text-2xl md:text-[30px] text-[#0c0c0d]"
-                style={{ fontFamily: 'Inter', fontWeight: 600, lineHeight: '40px', letterSpacing: '-0.45px' }}
+              <img
+                src="/icon-transparent.svg"
+                alt="Transparent Icon"
+                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+              />
+              <h3
+                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 600,
+                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  letterSpacing: "-0.45px",
+                }}
               >
                 Transparent Product Information
               </h3>
-              <p 
-                className="text-gray-400 text-lg md:text-[24px] mt-[24px]"
-                style={{ fontFamily: 'Inter', fontWeight: 500, lineHeight: '32px', letterSpacing: '-0.15px' }}
+              <p
+                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  letterSpacing: "-0.15px",
+                  color: "#989898",
+                }}
               >
-                Clear and detailed specifications for all showcased gaming systems.
+                Clear and detailed specifications for all showcased gaming
+                systems.
               </p>
             </div>
 
             {/* quadrant 2 */}
             <div className="border-b border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
-              <img src="/icon-compliance.svg" alt="Compliance Icon" className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]" />
-              <h3 
-                className="text-2xl md:text-[30px] text-[#0c0c0d]"
-                style={{ fontFamily: 'Inter', fontWeight: 600, lineHeight: '40px', letterSpacing: '-0.45px' }}
+              <img
+                src="/icon-compliance.svg"
+                alt="Compliance Icon"
+                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+              />
+              <h3
+                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 600,
+                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  letterSpacing: "-0.45px",
+                }}
               >
                 Compliance-Focused Presentation
               </h3>
-              <p 
-                className="text-gray-400 text-lg md:text-[24px] mt-[24px]"
-                style={{ fontFamily: 'Inter', fontWeight: 500, lineHeight: '32px', letterSpacing: '-0.15px' }}
+              <p
+                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  letterSpacing: "-0.15px",
+                  color: "#989898",
+                }}
               >
-                Built with a strong emphasis on regulatory compliance and market standards.
+                Built with a strong emphasis on regulatory compliance and market
+                standards.
               </p>
             </div>
 
             {/* quadrant 3 */}
             <div className="border-b md:border-b-0 md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
-              <img src="/icon-premium.svg" alt="Premium Icon" className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]" />
-              <h3 
-                className="text-2xl md:text-[30px] text-[#0c0c0d]"
-                style={{ fontFamily: 'Inter', fontWeight: 600, lineHeight: '40px', letterSpacing: '-0.45px' }}
+              <img
+                src="/icon-premium.svg"
+                alt="Premium Icon"
+                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+              />
+              <h3
+                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 600,
+                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  letterSpacing: "-0.45px",
+                }}
               >
                 Premium Digital Experience
               </h3>
-              <p 
-                className="text-gray-400 text-lg md:text-[24px] mt-[24px]"
-                style={{ fontFamily: 'Inter', fontWeight: 500, lineHeight: '32px', letterSpacing: '-0.15px' }}
+              <p
+                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  letterSpacing: "-0.15px",
+                  color: "#989898",
+                }}
               >
-                A high-end, user-friendly interface reflecting the quality of products we represent.
+                A high-end, user-friendly interface reflecting the quality of
+                products we represent.
               </p>
             </div>
 
             {/* quadrant 4 */}
             <div className="flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
-              <img src="/icon-partner.svg" alt="Partner Icon" className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]" />
-              <h3 
-                className="text-2xl md:text-[30px] text-[#0c0c0d]"
-                style={{ fontFamily: 'Inter', fontWeight: 600, lineHeight: '40px', letterSpacing: '-0.45px' }}
+              <img
+                src="/icon-partner.svg"
+                alt="Partner Icon"
+                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+              />
+              <h3
+                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 600,
+                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  letterSpacing: "-0.45px",
+                }}
               >
                 Partner-Friendly Platform
               </h3>
-              <p 
-                className="text-gray-400 text-lg md:text-[24px] mt-[24px]"
-                style={{ fontFamily: 'Inter', fontWeight: 500, lineHeight: '32px', letterSpacing: '-0.15px' }}
+              <p
+                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                style={{
+                  fontFamily: "Inter",
+                  fontWeight: 500,
+                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  letterSpacing: "-0.15px",
+                  color: "#989898",
+                }}
               >
-                Designed to foster strong relationships between developers, distributors, and operators.
+                Designed to foster strong relationships between developers,
+                distributors, and operators.
               </p>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </section>
 
@@ -356,12 +508,14 @@ function HomePage() {
         className="bg-white text-brand-bg relative z-20 w-full pt-[50px] pb-[100px] overflow-hidden"
       >
         <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] text-center">
-          <h2
-            className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[32px] text-center"
-            style={{ letterSpacing: "0.07px", lineHeight: "50px" }}
+          <AnimateOnScroll
+            animation="fade-up"
+            as="h2"
+            className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[32px] text-center leading-tight lg:leading-[50px]"
+            style={{ letterSpacing: "0.07px" }}
           >
             Our Technology & Product Partners
-          </h2>
+          </AnimateOnScroll>
         </div>
 
         {/* Logo Carousel Container - Bleeds full screen width */}
@@ -397,7 +551,7 @@ function HomePage() {
       {/* Bottom CTA Section */}
       <section className="relative w-full bg-[#0a0a0b] overflow-hidden z-20">
         {/* Left Side Cabinet Element */}
-        <div className="hidden lg:block absolute left-0 bottom-[25px] select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/section-elemnt.png"
             alt="Arcade Machine Cabinet Left"
@@ -406,7 +560,7 @@ function HomePage() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden lg:block absolute right-0 bottom-[25px] select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src={section1BgElement}
             alt="Arcade Machine Cabinet Right"
@@ -433,32 +587,38 @@ function HomePage() {
           }}
         ></div>
 
-        {/* Content Container (Max width 1440px centered, padding: top/bottom 75px, left/right 318px) */}
-        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[75px] px-5 md:px-8 lg:px-20 xl:px-[318px] z-30">
+        {/* Content Container (Max width 1440px centered) */}
+        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[60px] md:py-[75px] px-5 md:px-8 xl:px-[318px] z-30">
           {/* Center Content Column */}
-          <div className="w-full text-center flex flex-col items-center">
-            <h2
-              className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-white mb-[24px] text-center"
-              style={{ letterSpacing: "0.26px", lineHeight: "50px" }}
+          <div className="max-w-[760px] w-full text-center flex flex-col items-center">
+            <AnimateOnScroll
+              animation="blur-in"
+              as="h2"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-white mb-[24px] text-center leading-tight lg:leading-[50px]"
+              style={{ letterSpacing: "0.26px" }}
             >
               Looking to explore our products or collaborate with us?
-            </h2>
-            <p
-              className="text-gray-400 text-[16px] font-normal mb-[24px] text-center"
+            </AnimateOnScroll>
+            <AnimateOnScroll
+              animation="fade-up"
+              delay={150}
+              as="p"
+              className="text-[#B3B3B3] text-[16px] font-normal mb-[24px] text-center"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.45px",
                 lineHeight: "24px",
+                color: "#B3B3B3",
               }}
             >
               High-quality partners call us home, and premium products shine
               here. Learn more about our compliant gaming solutions and
               partnership opportunities.
-            </p>
-            <div>
-              <a
-                href="#contact"
-                className="inline-flex items-center transition-all duration-300 hover:bg-[#FFB200]/10"
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-up" delay={300}>
+              <Link
+                to="/contact"
+                className="btn-outline-gold inline-flex items-center"
                 style={{
                   border: "1px solid #FFB200",
                   paddingTop: "11px",
@@ -469,19 +629,17 @@ function HomePage() {
                   color: "#FFB200",
                   fontFamily: "Inter",
                   fontWeight: 700,
-                  fontSize: "18px",
+                  fontSize: "clamp(14px, 3vw, 18px)",
                   lineHeight: "28px",
                   textAlign: "center",
                   letterSpacing: "-0.44px",
                   gap: "14px",
                 }}
               >
-                <span className="uppercase">
-                  Contact Our Team
-                </span>
+                <span className="uppercase">Contact Our Team</span>
                 <ArrowIcon color="#FFB200" />
-              </a>
-            </div>
+              </Link>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -489,20 +647,25 @@ function HomePage() {
       {/* What Liberty Does Section */}
       <section
         id="about-details"
-        className="bg-white text-[#0c0c0d] relative z-20 w-full py-[50px] overflow-hidden"
+        className="bg-white text-[#0c0c0d] relative z-20 w-full overflow-hidden"
       >
-        <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
-          <h2
-            className="text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[50px]"
-            style={{ letterSpacing: "0.37px", lineHeight: "50px" }}
+        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
+          <AnimateOnScroll
+            animation="fade-up"
+            as="h2"
+            className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[24px] sm:mb-[50px]"
+            style={{ letterSpacing: "0.37px", lineHeight: "clamp(32px, 5vw, 50px)" }}
           >
             What Liberty Does
-          </h2>
+          </AnimateOnScroll>
 
           {/* Card Container */}
           <div className="bg-white rounded-[30px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.02)] p-8 md:p-[40px] flex flex-col md:flex-row gap-[20px] items-stretch">
             {/* Left Content column */}
-            <div className="w-full md:w-1/2 flex flex-col justify-start">
+            <AnimateOnScroll
+              animation="fade-right"
+              className="w-full md:w-1/2 flex flex-col justify-start"
+            >
               <h3
                 className="font-semibold text-[24px] text-[#0c0c0d] mb-[24px]"
                 style={{
@@ -514,11 +677,12 @@ function HomePage() {
                 Company Overview
               </h3>
               <div
-                className="space-y-[24px] font-medium text-[16px] text-gray-400"
+                className="space-y-[24px] font-medium text-[16px] text-[#989898]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.15px",
                   lineHeight: "24px",
+                  color: "#989898",
                 }}
               >
                 <p>
@@ -552,10 +716,14 @@ function HomePage() {
                   through a simple and professional interface.
                 </p>
               </div>
-            </div>
+            </AnimateOnScroll>
 
             {/* Right Slider Column */}
-            <div className="w-full md:w-1/2 flex flex-col justify-center">
+            <AnimateOnScroll
+              animation="fade-left"
+              delay={200}
+              className="w-full md:w-1/2 flex flex-col justify-center"
+            >
               <div className="relative w-full rounded-[24px] overflow-hidden bg-black">
                 {/* Template image to establish natural aspect ratio and height */}
                 <img
@@ -613,7 +781,7 @@ function HomePage() {
                   ))}
                 </div>
               </div>
-            </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import ArrowIcon from "../components/ArrowIcon";
+import AnimateOnScroll from "../components/AnimateOnScroll";
 
 const categories = [
   "All Products",
@@ -86,7 +87,33 @@ const productsList = [
 ];
 
 function Products() {
-  const [activeCategory, setActiveCategory] = useState("All Products");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryQuery = searchParams.get("category");
+
+  const [activeCategory, setActiveCategory] = useState(() => {
+    if (categoryQuery && categories.includes(categoryQuery)) {
+      return categoryQuery;
+    }
+    return "All Products";
+  });
+
+  useEffect(() => {
+    const cat = searchParams.get("category");
+    if (cat && categories.includes(cat)) {
+      setActiveCategory(cat);
+    } else if (!cat) {
+      setActiveCategory("All Products");
+    }
+  }, [searchParams]);
+
+  const handleCategoryClick = (category) => {
+    setActiveCategory(category);
+    if (category === "All Products") {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category });
+    }
+  };
 
   const filteredProducts =
     activeCategory === "All Products"
@@ -109,22 +136,22 @@ function Products() {
 
         <div className="absolute left-0 top-[calc(50%+28px)] w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px] -translate-y-1/2">
           <div className="max-w-[935px]">
-            <h1
-              className="text-4xl md:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px]"
+            <AnimateOnScroll animation="fade-up" as="h1"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[75px]"
               style={{ letterSpacing: "-1.11px" }}
             >
-              <span className="leading-tight md:leading-[75px]">Our</span>
-              <span className="leading-tight md:leading-[75px]">Products</span>
-            </h1>
-            <p
-              className="mt-6 max-w-[626px] text-[16px] leading-[28px] font-normal text-[#fafafa]"
+              <span>Our</span>
+              <span>Products</span>
+            </AnimateOnScroll>
+            <AnimateOnScroll animation="fade-up" delay={200} as="p"
+              className="mt-6 max-w-[626px] text-sm sm:text-base leading-[28px] font-normal text-[#fafafa]"
               style={{ fontFamily: "Inter" }}
             >
               Liberty Rewards provides a structured overview of
               sweepstakes-based and skill-driven gaming products. All products
               listed are informational and designed for compliant, transparent
               digital entertainment environments.
-            </p>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>
@@ -132,21 +159,21 @@ function Products() {
       {/* ============ FILTER BAR ============ */}
       <section className="w-full bg-white my-[50px]">
         <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
-          <div className="flex flex-col items-center gap-6">
+          <AnimateOnScroll animation="fade-down" className="flex flex-col items-center gap-6">
             <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-black px-[15px] py-[7px] text-sm text-white font-medium">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
               Filter By Category
             </span>
 
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-[23px] py-[11px] font-semibold text-sm transition-all duration-300 border ${
+                  onClick={() => handleCategoryClick(category)}
+                  className={`rounded-full px-3.5 sm:px-[23px] py-2 sm:py-[11px] font-semibold text-xs sm:text-sm transition-all duration-300 border ${
                     activeCategory === category
                       ? "border-[#ffb200] bg-white text-[#ffb200]"
-                      : "border-gray-200 text-[#0c0c0d] hover:border-[#ffb200]/40"
+                      : "border-gray-200 text-[#0c0c0d] hover:border-[#ffb200] hover:text-[#ffb200]"
                   }`}
                   style={{ fontFamily: "Inter" }}
                 >
@@ -154,28 +181,29 @@ function Products() {
                 </button>
               ))}
             </div>
-          </div>
+          </AnimateOnScroll>
 
           {/* ============ PRODUCT GRID ============ */}
-          <div className="grid w-full max-w-[1252px] grid-cols-1 gap-x-[34px] gap-y-[51px] sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid w-full max-w-[1252px] grid-cols-1 gap-x-[34px] gap-y-[51px] sm:grid-cols-2 lg:grid-cols-3 stagger-children">
             {filteredProducts.map((product) => (
-              <article
-                key={product.id}
-                className="overflow-hidden rounded-[24px] border border-gray-200 bg-white transition-all duration-300 hover:shadow-[0_4px_25px_rgba(0,0,0,0.05)]"
+              <AnimateOnScroll key={product.id} animation="fade-up" delay={(filteredProducts.indexOf(product) % 3) * 100} className="h-full flex flex-col">
+              <Link
+                to={`/products/${product.id}`}
+                className="group overflow-hidden rounded-[24px] border border-gray-200 bg-white hover:border-[#ffb200]/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer"
                 style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
               >
-                <div className="relative h-[280px]">
+                <div className="relative h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/80 backdrop-blur-md px-3 py-1.5 text-xs uppercase tracking-wide text-white font-medium">
                     <span className="w-2 h-2 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200]"></span>
                     {product.category}
                   </span>
                 </div>
-                <div className="flex flex-col gap-3 pt-[23px] px-[23px] pb-[15px]">
+                <div className="flex flex-col flex-1 gap-3 pt-[23px] px-[23px] pb-[15px]">
                   <h3
                     className="text-xl font-bold text-[#0c0c0d]"
                     style={{ fontFamily: "Inter" }}
@@ -183,21 +211,23 @@ function Products() {
                     {product.title}
                   </h3>
                   <p
-                    className="text-[14px] leading-[22px] text-gray-500 font-normal"
-                    style={{ fontFamily: "Inter", letterSpacing: "-0.15px" }}
+                    className="text-[14px] leading-[22px] text-[#989898] font-normal"
+                    style={{ fontFamily: "Inter", letterSpacing: "-0.15px", color: "#989898" }}
                   >
                     {product.description}
                   </p>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="mt-3 mb-2 inline-flex items-center gap-2 text-sm font-semibold text-[#0c0c0d] hover:text-[#ffb200] transition-colors"
+                  <div
+                    className="mt-auto mb-2 inline-flex items-center gap-2 text-sm font-semibold text-[#0c0c0d] group-hover:text-[#ffb200] transition-colors duration-300"
                     style={{ fontFamily: "Inter" }}
                   >
                     <span>View Details</span>
-                    <ArrowIcon size={16} />
-                  </Link>
+                    <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
+                      <ArrowIcon size={16} />
+                    </span>
+                  </div>
                 </div>
-              </article>
+              </Link>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -205,7 +235,7 @@ function Products() {
 
       {/* ============ COMPLIANCE & LEGAL NOTE ============ */}
       <section className="w-full bg-black">
-        <div className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex justify-center">
+        <AnimateOnScroll animation="fade-up" className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex justify-center">
           <div
             className="flex w-full max-w-[1252px] flex-col md:flex-row items-start gap-6 rounded-[24px] border border-[#ffb200]/10 p-6 md:pt-[40px] md:pr-8 lg:md:pr-[96px] md:pb-[40px] md:pl-[39px] bg-gradient-to-br from-[#111111]/85 to-[#0b0b0f]/85"
             style={{
@@ -236,8 +266,8 @@ function Products() {
                 </span>
               </div>
               <p
-                className="max-w-[900px] text-base leading-[26px] text-gray-400 font-normal"
-                style={{ fontFamily: "Inter" }}
+                className="max-w-[900px] text-base leading-[26px] text-[#B3B3B3] font-normal"
+                style={{ fontFamily: "Inter", color: "#B3B3B3" }}
               >
                 All products displayed are informational only and designed for
                 adult audiences. Liberty Rewards focuses on transparent,
@@ -247,8 +277,8 @@ function Products() {
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-gray-400"
-                  style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-[#888888]"
+                  style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
                   <img
                     src="/product/caution-icon.svg"
@@ -258,15 +288,15 @@ function Products() {
                   Age Restricted
                 </span>
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-gray-400"
-                  style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-[#888888]"
+                  style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
                   Jurisdiction Specific
                 </span>
                 <span
-                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-gray-400"
-                  style={{ fontFamily: "Inter", letterSpacing: "0px" }}
+                  className="inline-flex items-center gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-3 py-1.5 text-[12px] leading-[16px] text-[#888888]"
+                  style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
                   Certified Systems
@@ -274,16 +304,15 @@ function Products() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
-      {/* ============ LET'S TALK / CTA ============ */}
       <section
         id="contact"
-        className="relative flex flex-wrap items-center justify-center gap-12 overflow-hidden bg-white w-full py-[78px] px-5 md:px-8 lg:px-16 xl:px-[211.5px]"
+        className="relative w-full bg-white overflow-hidden z-20"
       >
         {/* Left Side Cabinet Element */}
-        <div className="hidden lg:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute left-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element.png"
             alt="Arcade Machine Cabinet Left"
@@ -292,7 +321,7 @@ function Products() {
         </div>
 
         {/* Right Side Cabinet Element */}
-        <div className="hidden lg:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
+        <div className="hidden xl:block absolute right-0 bottom-0 select-none pointer-events-none z-10">
           <img
             src="/about-us/about-element-2.png"
             alt="Arcade Machine Cabinet Right"
@@ -300,30 +329,32 @@ function Products() {
           />
         </div>
 
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col xl:flex-row items-center justify-between gap-12">
+
         <div className="relative flex w-full lg:w-[487px] flex-col items-start gap-6 z-10">
           <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-[15px] py-[7px] text-sm text-white">
             <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
             We're Here To Help
           </span>
           <h2
-            className="text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d] uppercase"
-            style={{ lineHeight: "50px" }}
+            className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d] uppercase"
+            style={{ lineHeight: "clamp(32px, 6vw, 50px)" }}
           >
             Let's Talk
             <br />
             <span className="text-gradient">About Project</span>
           </h2>
           <p
-            className="text-[18px] leading-[28px] text-gray-500 font-normal"
-            style={{ fontFamily: "Inter", letterSpacing: "-0.44px" }}
+            className="text-[18px] leading-[28px] text-[#989898] font-normal"
+            style={{ fontFamily: "Inter", letterSpacing: "-0.44px", color: "#989898" }}
           >
             Need detailed specifications, compliance documentation, or custom
             configurations? Our team provides personalized support for your
             business requirements.
           </p>
           <ul
-            className="flex flex-col gap-3 text-sm text-gray-400 font-normal"
-            style={{ fontFamily: "Inter" }}
+            className="flex flex-col gap-3 text-sm text-[#B3B3B3] font-normal"
+            style={{ fontFamily: "Inter", color: "#B3B3B3" }}
           >
             <li className="flex items-center gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
@@ -349,7 +380,7 @@ function Products() {
           style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
         >
           <span
-            className="absolute inline-flex rotate-3 items-center rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] text-sm font-bold text-white shadow-lg"
+            className="absolute inline-flex rotate-3 items-center rounded-full text-sm font-bold text-white shadow-lg"
             style={{
               top: "38.5px",
               right: "8.21px",
@@ -357,6 +388,7 @@ function Products() {
               paddingBottom: "8.77px",
               paddingLeft: "14.45px",
               paddingRight: "14.45px",
+              background: "linear-gradient(180deg, #FF8A00 0%, #FFA500 100%)",
             }}
           >
             Fast Response ⚡
@@ -368,15 +400,15 @@ function Products() {
             Send an Inquiry
           </h3>
           <p
-            className="mt-2 text-sm text-gray-500 font-normal"
-            style={{ fontFamily: "Inter" }}
+            className="mt-2 text-sm text-[#989898] font-normal"
+            style={{ fontFamily: "Inter", color: "#989898" }}
           >
             Get in touch with our team for personalized assistance
           </p>
 
           <a
             href="mailto:info@libertyrewards.com"
-            className="mt-6 flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-b from-[#ff6a00] to-[#ffb200] py-5 text-white shadow-md hover:scale-[1.01] transition-transform"
+            className="mt-6 flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-white btn-gradient-primary"
           >
             <svg
               width="20"
@@ -388,16 +420,16 @@ function Products() {
               <path
                 d="M12.1135 18.0721C12.1452 18.151 12.2002 18.2184 12.2712 18.2651C12.3423 18.3118 12.4259 18.3357 12.5109 18.3335C12.5959 18.3313 12.6781 18.3032 12.7467 18.2529C12.8152 18.2026 12.8668 18.1325 12.8943 18.0521L18.311 2.21879C18.3377 2.14495 18.3428 2.06504 18.3257 1.98842C18.3086 1.91179 18.27 1.84161 18.2145 1.7861C18.159 1.73059 18.0888 1.69203 18.0122 1.67495C17.9356 1.65786 17.8557 1.66295 17.7818 1.68962L1.9485 7.10629C1.86808 7.13387 1.79802 7.18539 1.74772 7.25393C1.69743 7.32247 1.66931 7.40476 1.66713 7.48975C1.66495 7.57474 1.68883 7.65836 1.73555 7.72939C1.78226 7.80042 1.84959 7.85546 1.9285 7.88712L8.53683 10.5371C8.74574 10.6208 8.93554 10.7458 9.0948 10.9048C9.25406 11.0638 9.37948 11.2534 9.4635 11.4621L12.1135 18.0721Z"
                 stroke="white"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M18.2119 1.78906L9.09521 10.9049"
                 stroke="white"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.66667"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <span className="text-lg font-bold" style={{ fontFamily: "Inter" }}>
@@ -414,19 +446,20 @@ function Products() {
             style={{ fontFamily: "Inter" }}
           >
             <div className="flex items-center justify-between">
-              <span className="text-gray-500">Email</span>
+              <span className="text-[#989898]" style={{ color: "#989898" }}>Email</span>
               <span className="font-medium text-[#0c0c0d]">
                 info@libertyrewards.com
               </span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-gray-500">Phone</span>
+              <span className="text-[#989898]" style={{ color: "#989898" }}>Phone</span>
               <span className="font-medium text-[#0c0c0d]">
                 +1 (555) 123-4567
               </span>
             </div>
           </div>
         </div>
+      </div>
       </section>
     </div>
   );
