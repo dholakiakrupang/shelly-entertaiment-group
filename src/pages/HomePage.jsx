@@ -138,8 +138,8 @@ function HomePage() {
               delay={450}
               className="mt-[32px]"
             >
-              <a
-                href="#products"
+              <Link
+                to="/products"
                 className="btn-outline-gold inline-flex items-center"
                 style={{
                   border: "1px solid #FFB200",
@@ -160,7 +160,7 @@ function HomePage() {
               >
                 <span className="uppercase">Explore Products</span>
                 <ArrowIcon color="#FFB200" />
-              </a>
+              </Link>
             </AnimateOnScroll>
           </div>
         </div>
