@@ -419,8 +419,7 @@ html, body {
   height: 20px;
   border-radius: 50%;
   background: linear-gradient(180deg, #FF8A00 0%, #FFA500 100%);
-  border: 3px solid #FFEED6;
-  box-shadow: 0 0 10px rgba(255, 138, 0, 0.5);
+  border: 4px solid #FFEED6;
   z-index: 20;
 }
 
