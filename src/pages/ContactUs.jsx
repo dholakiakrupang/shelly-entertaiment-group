@@ -128,7 +128,7 @@ function ContactUs() {
   return (
     <div className="bg-white text-[#0c0c0d] min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[50px] min-h-[200px] sm:min-h-[260px] md:min-h-[341px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 sm:pt-28 md:pt-36 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[50px] min-h-[200px] sm:min-h-[260px] md:min-h-[341px]">
         <div className="flex flex-col gap-4 sm:gap-6 items-center relative w-full max-w-[1252px]">
 
 

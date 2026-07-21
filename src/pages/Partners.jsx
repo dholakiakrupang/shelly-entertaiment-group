@@ -221,7 +221,7 @@ function Partners() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-12 md:pb-[77px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 sm:pt-28 md:pt-36 lg:pt-[167px] pb-6 sm:pb-12 md:pb-[77px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
         <div className="flex flex-col gap-4 sm:gap-8 items-center relative w-full max-w-[1252px]">
 
           <div className="flex flex-col gap-4 sm:gap-8 items-center flex-1 max-w-3xl text-center w-full">

@@ -494,7 +494,7 @@ function ProductDetail() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-24 sm:pt-28 md:pt-32 lg:pt-[167px] pb-5 sm:pb-8 md:pb-[27px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-24 sm:pt-28 md:pt-36 lg:pt-[167px] pb-5 sm:pb-8 md:pb-[27px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 md:gap-8 items-center relative w-full">
           {/* Back link */}
           <Link

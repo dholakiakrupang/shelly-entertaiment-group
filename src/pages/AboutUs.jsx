@@ -171,7 +171,7 @@ function AboutUs() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ════════════ HERO ════════════ */}
-      <section className="relative h-[300px] sm:h-[420px] md:h-[650px] lg:h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
+      <section className="relative w-full overflow-hidden bg-[#0a0a0b] min-h-[440px] sm:min-h-[480px] md:min-h-[500px] lg:min-h-[540px] xl:h-[816px] flex items-center">
         <div className="absolute inset-0">
           <img
             src="/about-us/about-us-banner.png"
@@ -182,7 +182,7 @@ function AboutUs() {
           <div className="absolute inset-x-0 bottom-0 h-[145px] bg-gradient-to-b from-black/0 to-black"></div>
         </div>
 
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px] pt-6 sm:pt-0">
+        <div className="relative z-30 w-full max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 sm:pt-28 md:pt-36 lg:pt-[167px] xl:pt-0 pb-12 sm:pb-16 md:pb-[80px] xl:pb-0">
           <div className="max-w-[935px]">
             <AnimateOnScroll animation="fade-up" as="h1"
               className="text-2xl sm:text-3xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"

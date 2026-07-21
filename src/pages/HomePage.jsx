@@ -101,7 +101,7 @@ function HomePage() {
         />
 
         {/* Content Container */}
-        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[85px] sm:pt-[95px] md:pt-[90px] lg:pt-[105px] xl:pt-0 pb-[30px] sm:pb-[40px] lg:pb-[40px] xl:pb-0 flex items-center justify-between">
+        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 sm:pt-28 md:pt-36 lg:pt-[167px] xl:pt-0 pb-[30px] sm:pb-[40px] lg:pb-[40px] xl:pb-0 flex items-center justify-between">
           {/* Left Column (Width 687px on desktop) */}
           <div className="max-w-[687px] w-full text-left flex flex-col relative z-30">
             <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-3.5 lg:space-y-4 xl:space-y-[24px]">
