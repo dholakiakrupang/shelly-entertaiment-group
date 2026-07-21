@@ -97,17 +97,17 @@ const partnersData = [
 const AssociatedProductCard = ({ product }) => (
   <Link
     to={`/products/${product.productId}`}
-    className="bg-white border border-[#e2e2e2] rounded-2xl flex items-center gap-4 py-4 px-[17px] w-full hover:shadow-md transition-shadow duration-300"
+    className="bg-white border border-[#e2e2e2] rounded-xl sm:rounded-2xl flex items-center gap-3 sm:gap-4 py-2.5 sm:py-4 px-3 sm:px-[17px] w-full hover:shadow-md transition-shadow duration-300"
     style={{ boxShadow: '0 0 5px rgba(0,0,0,0.05)' }}
   >
-    <div className="rounded-2xl w-16 h-16 overflow-hidden shrink-0 bg-[#111]">
+    <div className="rounded-lg sm:rounded-2xl w-10 h-10 sm:w-16 sm:h-16 overflow-hidden shrink-0 bg-[#111]">
       <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
     </div>
-    <div className="flex flex-col gap-1 flex-1">
-      <p className="font-semibold text-sm text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+    <div className="flex flex-col gap-0.5 sm:gap-1 flex-1">
+      <p className="font-semibold text-xs sm:text-sm text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
         {product.title}
       </p>
-      <p className="text-xs text-[#989898]" style={{ fontFamily: 'Inter' }}>
+      <p className="text-[10px] sm:text-xs text-[#989898]" style={{ fontFamily: 'Inter' }}>
         {product.category}
       </p>
     </div>
@@ -123,7 +123,7 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
         <div className="flex flex-col gap-6 items-start w-full">
           {/* Logo */}
           <div
-            className="rounded-[20px] w-20 h-20 flex items-center justify-center overflow-hidden border border-[rgba(255,138,0,0.1)]"
+            className="rounded-[14px] sm:rounded-[20px] w-12 h-12 sm:w-20 sm:h-20 flex items-center justify-center overflow-hidden border border-[rgba(255,138,0,0.1)]"
             style={{
               backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
             }}
@@ -132,14 +132,14 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
           </div>
 
           {/* Name & Description */}
-          <div className="flex flex-col gap-3 items-start w-full">
+          <div className="flex flex-col gap-2 sm:gap-3 items-start w-full">
             <h2
-              className="font-adlam text-black text-2xl sm:text-3xl lg:text-[40px] font-normal leading-tight lg:leading-[50px]"
+              className="font-adlam text-black text-xl sm:text-3xl lg:text-[40px] font-normal leading-tight lg:leading-[50px]"
               style={{ letterSpacing: '0.37px' }}
             >
               {partner.name}
             </h2>
-            <p className="text-[#989898] text-base leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <p className="text-[#989898] text-xs sm:text-base leading-4 sm:leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
               {partner.description}
             </p>
           </div>
@@ -158,7 +158,7 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
         {/* Associated Products */}
         <div className="flex flex-col gap-2 items-start w-full">
           <p
-            className="font-semibold text-base text-[#777777] tracking-widest uppercase"
+            className="font-semibold text-xs sm:text-base text-[#777777] tracking-widest uppercase"
             style={{ fontFamily: 'Inter', color: '#777777' }}
           >
             Associated Products
@@ -174,23 +174,23 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
       </AnimateOnScroll>
 
       {/* Gallery side */}
-      <AnimateOnScroll animation={reversed ? 'fade-right' : 'fade-left'} delay={200} className="flex flex-col gap-4 items-center justify-center w-full lg:w-[712px]">
-        <div className="rounded-[24px] overflow-hidden w-full aspect-[712/366] shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#e2e2e2]">
+      <AnimateOnScroll animation={reversed ? 'fade-right' : 'fade-left'} delay={200} className="flex flex-col gap-3 sm:gap-4 items-center justify-center w-full lg:w-[712px]">
+        <div className="rounded-[16px] sm:rounded-[24px] overflow-hidden w-full aspect-[16/9] sm:aspect-[712/366] shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#e2e2e2]">
           <img
             src={partner.gallery.main}
             alt={`${partner.name} showcase`}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
-        <div className="flex flex-col sm:flex-row items-center w-full h-[300px] sm:h-[256px] rounded-[24px] overflow-hidden border border-[#e2e2e2]">
-          <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'sm:w-[348px] sm:shrink-0' : 'flex-1'}`}>
+        <div className="flex flex-row items-center w-full h-[120px] sm:h-[200px] lg:h-[256px] rounded-[16px] sm:rounded-[24px] overflow-hidden border border-[#e2e2e2]">
+          <div className="w-1/2 sm:w-auto h-full overflow-hidden flex-1">
             <img
               src={partner.gallery.left}
               alt=""
               className="w-full h-full object-cover scale-[1.08] hover:scale-110 transition-transform duration-700"
             />
           </div>
-          <div className={`w-full sm:h-full h-1/2 overflow-hidden ${reversed ? 'flex-1' : 'sm:w-[348px] sm:shrink-0'}`}>
+          <div className="w-1/2 sm:w-auto h-full overflow-hidden flex-1">
             <img
               src={partner.gallery.right}
               alt=""
@@ -221,15 +221,13 @@ function Partners() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[77px] min-h-[420px]">
-        <div className="flex flex-col gap-8 items-center relative w-full max-w-[1252px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-12 md:pb-[77px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
+        <div className="flex flex-col gap-4 sm:gap-8 items-center relative w-full max-w-[1252px]">
 
-
-
-          <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center w-full">
+          <div className="flex flex-col gap-4 sm:gap-8 items-center flex-1 max-w-3xl text-center w-full">
             {/* Title */}
             <AnimateOnScroll animation="fade-up" as="h1"
-              className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
+              className="font-adlam text-white text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: '0.22px' }}
             >
               Our Partners
@@ -237,7 +235,7 @@ function Partners() {
 
             {/* Description */}
             <AnimateOnScroll animation="fade-up" delay={200} as="p"
-              className="text-[#FAFAFA] text-lg leading-7 tracking-tight max-w-none"
+              className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-none"
               style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
             >
               Liberty Rewards collaborates with industry-trusted hardware and service providers. Our partners

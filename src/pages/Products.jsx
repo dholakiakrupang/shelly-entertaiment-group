@@ -123,7 +123,7 @@ function Products() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ============ HERO ============ */}
-      <section className="relative h-[500px] md:h-[650px] lg:h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
+      <section className="relative h-[300px] sm:h-[420px] md:h-[650px] lg:h-[816px] w-full overflow-hidden bg-[#0a0a0b]">
         <div className="absolute inset-0">
           <img
             src="/product/product-banner.png"
@@ -134,17 +134,17 @@ function Products() {
           <div className="absolute inset-x-0 bottom-0 h-[145px] bg-gradient-to-b from-black/0 to-black"></div>
         </div>
 
-        <div className="absolute left-0 top-[calc(50%+28px)] w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px] -translate-y-1/2">
+        <div className="absolute left-0 top-[calc(50%+16px)] sm:top-[calc(50%+28px)] w-full max-w-[1440px] mx-auto inset-x-0 px-5 md:px-8 lg:px-12 xl:px-[94px] -translate-y-1/2">
           <div className="max-w-[935px]">
             <AnimateOnScroll animation="fade-up" as="h1"
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[75px]"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase font-adlam font-normal flex flex-col space-y-[4px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[75px]"
               style={{ letterSpacing: "-1.11px" }}
             >
               <span>Our</span>
               <span>Products</span>
             </AnimateOnScroll>
             <AnimateOnScroll animation="fade-up" delay={200} as="p"
-              className="mt-6 max-w-[626px] text-sm sm:text-base leading-[28px] font-normal text-[#fafafa]"
+              className="mt-3 md:mt-6 max-w-[626px] text-xs sm:text-sm md:text-base leading-4 sm:leading-6 md:leading-[28px] font-normal text-[#fafafa]"
               style={{ fontFamily: "Inter" }}
             >
               Liberty Rewards provides a structured overview of
@@ -157,8 +157,8 @@ function Products() {
       </section>
 
       {/* ============ FILTER BAR ============ */}
-      <section className="w-full bg-white my-[50px]">
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[50px]">
+      <section className="w-full bg-white my-[24px] md:my-[50px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[24px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col items-center gap-[24px] md:gap-[50px]">
           <AnimateOnScroll animation="fade-down" className="flex flex-col items-center gap-6">
             <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-black px-[15px] py-[7px] text-sm text-white font-medium">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
@@ -184,15 +184,15 @@ function Products() {
           </AnimateOnScroll>
 
           {/* ============ PRODUCT GRID ============ */}
-          <div className="grid w-full max-w-[1252px] grid-cols-1 gap-x-[34px] gap-y-[51px] sm:grid-cols-2 lg:grid-cols-3 stagger-children">
+          <div className="grid w-full max-w-[1252px] grid-cols-1 gap-x-[20px] sm:gap-x-[34px] gap-y-[24px] sm:gap-y-[36px] md:gap-y-[51px] sm:grid-cols-2 lg:grid-cols-3 stagger-children">
             {filteredProducts.map((product) => (
               <AnimateOnScroll key={product.id} animation="fade-up" delay={(filteredProducts.indexOf(product) % 3) * 100} className="h-full flex flex-col">
               <Link
                 to={`/products/${product.id}`}
-                className="group overflow-hidden rounded-[24px] border border-gray-200 bg-white hover:border-[#ffb200]/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer"
+                className="group overflow-hidden rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border border-gray-200 bg-white hover:border-[#ffb200]/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer"
                 style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
               >
-                <div className="relative h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden">
+                <div className="relative h-[160px] sm:h-[200px] md:h-[280px] overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.title}
@@ -203,21 +203,21 @@ function Products() {
                     {product.category}
                   </span>
                 </div>
-                <div className="flex flex-col flex-1 gap-3 pt-[23px] px-[23px] pb-[15px]">
+                <div className="flex flex-col flex-1 gap-2 sm:gap-3 pt-[16px] sm:pt-[20px] md:pt-[23px] px-[16px] sm:px-[20px] md:px-[23px] pb-[12px] sm:pb-[15px]">
                   <h3
-                    className="text-xl font-bold text-[#0c0c0d]"
+                    className="text-base sm:text-lg md:text-xl font-bold text-[#0c0c0d]"
                     style={{ fontFamily: "Inter" }}
                   >
                     {product.title}
                   </h3>
                   <p
-                    className="text-[14px] leading-[22px] text-[#989898] font-normal"
+                    className="text-[12px] sm:text-[13px] md:text-[14px] leading-[18px] sm:leading-[20px] md:leading-[22px] text-[#989898] font-normal"
                     style={{ fontFamily: "Inter", letterSpacing: "-0.15px", color: "#989898" }}
                   >
                     {product.description}
                   </p>
                   <div
-                    className="mt-auto mb-2 inline-flex items-center gap-2 text-sm font-semibold text-[#0c0c0d] group-hover:text-[#ffb200] transition-colors duration-300"
+                    className="mt-auto mb-1 sm:mb-2 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0c0c0d] group-hover:text-[#ffb200] transition-colors duration-300"
                     style={{ fontFamily: "Inter" }}
                   >
                     <span>View Details</span>
@@ -235,7 +235,7 @@ function Products() {
 
       {/* ============ COMPLIANCE & LEGAL NOTE ============ */}
       <section className="w-full bg-black">
-        <AnimateOnScroll animation="fade-up" className="max-w-[1440px] mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex justify-center">
+        <AnimateOnScroll animation="fade-up" className="max-w-[1440px] mx-auto py-[24px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex justify-center">
           <div
             className="flex w-full max-w-[1252px] flex-col md:flex-row items-start gap-6 rounded-[24px] border border-[#ffb200]/10 p-6 md:pt-[40px] md:pr-8 lg:md:pr-[96px] md:pb-[40px] md:pl-[39px] bg-gradient-to-br from-[#111111]/85 to-[#0b0b0f]/85"
             style={{

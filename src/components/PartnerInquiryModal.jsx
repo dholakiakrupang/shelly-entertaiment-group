@@ -94,7 +94,7 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 md:p-6"
       onClick={handleBackdropClick}
       style={{ animation: 'partnerFadeIn 0.25s ease-out' }}
     >
@@ -104,7 +104,7 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
       {/* Modal */}
       <div
         ref={modalRef}
-        className="relative bg-white rounded-2xl flex flex-col gap-8 items-start px-6 py-6 md:px-10 w-full max-w-[655px] max-h-[90vh] overflow-y-auto"
+        className="relative bg-white rounded-2xl flex flex-col gap-3 sm:gap-6 md:gap-8 items-start p-4 sm:p-6 md:px-10 w-full max-w-[655px] max-h-[92vh] sm:max-h-[90vh] overflow-y-auto no-scrollbar"
         style={{
           boxShadow: '0 20px 30px rgba(0,0,0,0.15)',
           animation: 'partnerSlideUp 0.3s ease-out',
@@ -115,16 +115,16 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="relative self-end bg-white border border-[#e2e2e2] rounded-full w-10 h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer z-50"
+            className="relative self-end bg-white border border-[#e2e2e2] rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer z-50"
             aria-label="Close modal"
           >
-            <svg className="w-5 h-5 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 text-black" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 5l10 10M15 5L5 15" strokeLinecap="round" />
             </svg>
           </button>
 
           <h2
-            className="text-2xl sm:text-3xl lg:text-[40px] text-black tracking-wide mb-3 leading-tight lg:leading-[50px]"
+            className="text-xl sm:text-3xl lg:text-[40px] text-black tracking-wide mb-1 sm:mb-3 leading-tight lg:leading-[50px]"
             style={{
               fontFamily: '"ADLaM Display", sans-serif',
               fontWeight: 400,
@@ -133,7 +133,7 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
           >
             Partner Inquiry
           </h2>
-          <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
+          <p className="text-[#989898] text-xs sm:text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
             Fill out the form below and our team will respond within 24 business hours
           </p>
         </div>
@@ -153,11 +153,11 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
           </div>
         ) : (
           /* Form */
-          <form className="flex flex-col gap-6 items-start w-full mb-[10px]" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-2.5 sm:gap-4 md:gap-6 items-start w-full mb-[4px] sm:mb-[10px]" onSubmit={handleSubmit}>
 
             {/* Select Partner */}
-            <div className="flex flex-col gap-2 items-start w-full">
-              <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+              <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Select Partner <span className="text-[#c68a2b]">*</span>
               </label>
               <div className="relative w-full" ref={dropdownRef}>
@@ -165,12 +165,12 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 <button
                   type="button"
                   onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-                  className="w-full flex items-center justify-between bg-black/[0.04] rounded-2xl px-4 py-3 text-base font-medium text-black tracking-tight outline-none transition-shadow cursor-pointer text-left"
+                  className="w-full flex items-center justify-between bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2 sm:px-4 sm:py-3 text-xs sm:text-base font-medium text-black tracking-tight outline-none transition-shadow cursor-pointer text-left"
                   style={{ fontFamily: 'Inter' }}
                 >
                   <span>{formData.partner}</span>
                   <svg
-                    className="w-5 h-5 text-black/60 shrink-0"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-black/60 shrink-0"
                     viewBox="0 0 20 20"
                     fill="none"
                     stroke="currentColor"
@@ -232,8 +232,8 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
             </div>
 
             {/* Full Name */}
-            <div className="flex flex-col gap-2 items-start w-full">
-              <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+              <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Full Name <span className="text-[#c68a2b]">*</span>
               </label>
               <input
@@ -243,14 +243,14 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 onChange={handleChange}
                 placeholder="Enter your full name"
                 required
-                className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2 sm:px-4 sm:py-3 w-full text-xs sm:text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                 style={{ fontFamily: 'Inter' }}
               />
             </div>
 
             {/* Email */}
-            <div className="flex flex-col gap-2 items-start w-full">
-              <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+              <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Email Address <span className="text-[#c68a2b]">*</span>
               </label>
               <input
@@ -260,14 +260,14 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 onChange={handleChange}
                 placeholder="your.email@company.com"
                 required
-                className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2 sm:px-4 sm:py-3 w-full text-xs sm:text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                 style={{ fontFamily: 'Inter' }}
               />
             </div>
 
             {/* Company */}
-            <div className="flex flex-col gap-2 items-start w-full">
-              <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+              <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Company Name <span className="text-[#c68a2b]">*</span>
               </label>
               <input
@@ -277,14 +277,14 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 onChange={handleChange}
                 placeholder="Your company name"
                 required
-                className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2 sm:px-4 sm:py-3 w-full text-xs sm:text-base text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                 style={{ fontFamily: 'Inter' }}
               />
             </div>
 
             {/* Message */}
-            <div className="flex flex-col gap-2 items-start w-full">
-              <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+              <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Message <span className="text-[#c68a2b]">*</span>
               </label>
               <textarea
@@ -293,7 +293,7 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
                 onChange={handleChange}
                 placeholder="Tell us about your inquiry..."
                 required
-                className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-base text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[146px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2 sm:px-4 sm:py-3 w-full text-xs sm:text-base text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[70px] sm:h-[100px] md:h-[146px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                 style={{ fontFamily: 'Inter' }}
               />
             </div>
@@ -301,11 +301,11 @@ const PartnerInquiryModal = ({ isOpen, onClose, preselectedPartner = '' }) => {
             {/* Submit */}
             <button
               type="submit"
-              className="bg-black border border-[#1a1a1a] rounded-2xl h-[58px] w-full flex items-center justify-center gap-2 text-white text-base font-semibold tracking-tight hover:bg-[#1a1a1a] active:scale-[0.99] transition-all cursor-pointer"
+              className="bg-black border border-[#1a1a1a] rounded-xl sm:rounded-2xl h-[42px] sm:h-[50px] md:h-[58px] w-full flex items-center justify-center gap-2 text-white text-xs sm:text-base font-semibold tracking-tight hover:bg-[#1a1a1a] active:scale-[0.99] transition-all cursor-pointer"
               style={{ fontFamily: 'Inter' }}
             >
               Send Inquiry
-              <svg className="w-4 h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M18 2L2 8l6 3 3 6 7-15z" strokeLinejoin="round" />
               </svg>
             </button>

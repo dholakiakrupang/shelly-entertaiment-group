@@ -107,59 +107,59 @@ const FilterIcon = ({ color = "currentColor" }) => (
 
 /* ──────────────────── Staff Card Component ──────────────────── */
 const StaffCard = ({ member }) => (
-  <div className="bg-white border border-[#e2e2e2] rounded-[24px] overflow-hidden relative group hover:shadow-lg transition-shadow duration-300"
+  <div className="bg-white border border-[#e2e2e2] rounded-[16px] sm:rounded-[24px] overflow-hidden relative group hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
     style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}
   >
     {/* Photo */}
-    <div className="h-[300px] sm:h-[350px] md:h-[400px] lg:h-[467px] overflow-hidden relative bg-gray-100">
+    <div className="w-full aspect-[4/5] sm:aspect-[4/5] md:h-[400px] lg:h-[467px] overflow-hidden relative bg-gray-100">
       <img
         src={member.image}
         alt={member.name}
         className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
       />
-      <span className="absolute top-[11px] right-[12px] bg-black/80 border border-[#1a1a1a] rounded-full px-[10px] py-2 text-white text-[10px] font-medium tracking-widest uppercase">
+      <span className="absolute top-2 right-2 sm:top-[11px] sm:right-[12px] bg-black/80 border border-[#1a1a1a] rounded-full px-2 py-1 sm:px-[10px] sm:py-2 text-white text-[8px] sm:text-[10px] font-medium tracking-widest uppercase">
         {member.department}
       </span>
     </div>
 
     {/* Info */}
-    <div className="flex flex-col gap-4 pt-[23px] px-[23px] pb-[23px]">
+    <div className="flex flex-col gap-2.5 sm:gap-4 p-3 sm:p-5 md:p-[23px] flex-1">
       <div>
-        <h3 className="font-bold text-xl text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+        <h3 className="font-bold text-sm sm:text-base md:text-xl text-black tracking-tight leading-snug" style={{ fontFamily: 'Inter' }}>
           {member.name}
         </h3>
-        <p className="text-[#989898] text-xs font-medium tracking-widest uppercase mt-1" style={{ fontFamily: 'Inter' }}>
+        <p className="text-[#989898] text-[10px] sm:text-xs font-medium tracking-widest uppercase mt-0.5 sm:mt-1" style={{ fontFamily: 'Inter' }}>
           {member.role}
         </p>
       </div>
 
-      <div className="border-t border-[#e2e2e2]"></div>
+      <div className="border-t border-[#e2e2e2] mt-auto"></div>
 
       {/* Contact details */}
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <div
-            className="rounded-2xl w-9 h-9 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
+            className="rounded-xl sm:rounded-2xl w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
             style={{
               backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
             }}
           >
             <EmailIcon />
           </div>
-          <a href={`mailto:${member.email}`} className="text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter', color: '#00000066' }}>
+          <a href={`mailto:${member.email}`} className="text-[10px] sm:text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors truncate" style={{ fontFamily: 'Inter', color: '#00000066' }}>
             {member.email}
           </a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           <div
-            className="rounded-2xl w-9 h-9 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
+            className="rounded-xl sm:rounded-2xl w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
             style={{
               backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
             }}
           >
             <PhoneIcon />
           </div>
-          <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors" style={{ fontFamily: 'Inter', color: '#00000066' }}>
+          <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="text-[10px] sm:text-xs text-[#00000066] hover:text-[#ff8a00] transition-colors truncate" style={{ fontFamily: 'Inter', color: '#00000066' }}>
             {member.phone}
           </a>
         </div>
@@ -202,8 +202,8 @@ function StaffDirectory() {
     <div className="bg-white text-[#0c0c0d]">
 
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
-        <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[50px] min-h-[200px] sm:min-h-[260px] md:min-h-[341px]">
+        <div className="flex flex-col gap-4 sm:gap-6 items-center relative w-full max-w-[1252px]">
 
 
 
@@ -217,14 +217,14 @@ function StaffDirectory() {
             </div>
 
             {/* Title */}
-            <h1 className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
+            <h1 className="font-adlam text-white text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
               Staff Directory
             </h1>
           </AnimateOnScroll>
 
           {/* Description */}
           <AnimateOnScroll animation="fade-up" delay={200} as="p"
-            className="text-[#FAFAFA] text-lg leading-7 tracking-tight text-center max-w-[580px]"
+            className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight text-center max-w-[580px]"
             style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
           >
             Meet the Liberty Rewards team. Connect with our dedicated professionals across all departments.
@@ -234,9 +234,9 @@ function StaffDirectory() {
 
       {/* ════════════════ SEARCH & FILTERS ════════════════ */}
       <section className="bg-white w-full relative z-30">
-        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-8 items-center py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-4 sm:gap-6 md:gap-8 items-center py-[20px] sm:py-[35px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           {/* Search bar */}
-          <AnimateOnScroll animation="fade-down" className="bg-black/[0.03] border border-[#e2e2e2] hover:border-[#ff8a00]/40 focus-within:border-[#ff8a00] focus-within:shadow-[0_0_15px_rgba(255,138,0,0.2)] focus-within:bg-white rounded-full px-5 py-2.5 w-full max-w-[576px] transition-all duration-300">
+          <AnimateOnScroll animation="fade-down" className="bg-black/[0.03] border border-[#e2e2e2] hover:border-[#ff8a00]/40 focus-within:border-[#ff8a00] focus-within:shadow-[0_0_15px_rgba(255,138,0,0.2)] focus-within:bg-white rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 w-full max-w-[576px] transition-all duration-300">
             <div className="flex gap-3 items-center w-full">
               <SearchIcon />
               <input
@@ -244,7 +244,7 @@ function StaffDirectory() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search name, role..."
-                className="flex-1 bg-transparent outline-none text-base text-black placeholder:text-black/50 tracking-tight"
+                className="flex-1 bg-transparent outline-none text-xs sm:text-base text-black placeholder:text-black/50 tracking-tight"
                 style={{ fontFamily: 'Inter' }}
               />
               {/* Clear button */}
@@ -390,13 +390,13 @@ function StaffDirectory() {
           </AnimateOnScroll>
 
           {/* Department filters */}
-          <AnimateOnScroll animation="fade-up" delay={100} className="flex flex-wrap gap-3 md:gap-4 items-center justify-center">
+          <AnimateOnScroll animation="fade-up" delay={100} className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 items-center justify-center">
             {departments.map((dept) => (
               <button
                 key={dept}
                 type="button"
                 onClick={() => setActiveDepartment(dept)}
-                className={`rounded-full px-[14px] py-[8px] sm:px-[23px] sm:py-[11px] text-sm font-semibold tracking-tight transition-all duration-300 border cursor-pointer ${
+                className={`rounded-full px-3 py-1.5 sm:px-[23px] sm:py-[11px] text-xs sm:text-sm font-semibold tracking-tight transition-all duration-300 border cursor-pointer ${
                   activeDepartment === dept
                     ? 'border-[#ff8a00] bg-white text-[#ff8a00] shadow-[0_2px_10px_rgba(255,138,0,0.15)] scale-[1.02]'
                     : 'border-[#e2e2e2] bg-white text-black hover:border-[#ff8a00]/50 hover:text-[#ff8a00]'
@@ -411,14 +411,14 @@ function StaffDirectory() {
       </section>
 
       {/* ════════════════ STAFF GRID ════════════════ */}
-      <section className="bg-white w-full pb-[50px] relative z-20">
-        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-8 items-center px-5 md:px-8 lg:px-12 xl:px-[94px]">
-          <p className="text-[#989898] text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
+      <section className="bg-white w-full pb-[30px] md:pb-[50px] relative z-20">
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-4 sm:gap-6 md:gap-8 items-center px-5 md:px-8 lg:px-12 xl:px-[94px]">
+          <p className="text-[#989898] text-xs sm:text-base tracking-tight" style={{ fontFamily: 'Inter' }}>
             Showing <span className="font-semibold text-black">{filteredStaff.length}</span> staff member{filteredStaff.length !== 1 ? 's' : ''}
           </p>
 
           {filteredStaff.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[26px] gap-y-[34px] w-full max-w-[1252px] stagger-children">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-x-[26px] md:gap-y-[34px] w-full max-w-[1252px] stagger-children">
               {filteredStaff.map((member) => (
                 <AnimateOnScroll key={member.id} animation="fade-up" delay={(filteredStaff.indexOf(member) % 3) * 100} className="h-full flex flex-col">
                   <StaffCard member={member} />

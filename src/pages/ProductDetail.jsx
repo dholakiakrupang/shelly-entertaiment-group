@@ -494,8 +494,8 @@ function ProductDetail() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-24 md:pt-32 lg:pt-[167px] pb-[27px] min-h-[420px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-8 items-center relative w-full">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[27px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-4 sm:gap-6 md:gap-8 items-center relative w-full">
           {/* Back link */}
           <Link
             to="/products"
@@ -505,7 +505,7 @@ function ProductDetail() {
             BACK TO CATALOG
           </Link>
 
-          <div className="flex flex-col gap-8 items-center flex-1 max-w-3xl text-center w-full">
+          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 items-center flex-1 max-w-3xl text-center w-full">
             {/* Category pill */}
             <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-[15px] py-[7px] flex items-center gap-2 mb-[2px]">
               <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
@@ -519,7 +519,7 @@ function ProductDetail() {
 
             {/* Title */}
             <AnimateOnScroll animation="fade-up" as="h1"
-              className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
+              className="font-adlam text-white text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: "0.22px" }}
             >
               {product.title}
@@ -527,7 +527,7 @@ function ProductDetail() {
 
             {/* Description */}
             <AnimateOnScroll animation="fade-up" delay={150} as="p"
-              className="text-[#FAFAFA] text-lg leading-7 tracking-tight max-w-xl"
+              className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-xl"
               style={{ fontFamily: "Inter", color: "#FAFAFA" }}
             >
               {product.description}
@@ -537,7 +537,7 @@ function ProductDetail() {
             <AnimateOnScroll animation="fade-up" delay={300}>
             <button
               onClick={() => setIsInquiryOpen(true)}
-              className="border border-[#ffb200] rounded-full px-[15px] py-[11px] flex items-center gap-3 text-[#ffb200] font-bold text-lg tracking-tight btn-outline-gold cursor-pointer"
+              className="border border-[#ffb200] rounded-full px-[15px] py-[8px] sm:py-[11px] flex items-center gap-2 sm:gap-3 text-[#ffb200] font-bold text-sm sm:text-lg tracking-tight btn-outline-gold cursor-pointer"
               style={{ fontFamily: "Inter" }}
             >
               Inquiry Now

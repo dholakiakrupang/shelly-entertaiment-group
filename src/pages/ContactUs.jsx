@@ -42,7 +42,7 @@ const ContactInfoCard = ({ icon, title, subtitle, value, href }) => {
   const ValueElement = isLink ? 'a' : 'p';
 
   return (
-    <div className="bg-white border border-[#e2e2e2] rounded-2xl p-6 flex gap-4 items-start w-full">
+    <div className="bg-white border border-[#e2e2e2] rounded-2xl p-4 md:p-6 flex gap-3 md:gap-4 items-start w-full">
       <div
         className="rounded-[14px] w-11 h-11 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
         style={{
@@ -53,10 +53,10 @@ const ContactInfoCard = ({ icon, title, subtitle, value, href }) => {
       </div>
       <div className="flex flex-col gap-2 items-start">
         <div>
-          <h3 className="font-bold text-lg text-black tracking-tight mb-1" style={{ fontFamily: 'Inter' }}>
+          <h3 className="font-bold text-base md:text-lg text-black tracking-tight mb-0.5 md:mb-1" style={{ fontFamily: 'Inter' }}>
             {title}
           </h3>
-          <p className="text-[#989898] text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
+          <p className="text-[#989898] text-xs md:text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
             {subtitle}
           </p>
         </div>
@@ -128,8 +128,8 @@ function ContactUs() {
   return (
     <div className="bg-white text-[#0c0c0d] min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-24 md:pt-32 lg:pt-[167px] pb-[50px] min-h-[341px]">
-        <div className="flex flex-col gap-6 items-center relative w-full max-w-[1252px]">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center px-5 md:px-8 lg:px-12 xl:px-[94px] pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[50px] min-h-[200px] sm:min-h-[260px] md:min-h-[341px]">
+        <div className="flex flex-col gap-4 sm:gap-6 items-center relative w-full max-w-[1252px]">
 
 
           <AnimateOnScroll animation="fade-up" className="flex flex-col gap-6 items-center w-full">
@@ -142,14 +142,14 @@ function ContactUs() {
             </div>
 
             {/* Heading */}
-            <h1 className="font-adlam text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
+            <h1 className="font-adlam text-white text-2xl sm:text-3xl md:text-5xl lg:text-[56px] xl:text-[64px] leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px] tracking-wide text-center">
               Contact Us
             </h1>
           </AnimateOnScroll>
 
           {/* Description */}
           <AnimateOnScroll animation="fade-up" delay={200} as="p"
-            className="text-[#FAFAFA] text-lg leading-7 tracking-tight text-center max-w-[738px]"
+            className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight text-center max-w-[738px]"
             style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
           >
             Have a question or need more information? Get in touch with the Liberty Rewards team using the inquiry form below or reach out through our sales and support channels.
@@ -159,12 +159,12 @@ function ContactUs() {
 
       {/* Contact Info + Form */}
       <section className="bg-white w-full overflow-hidden">
-        <div className="max-w-[1440px] mx-auto w-full py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-[36px] items-start justify-center">
+        <div className="max-w-[1440px] mx-auto w-full py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-[24px] md:gap-[36px] items-start justify-center">
           {/* Contact Information Cards */}
-          <AnimateOnScroll animation="fade-right" className="flex flex-col gap-8 items-start w-full lg:w-[440px] shrink-0">
-            <h2 className="font-adlam text-black text-3xl tracking-wide">Contact Information</h2>
+          <AnimateOnScroll animation="fade-right" className="flex flex-col gap-5 md:gap-8 items-start w-full lg:w-[440px] shrink-0">
+            <h2 className="font-adlam text-black text-2xl md:text-3xl tracking-wide">Contact Information</h2>
 
-            <div className="flex flex-col gap-5 items-start w-full">
+            <div className="flex flex-col gap-3 md:gap-5 items-start w-full">
               <ContactInfoCard
                 icon={<EmailIcon />}
                 title="Sales Contact"

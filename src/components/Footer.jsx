@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#080809] border-t border-white/5 pt-[50px] pb-0 relative overflow-hidden">
+    <footer className="w-full bg-[#080809] border-t border-white/5 pt-[30px] md:pt-[50px] pb-0 relative overflow-hidden">
       {/* Background glow effects */}
       <div
         className="absolute pointer-events-none rounded-full"
@@ -35,7 +35,7 @@ const Footer = () => {
         }}
       ></div>
 
-      <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-10 lg:gap-12 xl:gap-[64px] items-start justify-between relative z-10">
+      <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 xl:gap-[64px] items-start justify-between relative z-10">
         {/* Brand Column - Fixed width 313px on desktop */}
         <div className="w-full lg:w-[313px] shrink-0 flex flex-col items-start">
           <Link
@@ -387,7 +387,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright Bar */}
-      <div className="max-w-[1440px] mx-auto border-t border-white/10 mt-10 sm:mt-12 py-6 sm:py-[32px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-3 sm:gap-4 relative z-10">
+      <div className="max-w-[1440px] mx-auto border-t border-white/10 mt-6 sm:mt-8 md:mt-12 py-4 sm:py-6 md:py-[32px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 sm:gap-4 relative z-10">
         <p
           className="text-[#D8D8D8] text-[11px] sm:text-[12px] font-normal"
           style={{ fontFamily: "Inter" }}

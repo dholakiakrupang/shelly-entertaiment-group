@@ -67,7 +67,7 @@ function HomePage() {
       {/* Hero Section (Section 1) */}
       <section
         id="home"
-        className="relative w-full overflow-hidden mb-[10px] min-h-[580px] lg:h-[816px] flex items-center"
+        className="relative w-full overflow-hidden mb-[10px] min-h-[460px] sm:min-h-[520px] md:min-h-[580px] lg:h-[816px] flex items-center"
       >
         {/* Background Image that covers the hero section */}
         <img
@@ -77,10 +77,10 @@ function HomePage() {
         />
 
         {/* Content Container */}
-        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[120px] pb-[80px] lg:pt-0 lg:pb-0 flex items-center justify-between">
+        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[90px] pb-[40px] sm:pt-[110px] sm:pb-[60px] lg:pt-0 lg:pb-0 flex items-center justify-between">
           {/* Left Column (Width 687px on desktop) */}
           <div className="max-w-[687px] w-full text-left flex flex-col relative z-30">
-            <div className="flex flex-col space-y-[24px]">
+            <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-[24px]">
               <AnimateOnScroll
                 animation="fade-up"
                 delay={0}
@@ -120,7 +120,7 @@ function HomePage() {
                 animation="fade-up"
                 delay={300}
                 as="p"
-                className="text-[#FAFAFA] text-sm sm:text-base leading-[24px] sm:leading-[28px] font-normal max-w-[560px] lg:max-w-none"
+                className="text-[#FAFAFA] text-xs sm:text-sm md:text-base leading-[20px] sm:leading-[24px] md:leading-[28px] font-normal max-w-[560px] lg:max-w-none"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "0px",
@@ -136,26 +136,21 @@ function HomePage() {
             <AnimateOnScroll
               animation="fade-up"
               delay={450}
-              className="mt-[32px]"
+              className="mt-[16px] sm:mt-[24px] md:mt-[32px]"
             >
               <Link
                 to="/products"
-                className="btn-outline-gold inline-flex items-center"
+                className="btn-outline-gold inline-flex items-center text-[13px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
-                  paddingTop: "11px",
-                  paddingBottom: "11px",
-                  paddingLeft: "16px",
-                  paddingRight: "16px",
                   borderRadius: "24px",
                   color: "#FFB200",
                   fontFamily: "Inter",
                   fontWeight: 700,
-                  fontSize: "clamp(14px, 3vw, 18px)",
-                  lineHeight: "28px",
+                  lineHeight: "24px",
                   textAlign: "center",
                   letterSpacing: "-0.44px",
-                  gap: "14px",
+                  gap: "10px",
                 }}
               >
                 <span className="uppercase">Explore Products</span>
@@ -199,20 +194,20 @@ function HomePage() {
         id="products"
         className="bg-white text-brand-bg relative z-20 w-full"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <AnimateOnScroll
             animation="fade-up"
             className="flex flex-col md:flex-row justify-between items-start md:items-end w-full gap-4 md:gap-8"
           >
             <div className="max-w-[700px] w-full">
               <h2
-                className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] leading-tight lg:leading-[50px]"
+                className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] leading-tight lg:leading-[50px]"
                 style={{ letterSpacing: "0.26px" }}
               >
                 Featured Products
               </h2>
               <p
-                className="text-[#989898] text-[16px] font-normal mt-4 sm:mt-[24px]"
+                className="text-[#989898] text-[13px] sm:text-[14px] md:text-[16px] font-normal mt-3 sm:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.44px",
@@ -226,7 +221,7 @@ function HomePage() {
             </div>
             <Link
               to="/products"
-              className="mt-2 md:mt-0 inline-flex items-center whitespace-nowrap shrink-0 text-[16px] font-semibold text-[#CC8E00] py-[2px] btn-text-link gap-2"
+              className="mt-2 md:mt-0 inline-flex items-center whitespace-nowrap shrink-0 text-[13px] sm:text-[14px] md:text-[16px] font-semibold text-[#CC8E00] py-[2px] btn-text-link gap-1.5 sm:gap-2"
               style={{ fontFamily: "Inter" }}
             >
               <span className="whitespace-nowrap">View All Products</span>
@@ -257,11 +252,11 @@ function HomePage() {
           </AnimateOnScroll>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-[24px] mt-[50px] stagger-children">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-[16px] sm:gap-[20px] md:gap-[24px] mt-[24px] sm:mt-[36px] md:mt-[50px] stagger-children">
             {products.map((product, index) => {
               const colSpan =
                 index === 0 || index === 3 ? "md:col-span-7" : "md:col-span-5";
-              const cardHeight = index < 2 ? "h-[250px] sm:h-[300px] md:h-[350px]" : "h-[200px] sm:h-[220px] md:h-[250px]";
+              const cardHeight = index < 2 ? "h-[180px] sm:h-[220px] md:h-[350px]" : "h-[180px] sm:h-[220px] md:h-[250px]";
               return (
                 <AnimateOnScroll
                   key={index}
@@ -271,7 +266,7 @@ function HomePage() {
                 >
                   <Link
                     to={product.link}
-                    className={`group relative ${cardHeight} w-full block rounded-[24px] overflow-hidden cursor-pointer`}
+                    className={`group relative ${cardHeight} w-full block rounded-[16px] sm:rounded-[20px] md:rounded-[24px] overflow-hidden cursor-pointer`}
                   >
                     {/* Background Image */}
                     <div
@@ -282,18 +277,18 @@ function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
                     {/* Tags & Badges */}
-                    <div className="absolute top-[24px] right-[24px]">
-                      <span className="bg-black/80 backdrop-blur-md text-[12px] uppercase text-white font-medium px-4 py-1.5 rounded-full font-sans">
+                    <div className="absolute top-[16px] right-[16px] sm:top-[24px] sm:right-[24px]">
+                      <span className="bg-black/80 backdrop-blur-md text-[10px] sm:text-[12px] uppercase text-white font-medium px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full font-sans whitespace-nowrap">
                         {product.category}
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-6 left-6 md:bottom-[32px] md:left-[32px] pr-6 md:pr-0 text-white space-y-2">
-                      <h3 className="text-xl md:text-[28px] font-bold uppercase tracking-wide font-sans">
+                    <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 md:bottom-[32px] md:left-[32px] pr-4 sm:pr-6 md:pr-0 text-white space-y-1 sm:space-y-2">
+                      <h3 className="text-base sm:text-lg md:text-[28px] font-bold uppercase tracking-wide font-sans">
                         {product.title}
                       </h3>
-                      <p className="text-[14px] font-medium tracking-wide flex items-center space-x-1.5 text-[#B5B5B5] font-sans">
+                      <p className="text-[12px] sm:text-[13px] md:text-[14px] font-medium tracking-wide flex items-center space-x-1 sm:space-x-1.5 text-[#B5B5B5] font-sans">
                         <span>View Machine</span>
                         <svg
                           width="18"
@@ -333,12 +328,12 @@ function HomePage() {
         id="about"
         className="bg-[#F6F6F6] text-[#0c0c0d] relative z-20 w-full"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
+        <div className="max-w-[1440px] w-full mx-auto py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           <div className="text-center">
             <AnimateOnScroll
               animation="fade-up"
               as="h2"
-              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center leading-tight lg:leading-[50px]"
+              className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center leading-tight lg:leading-[50px]"
               style={{ letterSpacing: "0.37px" }}
             >
               Built on Trust and Transparency
@@ -347,7 +342,7 @@ function HomePage() {
               animation="fade-up"
               delay={150}
               as="p"
-              className="text-[#989898] text-[16px] font-normal mt-[24px] text-center"
+              className="text-[#989898] text-[13px] sm:text-[14px] md:text-[16px] font-normal mt-[16px] md:mt-[24px] text-center"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
@@ -368,29 +363,29 @@ function HomePage() {
             className="max-w-[1252px] mx-auto bg-white rounded-[24px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.01)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-[50px]"
           >
             {/* quadrant 1 */}
-            <div className="border-b md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
               <img
                 src="/icon-transparent.svg"
                 alt="Transparent Icon"
-                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
               />
               <h3
-                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 5vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Transparent Product Information
               </h3>
               <p
-                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  lineHeight: "clamp(20px, 3.5vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -401,29 +396,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 2 */}
-            <div className="border-b border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
               <img
                 src="/icon-compliance.svg"
                 alt="Compliance Icon"
-                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
               />
               <h3
-                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 5vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Compliance-Focused Presentation
               </h3>
               <p
-                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  lineHeight: "clamp(20px, 3.5vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -434,29 +429,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 3 */}
-            <div className="border-b md:border-b-0 md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b md:border-b-0 md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
               <img
                 src="/icon-premium.svg"
                 alt="Premium Icon"
-                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
               />
               <h3
-                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 5vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Premium Digital Experience
               </h3>
               <p
-                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  lineHeight: "clamp(20px, 3.5vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -467,29 +462,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 4 */}
-            <div className="flex flex-col items-start text-left p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
               <img
                 src="/icon-partner.svg"
                 alt="Partner Icon"
-                className="w-[64px] h-[64px] object-contain mb-[40px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
               />
               <h3
-                className="text-xl sm:text-2xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(28px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 5vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Partner-Friendly Platform
               </h3>
               <p
-                className="text-[#989898] text-base md:text-[24px] mt-[16px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(24px, 4vw, 32px)",
+                  lineHeight: "clamp(20px, 3.5vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -505,13 +500,13 @@ function HomePage() {
       {/* Partners Section */}
       <section
         id="partners"
-        className="bg-white text-brand-bg relative z-20 w-full pt-[50px] pb-[100px] overflow-hidden"
+        className="bg-white text-brand-bg relative z-20 w-full pt-[30px] md:pt-[50px] pb-[50px] md:pb-[100px] overflow-hidden"
       >
         <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] text-center">
           <AnimateOnScroll
             animation="fade-up"
             as="h2"
-            className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[32px] text-center leading-tight lg:leading-[50px]"
+            className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[20px] md:mb-[32px] text-center leading-tight lg:leading-[50px]"
             style={{ letterSpacing: "0.07px" }}
           >
             Our Technology & Product Partners
@@ -521,11 +516,11 @@ function HomePage() {
         {/* Logo Carousel Container - Bleeds full screen width */}
         <div className="w-full overflow-hidden relative">
           {/* Overlay gradients on left/right for smooth fade look */}
-          <div className="absolute left-0 top-0 bottom-0 w-[100px] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-[100px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-[24px] sm:w-[50px] md:w-[100px] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-[24px] sm:w-[50px] md:w-[100px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           {/* Scrolling track */}
-          <div className="flex gap-[20px] w-max animate-infinite-scroll">
+          <div className="flex gap-3 sm:gap-5 md:gap-[20px] w-max animate-infinite-scroll">
             {/* Render logos multiple times to ensure continuous flow */}
             {[
               ...partnerLogos,
@@ -535,12 +530,12 @@ function HomePage() {
             ].map((logo, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center bg-white rounded-[12px] shrink-0 p-[34px]"
+                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-3 py-2 sm:p-[24px] md:p-[34px]"
               >
                 <img
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="max-h-[48px] object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-6 sm:h-8 md:h-[48px] w-auto max-w-[90px] sm:max-w-[140px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             ))}
@@ -588,13 +583,13 @@ function HomePage() {
         ></div>
 
         {/* Content Container (Max width 1440px centered) */}
-        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[60px] md:py-[75px] px-5 md:px-8 xl:px-[318px] z-30">
+        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[40px] md:py-[60px] lg:py-[75px] px-5 md:px-8 xl:px-[318px] z-30">
           {/* Center Content Column */}
           <div className="max-w-[760px] w-full text-center flex flex-col items-center">
             <AnimateOnScroll
               animation="blur-in"
               as="h2"
-              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-white mb-[24px] text-center leading-tight lg:leading-[50px]"
+              className="text-lg sm:text-xl md:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-white mb-[16px] md:mb-[24px] text-center leading-tight lg:leading-[50px]"
               style={{ letterSpacing: "0.26px" }}
             >
               Looking to explore our products or collaborate with us?
@@ -603,7 +598,7 @@ function HomePage() {
               animation="fade-up"
               delay={150}
               as="p"
-              className="text-[#B3B3B3] text-[16px] font-normal mb-[24px] text-center"
+              className="text-[#B3B3B3] text-[13px] sm:text-[14px] md:text-[16px] font-normal mb-[16px] md:mb-[24px] text-center"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.45px",
@@ -618,22 +613,17 @@ function HomePage() {
             <AnimateOnScroll animation="fade-up" delay={300}>
               <Link
                 to="/contact"
-                className="btn-outline-gold inline-flex items-center"
+                className="btn-outline-gold inline-flex items-center text-[13px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
-                  paddingTop: "11px",
-                  paddingBottom: "11px",
-                  paddingLeft: "16px",
-                  paddingRight: "16px",
                   borderRadius: "24px",
                   color: "#FFB200",
                   fontFamily: "Inter",
                   fontWeight: 700,
-                  fontSize: "clamp(14px, 3vw, 18px)",
-                  lineHeight: "28px",
+                  lineHeight: "24px",
                   textAlign: "center",
                   letterSpacing: "-0.44px",
-                  gap: "14px",
+                  gap: "10px",
                 }}
               >
                 <span className="uppercase">Contact Our Team</span>
@@ -649,39 +639,39 @@ function HomePage() {
         id="about-details"
         className="bg-white text-[#0c0c0d] relative z-20 w-full overflow-hidden"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
+        <div className="max-w-[1440px] w-full mx-auto py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
           <AnimateOnScroll
             animation="fade-up"
             as="h2"
-            className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[24px] sm:mb-[50px]"
+            className="text-xl sm:text-2xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[16px] sm:mb-[24px] md:mb-[50px]"
             style={{ letterSpacing: "0.37px", lineHeight: "clamp(32px, 5vw, 50px)" }}
           >
             What Liberty Does
           </AnimateOnScroll>
 
           {/* Card Container */}
-          <div className="bg-white rounded-[30px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.02)] p-8 md:p-[40px] flex flex-col md:flex-row gap-[20px] items-stretch">
+          <div className="bg-white rounded-[20px] sm:rounded-[30px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.02)] p-5 sm:p-6 md:p-[40px] flex flex-col md:flex-row gap-[20px] items-stretch">
             {/* Left Content column */}
             <AnimateOnScroll
               animation="fade-right"
               className="w-full md:w-1/2 flex flex-col justify-start"
             >
               <h3
-                className="font-semibold text-[24px] text-[#0c0c0d] mb-[24px]"
+                className="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#0c0c0d] mb-[16px] md:mb-[24px]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.45px",
-                  lineHeight: "28.8px",
+                  lineHeight: "1.2",
                 }}
               >
                 Company Overview
               </h3>
               <div
-                className="space-y-[24px] font-medium text-[16px] text-[#989898]"
+                className="space-y-[14px] sm:space-y-[18px] md:space-y-[24px] font-medium text-[13px] sm:text-[14px] md:text-[16px] text-[#989898]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.15px",
-                  lineHeight: "24px",
+                  lineHeight: "1.55",
                   color: "#989898",
                 }}
               >
