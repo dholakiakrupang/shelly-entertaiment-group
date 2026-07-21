@@ -124,8 +124,8 @@ const milestones = [
 /* ── Tiny reusable sub-components ─────────────────────────── */
 
 const SectionBadge = ({ label }) => (
-  <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-4 py-[7px] text-sm text-white">
-    <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
+  <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-3.5 py-[5px] sm:px-4 sm:py-[7px] text-xs sm:text-sm text-white">
+    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
     {label}
   </span>
 );
@@ -211,7 +211,7 @@ function AboutUs() {
           <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-4 text-center">
             <SectionBadge label="About Liberty Rewards" />
             <h2
-              className="text-xl sm:text-2xl lg:text-[48px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[58px]"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-[48px] font-adlam font-normal text-[#0c0c0d] leading-tight md:leading-[44px] lg:leading-[58px]"
             >
               Building the Future
               <br />
@@ -237,14 +237,14 @@ function AboutUs() {
 
       {/* ════════════ WHO WE ARE ════════════ */}
       <section className="w-full bg-[#f8f8f8]">
-        <div className="max-w-[1440px] mx-auto py-[24px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
+        <div className="max-w-[1440px] mx-auto py-[24px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
           {/* Left Column */}
           <AnimateOnScroll animation="fade-right" className="flex w-full lg:w-[657px] flex-col items-start gap-8">
             <SectionBadge label="Who We Are" />
 
             <div className="flex flex-col gap-6">
               <h2
-                className="text-xl sm:text-2xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
+                className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
                 style={{ lineHeight: "clamp(28px, 6vw, 50px)", margin: "1px 0" }}
               >
                 Redefining
@@ -381,9 +381,9 @@ function AboutUs() {
       {/* ════════════ BUILT ON TRUST (Dark) ════════════ */}
       <section className="relative overflow-hidden bg-[#0a0a0b] w-full">
         <div className="max-w-[1440px] mx-auto py-[24px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
-          <AnimateOnScroll animation="fade-up" className="flex flex-col md:flex-row md:flex-nowrap items-start md:items-center gap-6 lg:gap-12">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col lg:flex-row lg:flex-nowrap items-start lg:items-center gap-6 lg:gap-12">
             <h2
-              className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal text-white uppercase shrink-0 leading-tight lg:leading-[50px]"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-white uppercase shrink-0 leading-tight lg:leading-[50px]"
             >
               Built on
               <br />
@@ -445,7 +445,7 @@ function AboutUs() {
           <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-[24px] text-center">
             <SectionBadge label="Leadership Team" />
             <h2
-              className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
             >
               Meet the <GradientText>Experts</GradientText>
             </h2>
@@ -522,7 +522,7 @@ function AboutUs() {
           <AnimateOnScroll animation="fade-up" className="flex flex-col items-center gap-3 text-center">
             <SectionBadge label="Our Journey" />
             <h2
-              className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal text-[#0c0c0d] leading-tight lg:leading-[50px]"
             >
               Milestones <GradientText>&amp; Growth</GradientText>
             </h2>
@@ -540,7 +540,7 @@ function AboutUs() {
               return (
                 <li
                   key={item.year}
-                  className="relative grid grid-cols-1 md:grid-cols-2 items-start gap-8"
+                  className="relative grid grid-cols-1 md:grid-cols-2 items-start gap-8 pl-8 md:pl-0"
                 >
                   {/* Timeline dot */}
                   <div className="timeline-dot" />
@@ -667,7 +667,7 @@ function AboutUs() {
             <SectionBadge label="Let's Connect" />
             <div className="flex flex-col gap-4">
               <h2
-                className="text-xl sm:text-2xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
+                className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d]"
                 style={{ lineHeight: "clamp(28px, 6vw, 50px)" }}
               >
                 Ready to <GradientText>Partner</GradientText>

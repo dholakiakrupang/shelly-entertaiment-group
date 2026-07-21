@@ -8,7 +8,7 @@ import { useRef, useEffect, useState } from 'react';
  * Respects prefers-reduced-motion: if reduced motion is preferred,
  * elements are immediately set to visible (no animation).
  */
-export default function useScrollReveal({ threshold = 0.15, rootMargin = '0px 0px -40px 0px' } = {}) {
+export default function useScrollReveal({ threshold = 0.05, rootMargin = '0px 0px 100px 0px' } = {}) {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 

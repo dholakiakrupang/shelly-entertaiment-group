@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
           {/* Title Block */}
           <div className="flex flex-col gap-6 items-start w-full">
             <h1
-              className="font-adlam text-black text-2xl sm:text-3xl lg:text-[48px] leading-[1.2] tracking-wide"
+              className="font-adlam text-black text-2xl sm:text-3xl md:text-4xl lg:text-[48px] leading-[1.2] tracking-wide"
             >
               Privacy Policy
             </h1>

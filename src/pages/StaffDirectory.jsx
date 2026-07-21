@@ -209,9 +209,9 @@ function StaffDirectory() {
 
           <AnimateOnScroll animation="fade-up" className="flex flex-col gap-6 items-center w-full">
             {/* Category pill */}
-            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-[15px] py-[7px] flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
-              <span className="text-[#b5b5b5] text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-3.5 py-[5px] sm:px-[15px] sm:py-[7px] flex items-center gap-1.5 sm:gap-2">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
+              <span className="text-[#b5b5b5] text-xs sm:text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
                 Our Team
               </span>
             </div>

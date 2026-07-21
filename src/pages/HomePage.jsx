@@ -91,7 +91,7 @@ function HomePage() {
       {/* Hero Section (Section 1) */}
       <section
         id="home"
-        className="relative w-full overflow-hidden mb-[10px] min-h-[460px] sm:min-h-[520px] md:min-h-[580px] lg:h-[816px] flex items-center"
+        className="relative w-full overflow-hidden mb-[10px] min-h-[440px] sm:min-h-[480px] md:min-h-[500px] lg:min-h-[540px] xl:h-[816px] flex items-center"
       >
         {/* Background Image that covers the hero section */}
         <img
@@ -101,15 +101,15 @@ function HomePage() {
         />
 
         {/* Content Container */}
-        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[90px] pb-[40px] sm:pt-[110px] sm:pb-[60px] lg:pt-0 lg:pb-0 flex items-center justify-between">
+        <div className="relative z-30 w-full mx-auto max-w-[1440px] px-5 md:px-8 lg:px-12 xl:px-[94px] pt-[85px] sm:pt-[95px] md:pt-[90px] lg:pt-[105px] xl:pt-0 pb-[30px] sm:pb-[40px] lg:pb-[40px] xl:pb-0 flex items-center justify-between">
           {/* Left Column (Width 687px on desktop) */}
           <div className="max-w-[687px] w-full text-left flex flex-col relative z-30">
-            <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-[24px]">
+            <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-3.5 lg:space-y-4 xl:space-y-[24px]">
               <AnimateOnScroll
                 animation="fade-up"
                 delay={0}
                 as="p"
-                className="flex items-center space-x-2 font-medium uppercase text-xs sm:text-sm md:text-base leading-snug text-white"
+                className="flex items-center space-x-2 font-medium uppercase text-xs sm:text-sm md:text-sm lg:text-base leading-snug text-white"
                 style={{ fontFamily: "Inter", letterSpacing: "0.4px" }}
               >
                 <img
@@ -126,16 +126,16 @@ function HomePage() {
                 animation="fade-up"
                 delay={150}
                 as="h1"
-                className="text-2xl sm:text-3xl md:text-5xl lg:text-[56px] xl:text-[64px] text-white uppercase flex flex-col font-adlam font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
+                className="text-2xl sm:text-3xl md:text-[38px] lg:text-[46px] xl:text-[64px] text-white uppercase flex flex-col font-adlam font-normal leading-tight md:leading-[46px] lg:leading-[54px] xl:leading-[74px]"
                 style={{ letterSpacing: "-1.11px" }}
               >
-                <span className="lg:whitespace-nowrap">
+                <span className="xl:whitespace-nowrap">
                   Liberty Rewards
                 </span>
-                <span className="lg:whitespace-nowrap mt-[4px]">
+                <span className="xl:whitespace-nowrap mt-[4px]">
                   Premium Sweepstakes
                 </span>
-                <span className="lg:whitespace-nowrap">
+                <span className="xl:whitespace-nowrap">
                   & Skill-Based Gaming
                 </span>
               </AnimateOnScroll>
@@ -144,7 +144,7 @@ function HomePage() {
                 animation="fade-up"
                 delay={300}
                 as="p"
-                className="text-[#FAFAFA] text-xs sm:text-sm md:text-base leading-[20px] sm:leading-[24px] md:leading-[28px] font-normal max-w-[560px] lg:max-w-none"
+                className="text-[#FAFAFA] text-xs sm:text-sm md:text-sm lg:text-base leading-[20px] sm:leading-[24px] md:leading-[22px] lg:leading-[26px] xl:leading-[28px] font-normal max-w-[560px] lg:max-w-none"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "0px",
@@ -160,11 +160,11 @@ function HomePage() {
             <AnimateOnScroll
               animation="fade-up"
               delay={450}
-              className="mt-[16px] sm:mt-[24px] md:mt-[32px]"
+              className="mt-[16px] sm:mt-[20px] md:mt-[24px] lg:mt-[28px] xl:mt-[32px]"
             >
               <Link
                 to="/products"
-                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
+                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px] py-[8px] sm:py-[10px] md:py-[10px] lg:py-[11px] px-[12px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
                   borderRadius: "24px",
@@ -225,7 +225,7 @@ function HomePage() {
           >
             <div className="max-w-[700px] w-full">
               <h2
-                className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] leading-tight lg:leading-[50px]"
+                className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] leading-tight lg:leading-[50px]"
                 style={{ letterSpacing: "0.26px" }}
               >
                 Featured Products
@@ -280,7 +280,7 @@ function HomePage() {
             {products.map((product, index) => {
               const colSpan =
                 index === 0 || index === 3 ? "md:col-span-7" : "md:col-span-5";
-              const cardHeight = index < 2 ? "h-[180px] sm:h-[220px] md:h-[350px]" : "h-[180px] sm:h-[220px] md:h-[250px]";
+              const cardHeight = index < 2 ? "h-[200px] sm:h-[240px] md:h-[300px] lg:h-[350px]" : "h-[180px] sm:h-[220px] md:h-[250px] lg:h-[280px]";
               return (
                 <AnimateOnScroll
                   key={index}
@@ -301,18 +301,18 @@ function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
                     {/* Tags & Badges */}
-                    <div className="absolute top-[16px] right-[16px] sm:top-[24px] sm:right-[24px]">
-                      <span className="bg-black/80 backdrop-blur-md text-[10px] sm:text-[12px] uppercase text-white font-medium px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full font-sans whitespace-nowrap">
+                    <div className="absolute top-[14px] right-[14px] sm:top-[20px] sm:right-[20px] md:top-[20px] md:right-[20px] lg:top-[24px] lg:right-[24px]">
+                      <span className="bg-black/80 backdrop-blur-md text-[10px] sm:text-[11px] md:text-[11px] lg:text-[12px] uppercase text-white font-medium px-2.5 sm:px-3 lg:px-4 py-1 lg:py-1.5 rounded-full font-sans whitespace-nowrap">
                         {product.category}
                       </span>
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 md:bottom-[32px] md:left-[32px] pr-4 sm:pr-6 md:pr-0 text-white space-y-1 sm:space-y-2">
-                      <h3 className="text-base sm:text-lg md:text-[28px] font-bold uppercase tracking-wide font-sans">
+                    <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 md:bottom-[24px] md:left-[24px] lg:bottom-[32px] lg:left-[32px] pr-4 sm:pr-6 md:pr-6 lg:pr-8 text-white space-y-1 sm:space-y-1.5 lg:space-y-2">
+                      <h3 className="text-base sm:text-lg md:text-xl lg:text-[28px] font-bold uppercase tracking-wide font-sans leading-snug md:leading-tight lg:leading-tight">
                         {product.title}
                       </h3>
-                      <p className="text-[14px] sm:text-[14px] md:text-[14px] font-medium tracking-wide flex items-center space-x-1 sm:space-x-1.5 text-[#B5B5B5] font-sans">
+                      <p className="text-[13px] sm:text-[14px] md:text-[13px] lg:text-[14px] font-medium tracking-wide flex items-center space-x-1 sm:space-x-1.5 text-[#B5B5B5] font-sans">
                         <span>View Machine</span>
                         <svg
                           width="18"
@@ -357,7 +357,7 @@ function HomePage() {
             <AnimateOnScroll
               animation="fade-up"
               as="h2"
-              className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center leading-tight lg:leading-[50px]"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center leading-tight lg:leading-[50px]"
               style={{ letterSpacing: "0.37px" }}
             >
               Built on Trust and Transparency
@@ -384,32 +384,32 @@ function HomePage() {
           <AnimateOnScroll
             animation="scale-up"
             delay={200}
-            className="max-w-[1252px] mx-auto bg-white rounded-[24px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.01)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-[50px]"
+            className="max-w-[1252px] mx-auto bg-white rounded-[24px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.01)] overflow-hidden grid grid-cols-1 md:grid-cols-2 mt-[30px] sm:mt-[40px] md:mt-[50px]"
           >
             {/* quadrant 1 */}
-            <div className="border-b md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-6 md:p-7 lg:pt-[40px] lg:pr-0 lg:pb-[40px] lg:pl-[36px]">
               <img
                 src="/icon-transparent.svg"
                 alt="Transparent Icon"
-                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] lg:w-[64px] lg:h-[64px] object-contain mb-[16px] md:mb-[24px] lg:mb-[106px]"
               />
               <h3
-                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[22px] lg:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(24px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 4vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Transparent Product Information
               </h3>
               <p
-                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-[15px] lg:text-[24px] mt-[10px] md:mt-[14px] lg:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(20px, 3.5vw, 32px)",
+                  lineHeight: "clamp(20px, 3vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -420,29 +420,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 2 */}
-            <div className="border-b border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-6 md:p-7 lg:pt-[40px] lg:pr-0 lg:pb-[40px] lg:pl-[36px]">
               <img
                 src="/icon-compliance.svg"
                 alt="Compliance Icon"
-                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] lg:w-[64px] lg:h-[64px] object-contain mb-[16px] md:mb-[24px] lg:mb-[106px]"
               />
               <h3
-                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[22px] lg:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(24px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 4vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Compliance-Focused Presentation
               </h3>
               <p
-                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-[15px] lg:text-[24px] mt-[10px] md:mt-[14px] lg:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(20px, 3.5vw, 32px)",
+                  lineHeight: "clamp(20px, 3vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -453,29 +453,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 3 */}
-            <div className="border-b md:border-b-0 md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="border-b md:border-b-0 md:border-r border-[#E2E2E2] flex flex-col items-start text-left p-5 sm:p-6 md:p-7 lg:pt-[40px] lg:pr-0 lg:pb-[40px] lg:pl-[36px]">
               <img
                 src="/icon-premium.svg"
                 alt="Premium Icon"
-                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] lg:w-[64px] lg:h-[64px] object-contain mb-[16px] md:mb-[24px] lg:mb-[106px]"
               />
               <h3
-                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[22px] lg:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(24px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 4vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Premium Digital Experience
               </h3>
               <p
-                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-[15px] lg:text-[24px] mt-[10px] md:mt-[14px] lg:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(20px, 3.5vw, 32px)",
+                  lineHeight: "clamp(20px, 3vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -486,29 +486,29 @@ function HomePage() {
             </div>
 
             {/* quadrant 4 */}
-            <div className="flex flex-col items-start text-left p-5 sm:p-8 md:pt-[40px] md:pr-0 md:pb-[40px] md:pl-[36px]">
+            <div className="flex flex-col items-start text-left p-5 sm:p-6 md:p-7 lg:pt-[40px] lg:pr-0 lg:pb-[40px] lg:pl-[36px]">
               <img
                 src="/icon-partner.svg"
                 alt="Partner Icon"
-                className="w-[40px] h-[40px] md:w-[64px] md:h-[64px] object-contain mb-[20px] md:mb-[106px]"
+                className="w-[40px] h-[40px] md:w-[48px] md:h-[48px] lg:w-[64px] lg:h-[64px] object-contain mb-[16px] md:mb-[24px] lg:mb-[106px]"
               />
               <h3
-                className="text-lg sm:text-xl md:text-[30px] text-[#0c0c0d]"
+                className="text-lg sm:text-xl md:text-[22px] lg:text-[30px] text-[#0c0c0d]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 600,
-                  lineHeight: "clamp(24px, 5vw, 40px)",
+                  lineHeight: "clamp(24px, 4vw, 40px)",
                   letterSpacing: "-0.45px",
                 }}
               >
                 Partner-Friendly Platform
               </h3>
               <p
-                className="text-[#989898] text-sm md:text-base lg:text-[24px] mt-[12px] md:mt-[24px]"
+                className="text-[#989898] text-sm md:text-[15px] lg:text-[24px] mt-[10px] md:mt-[14px] lg:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   fontWeight: 500,
-                  lineHeight: "clamp(20px, 3.5vw, 32px)",
+                  lineHeight: "clamp(20px, 3vw, 32px)",
                   letterSpacing: "-0.15px",
                   color: "#989898",
                 }}
@@ -524,13 +524,13 @@ function HomePage() {
       {/* Partners Section */}
       <section
         id="partners"
-        className="bg-white text-brand-bg relative z-20 w-full pt-[30px] md:pt-[50px] pb-[50px] md:pb-[100px] overflow-hidden"
+        className="bg-white text-brand-bg relative z-20 w-full pt-[30px] md:pt-[36px] lg:pt-[50px] pb-[40px] md:pb-[50px] lg:pb-[100px] overflow-hidden"
       >
         <div className="max-w-[1440px] mx-auto w-full px-5 md:px-8 lg:px-12 xl:px-[94px] text-center">
           <AnimateOnScroll
             animation="fade-up"
             as="h2"
-            className="text-xl sm:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[20px] md:mb-[32px] text-center leading-tight lg:leading-[50px]"
+            className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] mb-[20px] md:mb-[24px] lg:mb-[32px] text-center leading-tight lg:leading-[50px]"
             style={{ letterSpacing: "0.07px" }}
           >
             Our Technology & Product Partners
@@ -548,12 +548,12 @@ function HomePage() {
             {partnerLogos.map((logo, index) => (
               <div
                 key={`track1-${index}`}
-                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4.5 py-3 sm:p-[24px] md:p-[34px]"
+                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4 py-3 sm:p-[18px] md:p-[20px] lg:p-[34px]"
               >
                 <img
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="h-[36px] sm:h-10 md:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-[32px] sm:h-9 md:h-[38px] lg:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-[140px] lg:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             ))}
@@ -564,12 +564,12 @@ function HomePage() {
             {partnerLogos.map((logo, index) => (
               <div
                 key={`track2-${index}`}
-                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4.5 py-3 sm:p-[24px] md:p-[34px]"
+                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4 py-3 sm:p-[18px] md:p-[20px] lg:p-[34px]"
               >
                 <img
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="h-[36px] sm:h-10 md:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-[32px] sm:h-9 md:h-[38px] lg:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-[140px] lg:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             ))}
@@ -617,13 +617,13 @@ function HomePage() {
         ></div>
 
         {/* Content Container (Max width 1440px centered) */}
-        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[40px] md:py-[60px] lg:py-[75px] px-5 md:px-8 xl:px-[318px] z-30">
+        <div className="max-w-[1440px] mx-auto w-full relative flex items-center justify-center py-[36px] sm:py-[40px] md:py-[48px] lg:py-[75px] px-5 md:px-8 xl:px-[318px] z-30">
           {/* Center Content Column */}
           <div className="max-w-[760px] w-full text-center flex flex-col items-center">
             <AnimateOnScroll
               animation="blur-in"
               as="h2"
-              className="text-lg sm:text-xl md:text-2xl lg:text-[40px] font-adlam font-normal uppercase text-white mb-[16px] md:mb-[24px] text-center leading-tight lg:leading-[50px]"
+              className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-white mb-[12px] md:mb-[18px] lg:mb-[24px] text-center leading-tight md:leading-[38px] lg:leading-[50px]"
               style={{ letterSpacing: "0.26px" }}
             >
               Looking to explore our products or collaborate with us?
@@ -632,7 +632,7 @@ function HomePage() {
               animation="fade-up"
               delay={150}
               as="p"
-              className="text-[#B3B3B3] text-[14px] sm:text-[14px] md:text-[16px] font-normal mb-[16px] md:mb-[24px] text-center"
+              className="text-[#B3B3B3] text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] font-normal mb-[16px] md:mb-[22px] lg:mb-[24px] text-center max-w-[620px] lg:max-w-[760px]"
               style={{
                 fontFamily: "Inter",
                 letterSpacing: "-0.44px",
@@ -647,7 +647,7 @@ function HomePage() {
             <AnimateOnScroll animation="fade-up" delay={300}>
               <Link
                 to="/contact"
-                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
+                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] py-[8px] sm:py-[10px] md:py-[10px] lg:py-[11px] px-[14px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
                   borderRadius: "24px",
@@ -673,25 +673,25 @@ function HomePage() {
         id="about-details"
         className="bg-white text-[#0c0c0d] relative z-20 w-full overflow-hidden"
       >
-        <div className="max-w-[1440px] w-full mx-auto py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
+        <div className="max-w-[1440px] w-full mx-auto py-[30px] md:py-[36px] lg:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] relative">
           <AnimateOnScroll
             animation="fade-up"
             as="h2"
-            className="text-xl sm:text-2xl md:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[16px] sm:mb-[24px] md:mb-[50px]"
+            className="text-2xl sm:text-3xl lg:text-[40px] font-adlam font-normal uppercase text-[#0c0c0d] text-center mb-[16px] sm:mb-[20px] md:mb-[28px] lg:mb-[50px]"
             style={{ letterSpacing: "0.37px", lineHeight: "clamp(32px, 5vw, 50px)" }}
           >
             What Liberty Does
           </AnimateOnScroll>
 
           {/* Card Container */}
-          <div className="bg-white rounded-[20px] sm:rounded-[30px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.02)] p-5 sm:p-6 md:p-[40px] flex flex-col md:flex-row gap-[20px] items-stretch">
+          <div className="bg-white rounded-[20px] sm:rounded-[24px] lg:rounded-[30px] border border-[#E2E2E2] shadow-[0_4px_30px_rgba(0,0,0,0.02)] p-5 sm:p-6 md:p-8 lg:p-[40px] flex flex-col md:flex-col lg:flex-row gap-5 md:gap-6 lg:gap-[20px] items-stretch">
             {/* Left Content column */}
             <AnimateOnScroll
               animation="fade-right"
-              className="w-full md:w-1/2 flex flex-col justify-start"
+              className="w-full lg:w-1/2 flex flex-col justify-start"
             >
               <h3
-                className="font-semibold text-[18px] sm:text-[20px] md:text-[24px] text-[#0c0c0d] mb-[16px] md:mb-[24px]"
+                className="font-semibold text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] text-[#0c0c0d] mb-[12px] md:mb-[14px] lg:mb-[24px]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.45px",
@@ -701,7 +701,7 @@ function HomePage() {
                 Company Overview
               </h3>
               <div
-                className="space-y-[14px] sm:space-y-[18px] md:space-y-[24px] font-medium text-[14px] sm:text-[14px] md:text-[16px] text-[#989898]"
+                className="space-y-[12px] sm:space-y-[14px] lg:space-y-[24px] font-medium text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-[#989898]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.15px",
@@ -746,13 +746,13 @@ function HomePage() {
             <AnimateOnScroll
               animation="fade-left"
               delay={200}
-              className="w-full md:w-1/2 flex flex-col justify-center"
+              className="w-full lg:w-1/2 flex flex-col justify-center"
             >
               <div
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                className="relative w-full rounded-[24px] overflow-hidden bg-black group/slider select-none cursor-grab active:cursor-grabbing"
+                className="relative w-full rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] overflow-hidden bg-black group/slider select-none cursor-grab active:cursor-grabbing max-h-[300px] sm:max-h-[340px] md:max-h-[360px] lg:max-h-none"
               >
                 {/* Template image to establish natural aspect ratio and height */}
                 <img
@@ -791,7 +791,7 @@ function HomePage() {
                 ></div>
 
                 {/* Dots Navigation inside the slider */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-2.5 z-30">
+                <div className="absolute bottom-4 md:bottom-5 lg:bottom-6 left-1/2 -translate-x-1/2 flex items-center space-x-2.5 z-30">
                   {sliderImages.map((_, idx) => (
                     <button
                       key={idx}

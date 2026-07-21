@@ -519,7 +519,7 @@ function ProductDetail() {
 
             {/* Title */}
             <AnimateOnScroll animation="fade-up" as="h1"
-              className="font-adlam text-white text-xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
+              className="font-adlam text-white text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: "0.22px" }}
             >
               {product.title}
@@ -673,7 +673,7 @@ function ProductDetail() {
 
           {/* ── Info ── */}
           <AnimateOnScroll animation="fade-left" delay={200} className="w-full lg:w-1/2 flex flex-col gap-4 sm:gap-6 items-start justify-center">
-            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Product Overview
             </h2>
 
@@ -733,7 +733,7 @@ function ProductDetail() {
       {/* ════════════════ PRODUCT RESOURCES ════════════════ */}
       <section className="bg-white w-full py-[24px] sm:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-6 sm:gap-12 items-start">
-          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
+          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
             Product Resources
           </AnimateOnScroll>
 
@@ -816,7 +816,7 @@ function ProductDetail() {
       {/* ════════════════ TECHNOLOGY PARTNER ════════════════ */}
       <section className="bg-[#f6f6f6] w-full py-[24px] sm:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-6 sm:gap-12 items-start">
-          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
+          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
             Technology Partner
           </AnimateOnScroll>
 
@@ -890,7 +890,7 @@ function ProductDetail() {
 
         <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 items-center justify-center">
           <AnimateOnScroll animation="fade-up" className="flex flex-col gap-2 sm:gap-3 items-center text-center">
-            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Interested in this Product?
             </h2>
             <p

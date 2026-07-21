@@ -332,12 +332,12 @@ function Products() {
         <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col xl:flex-row items-center justify-between gap-6 md:gap-12">
 
         <div className="relative flex w-full lg:w-[487px] flex-col items-start gap-4 sm:gap-6 z-10">
-          <span className="inline-flex items-center gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-[15px] py-[7px] text-xs sm:text-sm text-white">
-            <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-[24px] border border-[#2a2a2a] bg-[#1a1a1a] px-3.5 py-[5px] sm:px-[15px] sm:py-[7px] text-xs sm:text-sm text-white">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
             We're Here To Help
           </span>
           <h2
-            className="text-xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d] uppercase"
+            className="text-2xl sm:text-3xl md:text-[40px] font-adlam font-normal text-[#0c0c0d] uppercase"
             style={{ lineHeight: "clamp(28px, 6vw, 50px)" }}
           >
             Let's Talk

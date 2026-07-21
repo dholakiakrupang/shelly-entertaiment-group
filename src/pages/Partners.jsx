@@ -134,7 +134,7 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
           {/* Name & Description */}
           <div className="flex flex-col gap-2 sm:gap-3 items-start w-full">
             <h2
-              className="font-adlam text-black text-xl sm:text-3xl lg:text-[40px] font-normal leading-tight lg:leading-[50px]"
+              className="font-adlam text-black text-2xl sm:text-3xl lg:text-[40px] font-normal leading-tight lg:leading-[50px]"
               style={{ letterSpacing: '0.37px' }}
             >
               {partner.name}
@@ -279,7 +279,7 @@ function Partners() {
 
         <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 items-center justify-center">
           <AnimateOnScroll animation="fade-up" className="flex flex-col gap-2 sm:gap-3 items-center text-center">
-            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Explore Partnership Opportunities
             </h2>
             <p
