@@ -1061,7 +1061,7 @@ function ProductDetail() {
             ✓
           </div>
           <div className="flex flex-col">
-            <span className="text-xs text-gray-400 font-sans">Download Complete</span>
+            <span className="text-xs text-gray-400 font-sans">Download Started</span>
             <span className="text-sm font-medium text-white font-sans">{downloadSuccessToast}</span>
           </div>
         </div>
