@@ -682,7 +682,7 @@ function ProductDetail() {
                 {product.title}
               </h3>
               <p
-                className="text-[#989898] text-xs sm:text-base leading-5 sm:leading-7 tracking-tight"
+                className="text-[#989898] text-[14px] sm:text-base leading-5 sm:leading-7 tracking-tight"
                 style={{ fontFamily: "Inter" }}
               >
                 {product.longDescription}

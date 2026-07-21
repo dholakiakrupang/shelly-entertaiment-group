@@ -139,7 +139,7 @@ const PartnerSection = ({ partner, reversed, onInquire }) => (
             >
               {partner.name}
             </h2>
-            <p className="text-[#989898] text-xs sm:text-base leading-4 sm:leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
+            <p className="text-[#989898] text-[14px] sm:text-base leading-4 sm:leading-6 tracking-tight" style={{ fontFamily: 'Inter' }}>
               {partner.description}
             </p>
           </div>
@@ -235,7 +235,7 @@ function Partners() {
 
             {/* Description */}
             <AnimateOnScroll animation="fade-up" delay={200} as="p"
-              className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-none"
+              className="text-[#FAFAFA] text-[14px] sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-none"
               style={{ fontFamily: 'Inter', color: '#FAFAFA' }}
             >
               Liberty Rewards collaborates with industry-trusted hardware and service providers. Our partners
@@ -283,7 +283,7 @@ function Partners() {
               Explore Partnership Opportunities
             </h2>
             <p
-              className="text-[#989898] text-xs sm:text-base md:text-xl leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-[800px]"
+              className="text-[#989898] text-[14px] sm:text-base md:text-xl leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-[800px]"
               style={{ fontFamily: 'Inter' }}
             >
               Interested in partnering with Liberty Rewards or learning more about our ecosystem? Reach out to

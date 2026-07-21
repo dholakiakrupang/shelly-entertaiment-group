@@ -31,6 +31,19 @@
   }
 }
 
+@utility animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 @utility glass-panel {
   background: rgba(18, 18, 20, 0.7);
   backdrop-filter: blur(12px);

@@ -164,7 +164,7 @@ function HomePage() {
             >
               <Link
                 to="/products"
-                className="btn-outline-gold inline-flex items-center text-[13px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
+                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
                   borderRadius: "24px",
@@ -231,7 +231,7 @@ function HomePage() {
                 Featured Products
               </h2>
               <p
-                className="text-[#989898] text-[13px] sm:text-[14px] md:text-[16px] font-normal mt-3 sm:mt-[24px]"
+                className="text-[#989898] text-[14px] sm:text-[14px] md:text-[16px] font-normal mt-3 sm:mt-[24px]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.44px",
@@ -245,7 +245,7 @@ function HomePage() {
             </div>
             <Link
               to="/products"
-              className="mt-2 md:mt-0 inline-flex items-center whitespace-nowrap shrink-0 text-[13px] sm:text-[14px] md:text-[16px] font-semibold text-[#CC8E00] py-[2px] btn-text-link gap-1.5 sm:gap-2"
+              className="mt-2 md:mt-0 inline-flex items-center whitespace-nowrap shrink-0 text-[14px] sm:text-[14px] md:text-[16px] font-semibold text-[#CC8E00] py-[2px] btn-text-link gap-1.5 sm:gap-2"
               style={{ fontFamily: "Inter" }}
             >
               <span className="whitespace-nowrap">View All Products</span>
@@ -312,7 +312,7 @@ function HomePage() {
                       <h3 className="text-base sm:text-lg md:text-[28px] font-bold uppercase tracking-wide font-sans">
                         {product.title}
                       </h3>
-                      <p className="text-[12px] sm:text-[13px] md:text-[14px] font-medium tracking-wide flex items-center space-x-1 sm:space-x-1.5 text-[#B5B5B5] font-sans">
+                      <p className="text-[14px] sm:text-[14px] md:text-[14px] font-medium tracking-wide flex items-center space-x-1 sm:space-x-1.5 text-[#B5B5B5] font-sans">
                         <span>View Machine</span>
                         <svg
                           width="18"
@@ -366,11 +366,11 @@ function HomePage() {
               animation="fade-up"
               delay={150}
               as="p"
-              className="text-[#989898] text-[13px] sm:text-[14px] md:text-[16px] font-normal mt-[16px] md:mt-[24px] text-center"
+              className="text-[#989898] text-[14px] sm:text-[14px] md:text-[16px] font-normal mt-[16px] md:mt-[24px] text-center"
               style={{
                 fontFamily: "Inter",
-                letterSpacing: "-0.44px",
-                lineHeight: "24px",
+                letterSpacing: "-0.15px",
+                lineHeight: "1.55",
                 color: "#989898",
               }}
             >
@@ -538,22 +538,32 @@ function HomePage() {
         </div>
 
         {/* Logo Carousel Container - Bleeds full screen width */}
-        <div className="w-full overflow-hidden relative">
+        <div className="w-full overflow-hidden relative flex select-none">
           {/* Overlay gradients on left/right for smooth fade look */}
           <div className="absolute left-0 top-0 bottom-0 w-[24px] sm:w-[50px] md:w-[100px] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-[24px] sm:w-[50px] md:w-[100px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
-          {/* Scrolling track */}
-          <div className="flex gap-4 sm:gap-6 md:gap-[20px] w-max animate-infinite-scroll">
-            {/* Render logos multiple times to ensure continuous flow */}
-            {[
-              ...partnerLogos,
-              ...partnerLogos,
-              ...partnerLogos,
-              ...partnerLogos,
-            ].map((logo, index) => (
+          {/* Scrolling Track 1 */}
+          <div className="flex shrink-0 gap-4 sm:gap-6 md:gap-[20px] pr-4 sm:pr-6 md:pr-[20px] items-center animate-marquee">
+            {partnerLogos.map((logo, index) => (
               <div
-                key={index}
+                key={`track1-${index}`}
+                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4.5 py-3 sm:p-[24px] md:p-[34px]"
+              >
+                <img
+                  src={logo}
+                  alt={`Partner ${index + 1}`}
+                  className="h-[36px] sm:h-10 md:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Scrolling Track 2 (Identical Clone for Seamless Infinite Loop) */}
+          <div className="flex shrink-0 gap-4 sm:gap-6 md:gap-[20px] pr-4 sm:pr-6 md:pr-[20px] items-center animate-marquee" aria-hidden="true">
+            {partnerLogos.map((logo, index) => (
+              <div
+                key={`track2-${index}`}
                 className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4.5 py-3 sm:p-[24px] md:p-[34px]"
               >
                 <img
@@ -622,10 +632,10 @@ function HomePage() {
               animation="fade-up"
               delay={150}
               as="p"
-              className="text-[#B3B3B3] text-[13px] sm:text-[14px] md:text-[16px] font-normal mb-[16px] md:mb-[24px] text-center"
+              className="text-[#B3B3B3] text-[14px] sm:text-[14px] md:text-[16px] font-normal mb-[16px] md:mb-[24px] text-center"
               style={{
                 fontFamily: "Inter",
-                letterSpacing: "-0.45px",
+                letterSpacing: "-0.44px",
                 lineHeight: "24px",
                 color: "#B3B3B3",
               }}
@@ -637,7 +647,7 @@ function HomePage() {
             <AnimateOnScroll animation="fade-up" delay={300}>
               <Link
                 to="/contact"
-                className="btn-outline-gold inline-flex items-center text-[13px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
+                className="btn-outline-gold inline-flex items-center text-[14px] sm:text-[15px] md:text-[18px] py-[8px] sm:py-[11px] px-[12px] sm:px-[16px]"
                 style={{
                   border: "1px solid #FFB200",
                   borderRadius: "24px",
@@ -691,7 +701,7 @@ function HomePage() {
                 Company Overview
               </h3>
               <div
-                className="space-y-[14px] sm:space-y-[18px] md:space-y-[24px] font-medium text-[13px] sm:text-[14px] md:text-[16px] text-[#989898]"
+                className="space-y-[14px] sm:space-y-[18px] md:space-y-[24px] font-medium text-[14px] sm:text-[14px] md:text-[16px] text-[#989898]"
                 style={{
                   fontFamily: "Inter",
                   letterSpacing: "-0.15px",

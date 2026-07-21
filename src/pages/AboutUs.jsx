@@ -265,7 +265,7 @@ function AboutUs() {
                 modern digital experiences.
               </p>
               <p
-                className="text-xs sm:text-sm md:text-[16px] leading-4 sm:leading-5 md:leading-[24px] font-normal text-[#888888]"
+                className="text-[14px] sm:text-sm md:text-[16px] leading-4 sm:leading-5 md:leading-[24px] font-normal text-[#888888]"
                 style={{
                   fontFamily: "Inter",
                   marginTop: "0.25px",
@@ -315,7 +315,7 @@ function AboutUs() {
                 Our Mission
               </p>
               <p
-                className="mt-2 text-xs sm:text-sm md:text-base text-[#777777]"
+                className="mt-2 text-[14px] sm:text-sm md:text-base text-[#777777]"
                 style={{ fontFamily: "Inter" }}
               >
                 To deliver transparent, compliant gaming experiences that
@@ -343,7 +343,7 @@ function AboutUs() {
                   Vision
                 </p>
                 <p
-                  className="mt-2 text-xs sm:text-sm text-[#777777]"
+                  className="mt-2 text-[14px] sm:text-sm text-[#777777]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Industry-leading compliant gaming platform
@@ -367,7 +367,7 @@ function AboutUs() {
                   Values
                 </p>
                 <p
-                  className="mt-2 text-xs sm:text-sm text-[#777777]"
+                  className="mt-2 text-[14px] sm:text-sm text-[#777777]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Transparency, compliance, innovation
@@ -390,7 +390,7 @@ function AboutUs() {
               <GradientText>Trust and Transparency</GradientText>
             </h2>
             <p
-              className="flex-1 text-xs sm:text-sm md:text-lg leading-5 sm:leading-6 md:leading-[28px] font-normal text-[#B5B5B5]"
+              className="flex-1 text-[14px] sm:text-sm md:text-lg leading-5 sm:leading-6 md:leading-[28px] font-normal text-[#B5B5B5]"
               style={{ fontFamily: "Inter", color: "#B5B5B5" }}
             >
               These core values guide everything we do, from the products we
@@ -776,7 +776,7 @@ function AboutUs() {
                   Get Started Today
                 </span>
                 <span
-                  className="block text-[10px] sm:text-[13px] md:text-[14px] font-medium tracking-[-0.15px] leading-[14px] sm:leading-[20px]"
+                  className="block text-xs sm:text-[14px] md:text-[14px] font-medium tracking-[-0.15px] leading-[14px] sm:leading-[20px]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Schedule a consultation with our team
@@ -802,7 +802,7 @@ function AboutUs() {
               </span>
             </div>
             <p
-              className="text-xs sm:text-sm text-[#b3b3b3] text-center"
+              className="text-[14px] sm:text-sm text-[#b3b3b3] text-center"
               style={{ fontFamily: "Inter", color: "#b3b3b3" }}
             >
               Join 500+ venues already using Liberty Rewards

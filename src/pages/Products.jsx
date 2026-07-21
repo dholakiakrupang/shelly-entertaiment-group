@@ -211,7 +211,7 @@ function Products() {
                     {product.title}
                   </h3>
                   <p
-                    className="text-xs sm:text-[13px] md:text-[14px] leading-relaxed text-[#989898] font-normal"
+                    className="text-[14px] sm:text-[14px] md:text-[14px] leading-relaxed text-[#989898] font-normal"
                     style={{ fontFamily: "Inter", letterSpacing: "-0.15px", color: "#989898" }}
                   >
                     {product.description}
@@ -266,7 +266,7 @@ function Products() {
                 </span>
               </div>
               <p
-                className="max-w-[900px] text-[13px] sm:text-base leading-[20px] sm:leading-[26px] text-[#B3B3B3] font-normal"
+                className="max-w-[900px] text-[14px] sm:text-base leading-[20px] sm:leading-[26px] text-[#B3B3B3] font-normal"
                 style={{ fontFamily: "Inter", color: "#B3B3B3" }}
               >
                 All products displayed are informational only and designed for
@@ -345,7 +345,7 @@ function Products() {
             <span className="text-gradient">About Project</span>
           </h2>
           <p
-            className="text-xs sm:text-base md:text-[18px] leading-4 sm:leading-6 md:leading-[28px] text-[#989898] font-normal"
+            className="text-[14px] sm:text-base md:text-[18px] leading-5 sm:leading-6 md:leading-[28px] text-[#989898] font-normal"
             style={{ fontFamily: "Inter", letterSpacing: "-0.44px", color: "#989898" }}
           >
             Need detailed specifications, compliance documentation, or custom
