@@ -8,16 +8,40 @@ import section1BgElement from "../assets/section-1-bg-element.png";
 function HomePage() {
   const sliderImages = [
     "/slider-img.png",
-    "/slider-img.png",
-    "/slider-img.png",
+    "/Image (Skill Match Game System).png",
+    "/Image (Arcade Skill-Challenge Platform).png",
   ];
 
   const [activeSlide, setActiveSlide] = useState(0);
   const prevSlideRef = useRef(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const goToSlide = (newIndex) => {
     prevSlideRef.current = activeSlide;
     setActiveSlide(newIndex);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 35;
+    if (distance > minSwipeDistance) {
+      goToSlide((activeSlide + 1) % sliderImages.length);
+    } else if (distance < -minSwipeDistance) {
+      goToSlide((activeSlide - 1 + sliderImages.length) % sliderImages.length);
+    }
+    touchStartX.current = 0;
+    touchEndX.current = 0;
   };
 
   useEffect(() => {
@@ -520,7 +544,7 @@ function HomePage() {
           <div className="absolute right-0 top-0 bottom-0 w-[24px] sm:w-[50px] md:w-[100px] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           {/* Scrolling track */}
-          <div className="flex gap-3 sm:gap-5 md:gap-[20px] w-max animate-infinite-scroll">
+          <div className="flex gap-4 sm:gap-6 md:gap-[20px] w-max animate-infinite-scroll">
             {/* Render logos multiple times to ensure continuous flow */}
             {[
               ...partnerLogos,
@@ -530,12 +554,12 @@ function HomePage() {
             ].map((logo, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-3 py-2 sm:p-[24px] md:p-[34px]"
+                className="flex items-center justify-center bg-white rounded-[8px] sm:rounded-[12px] shrink-0 px-4.5 py-3 sm:p-[24px] md:p-[34px]"
               >
                 <img
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="h-6 sm:h-8 md:h-[48px] w-auto max-w-[90px] sm:max-w-[140px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-[36px] sm:h-10 md:h-[48px] w-auto max-w-[125px] sm:max-w-[150px] md:max-w-none object-contain opacity-70 hover:opacity-100 transition-opacity"
                 />
               </div>
             ))}
@@ -714,7 +738,12 @@ function HomePage() {
               delay={200}
               className="w-full md:w-1/2 flex flex-col justify-center"
             >
-              <div className="relative w-full rounded-[24px] overflow-hidden bg-black">
+              <div
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                className="relative w-full rounded-[24px] overflow-hidden bg-black group/slider select-none cursor-grab active:cursor-grabbing"
+              >
                 {/* Template image to establish natural aspect ratio and height */}
                 <img
                   src={sliderImages[0]}
@@ -730,7 +759,7 @@ function HomePage() {
                       key={idx}
                       src={img}
                       alt={`Slide ${idx + 1}`}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                       style={{
                         opacity: isActive || isPrev ? 1 : 0,
                         zIndex: isActive ? 10 : isPrev ? 5 : 0,
@@ -747,7 +776,7 @@ function HomePage() {
                   className="absolute inset-0 z-20 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(0, 0, 0, 0) 84.92%, #000000 100%)",
+                      "linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.8) 100%)",
                   }}
                 ></div>
 
@@ -758,7 +787,7 @@ function HomePage() {
                       key={idx}
                       onClick={() => goToSlide(idx)}
                       aria-label={`Go to slide ${idx + 1}`}
-                      className="transition-all duration-300 pointer-events-auto"
+                      className="transition-all duration-300 pointer-events-auto cursor-pointer"
                       style={{
                         width: activeSlide === idx ? "40px" : "6px",
                         height: "6px",

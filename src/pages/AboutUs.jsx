@@ -488,19 +488,19 @@ function AboutUs() {
                 )}
                 <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-1">
                   <p
-                    className="text-sm sm:text-base md:text-xl font-bold text-[#0c0c0d] leading-snug"
+                    className="text-base sm:text-base md:text-xl font-bold text-[#0c0c0d] leading-snug"
                     style={{ fontFamily: "Inter" }}
                   >
                     {member.name}
                   </p>
                   <p
-                    className="text-[10px] sm:text-xs md:text-sm font-semibold text-[#cc8e00] mt-0.5 sm:mt-1"
+                    className="text-xs sm:text-xs md:text-sm font-semibold text-[#cc8e00] mt-0.5 sm:mt-1"
                     style={{ fontFamily: "Inter" }}
                   >
                     {member.role}
                   </p>
                   <p
-                    className="mt-2 sm:mt-3 text-[10px] sm:text-xs md:text-sm text-[#777777] leading-relaxed"
+                    className="mt-2 sm:mt-3 text-xs sm:text-xs md:text-sm text-[#777777] leading-relaxed"
                     style={{
                       fontFamily: "Inter",
                       fontWeight: 400,
@@ -581,7 +581,7 @@ function AboutUs() {
                           {item.title}
                         </p>
                         <p
-                          className="mt-1 sm:mt-3 text-[11px] sm:text-sm text-[#989898] leading-normal"
+                          className="mt-1 sm:mt-3 text-xs sm:text-sm text-[#989898] leading-normal"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.description}

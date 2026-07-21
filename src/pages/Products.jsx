@@ -170,7 +170,7 @@ function Products() {
                 <button
                   key={category}
                   onClick={() => handleCategoryClick(category)}
-                  className={`rounded-full px-2.5 sm:px-[23px] py-1 sm:py-[11px] font-semibold text-[11px] sm:text-sm transition-all duration-300 border ${
+                  className={`rounded-full px-3 sm:px-[23px] py-1.5 sm:py-[11px] font-semibold text-xs sm:text-sm transition-all duration-300 border ${
                     activeCategory === category
                       ? "border-[#ffb200] bg-white text-[#ffb200]"
                       : "border-gray-200 text-[#0c0c0d] hover:border-[#ffb200] hover:text-[#ffb200]"
@@ -184,45 +184,45 @@ function Products() {
           </AnimateOnScroll>
 
           {/* ============ PRODUCT GRID ============ */}
-          <div className="grid w-full max-w-[1252px] grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-x-[34px] gap-y-4 sm:gap-y-[51px] stagger-children">
+          <div className="grid w-full max-w-[1252px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-x-[34px] gap-y-6 sm:gap-y-[51px] stagger-children">
             {filteredProducts.map((product) => (
               <AnimateOnScroll key={product.id} animation="fade-up" delay={(filteredProducts.indexOf(product) % 3) * 100} className="h-full flex flex-col">
               <Link
                 to={`/products/${product.id}`}
-                className="group overflow-hidden rounded-[14px] sm:rounded-[20px] md:rounded-[24px] border border-gray-200 bg-white hover:border-[#ffb200]/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer"
+                className="group overflow-hidden rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border border-gray-200 bg-white hover:border-[#ffb200]/30 hover:-translate-y-1.5 hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer"
                 style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
               >
-                <div className="relative h-[120px] sm:h-[200px] md:h-[280px] overflow-hidden">
+                <div className="relative h-[180px] sm:h-[200px] md:h-[280px] overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute left-2 top-2 sm:left-4 sm:top-4 inline-flex items-center gap-1 sm:gap-2 rounded-full bg-black/80 backdrop-blur-md px-2 py-0.5 sm:px-3 sm:py-1.5 text-[8px] sm:text-xs uppercase tracking-wide text-white font-medium">
-                    <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200]"></span>
+                  <span className="absolute left-3 top-3 sm:left-4 sm:top-4 inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-black/80 backdrop-blur-md px-2.5 py-1 sm:px-3 sm:py-1.5 text-xs uppercase tracking-wide text-white font-medium">
+                    <span className="w-2 h-2 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200]"></span>
                     {product.category}
                   </span>
                 </div>
-                <div className="flex flex-col flex-1 gap-1.5 sm:gap-3 p-2.5 sm:p-5 md:pt-[23px] md:px-[23px] md:pb-[15px]">
+                <div className="flex flex-col flex-1 gap-2 sm:gap-3 p-4 sm:p-5 md:pt-[23px] md:px-[23px] md:pb-[15px]">
                   <h3
-                    className="text-xs sm:text-lg md:text-xl font-bold text-[#0c0c0d] leading-snug"
+                    className="text-base sm:text-lg md:text-xl font-bold text-[#0c0c0d] leading-snug"
                     style={{ fontFamily: "Inter" }}
                   >
                     {product.title}
                   </h3>
                   <p
-                    className="text-[10px] sm:text-[13px] md:text-[14px] leading-tight sm:leading-[20px] md:leading-[22px] text-[#989898] font-normal line-clamp-2"
+                    className="text-xs sm:text-[13px] md:text-[14px] leading-relaxed text-[#989898] font-normal"
                     style={{ fontFamily: "Inter", letterSpacing: "-0.15px", color: "#989898" }}
                   >
                     {product.description}
                   </p>
                   <div
-                    className="mt-auto pt-1 inline-flex items-center gap-1 sm:gap-2 text-[10px] sm:text-sm font-semibold text-[#0c0c0d] group-hover:text-[#ffb200] transition-colors duration-300"
+                    className="mt-auto pt-2 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0c0c0d] group-hover:text-[#ffb200] transition-colors duration-300"
                     style={{ fontFamily: "Inter" }}
                   >
                     <span>View Details</span>
                     <span className="transform group-hover:translate-x-1.5 transition-transform duration-300">
-                      <ArrowIcon size={14} />
+                      <ArrowIcon size={16} />
                     </span>
                   </div>
                 </div>
@@ -259,14 +259,14 @@ function Products() {
                   Compliance &amp; Legal Note
                 </h2>
                 <span
-                  className="inline-block rounded-full border border-[#FF8A0033] bg-[#FF8A001A] px-2 py-0.5 sm:p-2 text-[10px] sm:text-[12px] font-medium text-[#FF8A00] leading-[16px] tracking-[0px]"
+                  className="inline-block rounded-full border border-[#FF8A0033] bg-[#FF8A001A] px-2 py-0.5 sm:p-2 text-xs sm:text-[12px] font-medium text-[#FF8A00] leading-[16px] tracking-[0px]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Required Reading
                 </span>
               </div>
               <p
-                className="max-w-[900px] text-xs sm:text-base leading-4 sm:leading-[26px] text-[#B3B3B3] font-normal"
+                className="max-w-[900px] text-[13px] sm:text-base leading-[20px] sm:leading-[26px] text-[#B3B3B3] font-normal"
                 style={{ fontFamily: "Inter", color: "#B3B3B3" }}
               >
                 All products displayed are informational only and designed for
@@ -275,9 +275,9 @@ function Products() {
                 commercial deployment in jurisdictions where permitted. Please
                 consult local regulations before deployment.
               </p>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1 sm:pt-2">
+              <div className="flex flex-wrap sm:flex-wrap items-center gap-1.5 sm:gap-2 pt-1 sm:pt-2">
                 <span
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2.5 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[16px] text-[#888888]"
+                  className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[15px] sm:leading-[16px] text-[#888888] whitespace-nowrap"
                   style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
                   <img
@@ -288,17 +288,17 @@ function Products() {
                   Age Restricted
                 </span>
                 <span
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2.5 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[16px] text-[#888888]"
+                  className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[15px] sm:leading-[16px] text-[#888888] whitespace-nowrap"
                   style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
                   Jurisdiction Specific
                 </span>
                 <span
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2.5 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[16px] text-[#888888]"
+                  className="inline-flex items-center gap-1 sm:gap-2 rounded-full border border-[#ffb200]/10 bg-black/60 px-2 py-0.5 sm:px-3 sm:py-1.5 text-[10px] sm:text-[12px] leading-[15px] sm:leading-[16px] text-[#888888] whitespace-nowrap"
                   style={{ fontFamily: "Inter", letterSpacing: "0px", color: "#888888" }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
+                  <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#FF8A00] shrink-0"></span>
                   Certified Systems
                 </span>
               </div>

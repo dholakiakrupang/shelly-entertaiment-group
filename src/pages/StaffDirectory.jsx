@@ -117,7 +117,7 @@ const StaffCard = ({ member }) => (
         alt={member.name}
         className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
       />
-      <span className="absolute top-2 right-2 sm:top-[11px] sm:right-[12px] bg-black/80 border border-[#1a1a1a] rounded-full px-2 py-1 sm:px-[10px] sm:py-2 text-white text-[8px] sm:text-[10px] font-medium tracking-widest uppercase">
+      <span className="absolute top-2 right-2 sm:top-[11px] sm:right-[12px] bg-black/80 border border-[#1a1a1a] rounded-full px-2 py-0.5 sm:px-[10px] sm:py-2 text-white text-[10px] sm:text-[10px] font-medium tracking-widest uppercase">
         {member.department}
       </span>
     </div>
@@ -125,10 +125,10 @@ const StaffCard = ({ member }) => (
     {/* Info */}
     <div className="flex flex-col gap-2.5 sm:gap-4 p-3 sm:p-5 md:p-[23px] flex-1">
       <div>
-        <h3 className="font-bold text-sm sm:text-base md:text-xl text-black tracking-tight leading-snug" style={{ fontFamily: 'Inter' }}>
+        <h3 className="font-bold text-base sm:text-base md:text-xl text-black tracking-tight leading-snug" style={{ fontFamily: 'Inter' }}>
           {member.name}
         </h3>
-        <p className="text-[#989898] text-[10px] sm:text-xs font-medium tracking-widest uppercase mt-0.5 sm:mt-1" style={{ fontFamily: 'Inter' }}>
+        <p className="text-[#cc8e00] text-xs sm:text-xs font-semibold tracking-wide mt-0.5 sm:mt-1" style={{ fontFamily: 'Inter' }}>
           {member.role}
         </p>
       </div>
