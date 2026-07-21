@@ -252,7 +252,7 @@ function AboutUs() {
                 <GradientText>Digital Entertainment</GradientText>
               </h2>
               <p
-                className="text-sm sm:text-base md:text-[18px] leading-5 sm:leading-6 md:leading-[28px] font-normal text-[#777777]"
+                className="text-[14px] sm:text-base md:text-[18px] leading-6 sm:leading-7 md:leading-[28px] font-normal text-[#555555]"
                 style={{
                   fontFamily: "Inter",
                   marginTop: "1px",
@@ -265,7 +265,7 @@ function AboutUs() {
                 modern digital experiences.
               </p>
               <p
-                className="text-[14px] sm:text-sm md:text-[16px] leading-4 sm:leading-5 md:leading-[24px] font-normal text-[#888888]"
+                className="text-[14px] sm:text-base md:text-[16px] leading-6 sm:leading-7 md:leading-[24px] font-normal text-[#666666]"
                 style={{
                   fontFamily: "Inter",
                   marginTop: "0.25px",
@@ -278,12 +278,12 @@ function AboutUs() {
                 maintaining the highest standards of player protection.
               </p>
 
-              <ul className="flex flex-col gap-4 pt-4">
+              <ul className="flex flex-col gap-3.5 pt-2">
                 {checklistItems.map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <BulletDot />
                     <span
-                      className="text-sm text-[#777777]"
+                      className="text-sm sm:text-base text-[#333333] font-medium"
                       style={{ fontFamily: "Inter" }}
                     >
                       {item}
@@ -315,7 +315,7 @@ function AboutUs() {
                 Our Mission
               </p>
               <p
-                className="mt-2 text-[14px] sm:text-sm md:text-base text-[#777777]"
+                className="mt-2 text-[14px] sm:text-base text-[#666666]"
                 style={{ fontFamily: "Inter" }}
               >
                 To deliver transparent, compliant gaming experiences that
@@ -343,7 +343,7 @@ function AboutUs() {
                   Vision
                 </p>
                 <p
-                  className="mt-2 text-[14px] sm:text-sm text-[#777777]"
+                  className="mt-2 text-[14px] sm:text-base text-[#666666]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Industry-leading compliant gaming platform
@@ -367,7 +367,7 @@ function AboutUs() {
                   Values
                 </p>
                 <p
-                  className="mt-2 text-[14px] sm:text-sm text-[#777777]"
+                  className="mt-2 text-[14px] sm:text-base text-[#666666]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Transparency, compliance, innovation
@@ -426,7 +426,7 @@ function AboutUs() {
                       {item.title}
                     </p>
                     <p
-                      className="mt-1 sm:mt-2 text-xs sm:text-sm text-[#FAFAFA]"
+                      className="mt-1 sm:mt-2 text-[14px] sm:text-sm text-[#FAFAFA]"
                       style={{ fontFamily: "Inter", color: "#FAFAFA" }}
                     >
                       {item.description}

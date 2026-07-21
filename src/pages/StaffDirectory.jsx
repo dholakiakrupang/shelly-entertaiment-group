@@ -236,7 +236,7 @@ function StaffDirectory() {
       <section className="bg-white w-full relative z-30">
         <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-4 sm:gap-6 md:gap-8 items-center py-[20px] sm:py-[35px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px]">
           {/* Search bar */}
-          <AnimateOnScroll animation="fade-down" className="bg-black/[0.03] border border-[#e2e2e2] hover:border-[#ff8a00]/40 focus-within:border-[#ff8a00] focus-within:shadow-[0_0_15px_rgba(255,138,0,0.2)] focus-within:bg-white rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 w-full max-w-[576px] transition-all duration-300">
+          <AnimateOnScroll animation="fade-down" className="relative z-50 bg-black/[0.03] border border-[#e2e2e2] hover:border-[#ff8a00]/40 focus-within:border-[#ff8a00] focus-within:shadow-[0_0_15px_rgba(255,138,0,0.2)] focus-within:bg-white rounded-full px-3.5 sm:px-5 py-2 sm:py-2.5 w-full max-w-[576px] transition-all duration-300">
             <div className="flex gap-3 items-center w-full">
               <SearchIcon />
               <input
@@ -286,7 +286,7 @@ function StaffDirectory() {
                 {/* Filter Dropdown Menu */}
                 {isFilterDropdownOpen && (
                   <div
-                    className="absolute right-0 top-full mt-3 w-72 bg-white rounded-2xl border border-[#e2e2e2] shadow-2xl p-5 z-[100] flex flex-col gap-4 text-left"
+                    className="absolute right-0 top-full mt-3 w-72 bg-white rounded-2xl border border-[#e2e2e2] shadow-2xl p-5 z-[9999] flex flex-col gap-4 text-left"
                     style={{ animation: 'fadeIn 0.2s ease-out' }}
                   >
                     <div className="flex items-center justify-between border-b border-[#eee] pb-3">
