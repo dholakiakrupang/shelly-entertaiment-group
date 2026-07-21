@@ -534,7 +534,7 @@ function AboutUs() {
             </p>
           </AnimateOnScroll>
 
-          <ol className="relative flex w-full max-w-[1024px] flex-col gap-6 sm:gap-8 md:gap-[64px] timeline-line">
+          <ol className="relative flex w-full max-w-[1024px] flex-col gap-4 sm:gap-8 md:gap-[64px] timeline-line">
             {milestones.map((item, idx) => {
               const isLeft = idx % 2 === 0;
               return (
@@ -548,12 +548,12 @@ function AboutUs() {
                   {isLeft ? (
                     <>
                       <AnimateOnScroll animation="fade-right" delay={idx * 100}
-                        className="relative z-10 rounded-[24px] border border-[#e2e2e2] bg-white p-5 sm:p-[31px] mb-[7.5px]"
+                        className="relative z-10 rounded-[16px] sm:rounded-[24px] border border-[#e2e2e2] bg-white p-3.5 sm:p-5 md:p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
                           <div
-                            className="mb-4 flex w-12 h-12 items-center justify-center rounded-[16px]"
+                            className="mb-2 sm:mb-4 flex w-9 h-9 sm:w-12 sm:h-12 items-center justify-center rounded-xl sm:rounded-[16px]"
                             style={{
                               border: "1px solid rgba(255, 138, 0, 0.1)",
                               borderTop: "1px solid #FF8A0033",
@@ -564,24 +564,24 @@ function AboutUs() {
                             <img
                               src={item.icon}
                               alt={item.title}
-                              className="w-6 h-6 object-contain"
+                              className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
                             />
                           </div>
                         )}
                         <p
-                          className="text-gradient text-2xl sm:text-3xl font-bold"
+                          className="text-gradient text-lg sm:text-2xl md:text-3xl font-bold"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.year}
                         </p>
                         <p
-                          className="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold text-[#0c0c0d]"
+                          className="mt-1 sm:mt-3 text-base sm:text-xl md:text-2xl font-bold text-[#0c0c0d]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.title}
                         </p>
                         <p
-                          className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#989898]"
+                          className="mt-1 sm:mt-3 text-[11px] sm:text-sm text-[#989898] leading-normal"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.description}
@@ -593,12 +593,12 @@ function AboutUs() {
                     <>
                       <div className="hidden md:block"></div>
                       <AnimateOnScroll animation="fade-left" delay={idx * 100}
-                        className="relative z-10 rounded-[24px] border border-[#e2e2e2] bg-white p-5 sm:p-[31px] mb-[7.5px]"
+                        className="relative z-10 rounded-[16px] sm:rounded-[24px] border border-[#e2e2e2] bg-white p-3.5 sm:p-5 md:p-[31px] mb-[7.5px]"
                         style={{ boxShadow: "0 0 10px rgba(0,0,0,0.05)" }}
                       >
                         {item.icon && (
                           <div
-                            className="mb-4 flex w-12 h-12 items-center justify-center rounded-[16px]"
+                            className="mb-2 sm:mb-4 flex w-9 h-9 sm:w-12 sm:h-12 items-center justify-center rounded-xl sm:rounded-[16px]"
                             style={{
                               border: "1px solid rgba(255, 138, 0, 0.1)",
                               borderTop: "1px solid #FF8A0033",
@@ -609,24 +609,24 @@ function AboutUs() {
                             <img
                               src={item.icon}
                               alt={item.title}
-                              className="w-6 h-6 object-contain"
+                              className="w-4 h-4 sm:w-6 sm:h-6 object-contain"
                             />
                           </div>
                         )}
                         <p
-                          className="text-gradient text-2xl sm:text-3xl font-bold"
+                          className="text-gradient text-lg sm:text-2xl md:text-3xl font-bold"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.year}
                         </p>
                         <p
-                          className="mt-3 sm:mt-4 text-xl sm:text-2xl font-bold text-[#0c0c0d]"
+                          className="mt-1 sm:mt-3 text-base sm:text-xl md:text-2xl font-bold text-[#0c0c0d]"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.title}
                         </p>
                         <p
-                          className="mt-3 sm:mt-4 text-xs sm:text-sm text-[#989898]"
+                          className="mt-1 sm:mt-3 text-[11px] sm:text-sm text-[#989898] leading-normal"
                           style={{ fontFamily: "Inter" }}
                         >
                           {item.description}
@@ -661,9 +661,9 @@ function AboutUs() {
           />
         </div>
 
-        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[40px] md:py-[60px] lg:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col xl:flex-row items-center justify-between gap-6 md:gap-12">
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[60px] lg:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col xl:flex-row items-center justify-between gap-4 sm:gap-6 md:gap-12">
           {/* Left Column */}
-          <AnimateOnScroll animation="fade-right" className="flex w-full lg:w-[487px] flex-col items-start gap-6">
+          <AnimateOnScroll animation="fade-right" className="flex w-full lg:w-[487px] flex-col items-start gap-4 sm:gap-6">
             <SectionBadge label="Let's Connect" />
             <div className="flex flex-col gap-4">
               <h2
@@ -683,14 +683,14 @@ function AboutUs() {
               </p>
             </div>
 
-            <div className="flex w-full flex-col gap-4">
+            <div className="flex w-full flex-col gap-2.5 sm:gap-4">
               <a
                 href="tel:+15551234567"
-                className="flex items-center gap-4 rounded-2xl border border-[#e2e2e2] bg-white p-4 hover:border-[#ffb200]/40 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-[#e2e2e2] bg-white p-2.5 sm:p-4 hover:border-[#ffb200]/40 transition-colors"
               >
-                <span className="flex w-12 h-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10">
+                <span className="flex w-9 h-9 sm:w-12 sm:h-12 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10 shrink-0">
                   <svg
-                    className="w-5 h-5 text-[#ffb200]"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-[#ffb200]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -705,13 +705,13 @@ function AboutUs() {
                 </span>
                 <span>
                   <span
-                    className="block text-xs text-[#989898]"
+                    className="block text-[10px] sm:text-xs text-[#989898]"
                     style={{ fontFamily: "Inter" }}
                   >
                     Call Us
                   </span>
                   <span
-                    className="block text-sm font-semibold text-[#0c0c0d]"
+                    className="block text-xs sm:text-sm font-semibold text-[#0c0c0d]"
                     style={{ fontFamily: "Inter" }}
                   >
                     +1 (555) 123-4567
@@ -720,11 +720,11 @@ function AboutUs() {
               </a>
               <a
                 href="mailto:info@libertyrewards.com"
-                className="flex items-center gap-4 rounded-2xl border border-[#e2e2e2] bg-white p-4 hover:border-[#ffb200]/40 transition-colors"
+                className="flex items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-[#e2e2e2] bg-white p-2.5 sm:p-4 hover:border-[#ffb200]/40 transition-colors"
               >
-                <span className="flex w-12 h-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10">
+                <span className="flex w-9 h-9 sm:w-12 sm:h-12 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-[#ff6a00]/20 to-[#ffb200]/10 shrink-0">
                   <svg
-                    className="w-5 h-5 text-[#ffb200]"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-[#ffb200]"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -740,13 +740,13 @@ function AboutUs() {
                 </span>
                 <span>
                   <span
-                    className="block text-xs text-[#989898]"
+                    className="block text-[10px] sm:text-xs text-[#989898]"
                     style={{ fontFamily: "Inter" }}
                   >
                     Email Us
                   </span>
                   <span
-                    className="block text-sm font-semibold text-[#0c0c0d]"
+                    className="block text-xs sm:text-sm font-semibold text-[#0c0c0d]"
                     style={{ fontFamily: "Inter" }}
                   >
                     info@libertyrewards.com
@@ -757,52 +757,52 @@ function AboutUs() {
           </AnimateOnScroll>
 
           {/* Right Column — CTA */}
-          <AnimateOnScroll animation="fade-left" delay={200} className="flex w-full lg:w-[487px] flex-col items-center gap-8">
+          <AnimateOnScroll animation="fade-left" delay={200} className="flex w-full lg:w-[487px] flex-col items-center gap-4 sm:gap-8">
             <Link
               to="/contact"
-              className="flex w-full items-center justify-center gap-[8px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] text-center text-white btn-gradient-primary"
+              className="flex w-full items-center justify-center gap-[8px] rounded-[14px] sm:rounded-[20px] md:rounded-[24px] text-center text-white btn-gradient-primary"
               style={{
-                paddingTop: "clamp(14px, 3vw, 32.75px)",
-                paddingRight: "clamp(16px, 6vw, 66.5px)",
-                paddingBottom: "clamp(14px, 3vw, 33.25px)",
-                paddingLeft: "clamp(16px, 6vw, 66.5px)",
+                paddingTop: "clamp(12px, 2.5vw, 32.75px)",
+                paddingRight: "clamp(14px, 5vw, 66.5px)",
+                paddingBottom: "clamp(12px, 2.5vw, 33.25px)",
+                paddingLeft: "clamp(14px, 5vw, 66.5px)",
               }}
             >
-              <span className="flex flex-col gap-[6px]">
+              <span className="flex flex-col gap-[4px] sm:gap-[6px]">
                 <span
-                  className="block text-base sm:text-xl md:text-[30px] font-bold tracking-[0.4px] leading-tight sm:leading-[36px]"
+                  className="block text-sm sm:text-xl md:text-[30px] font-bold tracking-[0.4px] leading-tight sm:leading-[36px]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Get Started Today
                 </span>
                 <span
-                  className="block text-[11px] sm:text-[13px] md:text-[14px] font-medium tracking-[-0.15px] leading-[16px] sm:leading-[20px]"
+                  className="block text-[10px] sm:text-[13px] md:text-[14px] font-medium tracking-[-0.15px] leading-[14px] sm:leading-[20px]"
                   style={{ fontFamily: "Inter" }}
                 >
                   Schedule a consultation with our team
                 </span>
               </span>
-              <ArrowIcon size={32} color="white" />
+              <ArrowIcon size={22} color="white" />
             </Link>
             <div
-              className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#989898]"
+              className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[10px] sm:text-xs text-[#989898]"
               style={{ fontFamily: "Inter" }}
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 sm:gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
                 Free Consultation
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 sm:gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
                 24-Hour Response
               </span>
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-1.5 sm:gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200]"></span>
                 No Obligation
               </span>
             </div>
             <p
-              className="text-sm text-[#b3b3b3] text-center"
+              className="text-xs sm:text-sm text-[#b3b3b3] text-center"
               style={{ fontFamily: "Inter", color: "#b3b3b3" }}
             >
               Join 500+ venues already using Liberty Rewards

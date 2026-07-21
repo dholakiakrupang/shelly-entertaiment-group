@@ -42,27 +42,27 @@ const ContactInfoCard = ({ icon, title, subtitle, value, href }) => {
   const ValueElement = isLink ? 'a' : 'p';
 
   return (
-    <div className="bg-white border border-[#e2e2e2] rounded-2xl p-4 md:p-6 flex gap-3 md:gap-4 items-start w-full">
+    <div className="bg-white border border-[#e2e2e2] rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 flex gap-3 md:gap-4 items-start w-full">
       <div
-        className="rounded-[14px] w-11 h-11 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
+        className="rounded-lg sm:rounded-[14px] w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center border border-[rgba(255,138,0,0.1)] shrink-0"
         style={{
           backgroundImage: 'linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)',
         }}
       >
         {icon}
       </div>
-      <div className="flex flex-col gap-2 items-start">
+      <div className="flex flex-col gap-1 sm:gap-2 items-start min-w-0">
         <div>
-          <h3 className="font-bold text-base md:text-lg text-black tracking-tight mb-0.5 md:mb-1" style={{ fontFamily: 'Inter' }}>
+          <h3 className="font-bold text-xs sm:text-base md:text-lg text-black tracking-tight mb-0.5 md:mb-1" style={{ fontFamily: 'Inter' }}>
             {title}
           </h3>
-          <p className="text-[#989898] text-xs md:text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
+          <p className="text-[#989898] text-[10px] sm:text-xs md:text-sm tracking-tight" style={{ fontFamily: 'Inter' }}>
             {subtitle}
           </p>
         </div>
         <ValueElement
           href={isLink ? href : undefined}
-          className={`font-medium text-sm text-[#777777] tracking-tight ${
+          className={`font-medium text-xs sm:text-sm text-[#777777] tracking-tight truncate w-full ${
             isLink ? 'hover:text-[#ff8a00] transition-colors duration-200' : ''
           }`}
           style={{ fontFamily: 'Inter', color: '#777777' }}
@@ -161,10 +161,10 @@ function ContactUs() {
       <section className="bg-white w-full overflow-hidden">
         <div className="max-w-[1440px] mx-auto w-full py-[30px] md:py-[50px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-[24px] md:gap-[36px] items-start justify-center">
           {/* Contact Information Cards */}
-          <AnimateOnScroll animation="fade-right" className="flex flex-col gap-5 md:gap-8 items-start w-full lg:w-[440px] shrink-0">
-            <h2 className="font-adlam text-black text-2xl md:text-3xl tracking-wide">Contact Information</h2>
+          <AnimateOnScroll animation="fade-right" className="flex flex-col gap-3 sm:gap-5 md:gap-8 items-start w-full lg:w-[440px] shrink-0">
+            <h2 className="font-adlam text-black text-xl sm:text-2xl md:text-3xl tracking-wide">Contact Information</h2>
 
-            <div className="flex flex-col gap-3 md:gap-5 items-start w-full">
+            <div className="flex flex-col gap-2.5 sm:gap-3 md:gap-5 items-start w-full">
               <ContactInfoCard
                 icon={<EmailIcon />}
                 title="Sales Contact"
@@ -197,14 +197,14 @@ function ContactUs() {
 
           {/* Inquiry Form */}
           {isSubmitted ? (
-            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-[24px] p-8 md:p-12 flex flex-col items-center justify-center text-center gap-4 min-h-[500px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200] flex items-center justify-center text-white mb-2">
-                <svg className="w-8 h-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-xl sm:rounded-[24px] p-5 md:p-12 flex flex-col items-center justify-center text-center gap-4 min-h-[350px] md:min-h-[500px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#ff6a00] to-[#ffb200] flex items-center justify-center text-white mb-2">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 10l4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="font-adlam text-black text-2xl tracking-wide">Thank You!</h3>
-              <p className="text-gray-500 max-w-sm" style={{ fontFamily: 'Inter' }}>
+              <h3 className="font-adlam text-black text-xl sm:text-2xl tracking-wide">Thank You!</h3>
+              <p className="text-gray-500 text-xs sm:text-base max-w-sm" style={{ fontFamily: 'Inter' }}>
                 Your inquiry has been submitted successfully, {formData.fullName}. Our team will review it and get back to you within 24 business hours.
               </p>
               <button
@@ -212,18 +212,18 @@ function ContactUs() {
                   setIsSubmitted(false);
                   setFormData({ fullName: '', email: '', company: '', inquiryType: 'General Inquiry', message: '' });
                 }}
-                className="mt-2 text-[#ff8a00] hover:text-[#ffb200] font-semibold text-sm transition-colors cursor-pointer"
+                className="mt-2 text-[#ff8a00] hover:text-[#ffb200] font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
                 style={{ fontFamily: 'Inter' }}
               >
                 Send another inquiry
               </button>
             </div>
           ) : (
-            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-[24px] p-6 md:p-[40px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
+            <div className="flex-1 w-full bg-white border border-[#e2e2e2] rounded-xl sm:rounded-[24px] p-4 sm:p-6 md:p-[40px]" style={{ boxShadow: '0 0 10px rgba(0,0,0,0.05)' }}>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 sm:gap-6 w-full">
                 {/* Full Name */}
-                <div className="flex flex-col gap-2 items-start w-full">
-                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+                  <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                     Full Name <span className="text-[#ff8a00]">*</span>
                   </label>
                   <input
@@ -233,14 +233,14 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="John Doe"
                     required
-                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 w-full text-xs sm:text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                     style={{ fontFamily: 'Inter' }}
                   />
                 </div>
 
                 {/* Email Address */}
-                <div className="flex flex-col gap-2 items-start w-full">
-                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+                  <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                     Email Address <span className="text-[#ff8a00]">*</span>
                   </label>
                   <input
@@ -250,14 +250,14 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="john@company.com"
                     required
-                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 w-full text-xs sm:text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                     style={{ fontFamily: 'Inter' }}
                   />
                 </div>
 
                 {/* Company Name */}
-                <div className="flex flex-col gap-2 items-start w-full">
-                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+                  <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                     Company Name
                   </label>
                   <input
@@ -266,21 +266,21 @@ function ContactUs() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Company Ltd."
-                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 w-full text-xs sm:text-sm text-black placeholder:text-black/50 tracking-tight outline-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                     style={{ fontFamily: 'Inter' }}
                   />
                 </div>
 
                 {/* Inquiry Type Custom Dropdown */}
-                <div className="flex flex-col gap-2 items-start w-full">
-                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                <div className="flex flex-col gap-1 sm:gap-2 items-start w-full">
+                  <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                     Inquiry Type <span className="text-[#ff8a00]">*</span>
                   </label>
                   <div ref={dropdownRef} className="relative w-full">
                     <button
                       type="button"
                       onClick={() => setIsOpenDropdown(!isOpenDropdown)}
-                      className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-left text-black tracking-tight outline-none flex items-center justify-between border-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow cursor-pointer"
+                      className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 w-full text-xs sm:text-sm text-left text-black tracking-tight outline-none flex items-center justify-between border-none focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow cursor-pointer"
                       style={{ fontFamily: 'Inter' }}
                     >
                       <span>{formData.inquiryType}</span>
@@ -327,8 +327,8 @@ function ContactUs() {
                 </div>
 
                 {/* Message */}
-                <div className="flex flex-col gap-2 items-start w-full mb-[6px]">
-                  <label className="text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
+                <div className="flex flex-col gap-1 sm:gap-2 items-start w-full mb-[2px] sm:mb-[6px]">
+                  <label className="text-xs sm:text-sm font-medium text-black tracking-tight" style={{ fontFamily: 'Inter' }}>
                     Message <span className="text-[#ff8a00]">*</span>
                   </label>
                   <textarea
@@ -337,8 +337,8 @@ function ContactUs() {
                     onChange={handleChange}
                     placeholder="How can we help you?"
                     required
-                    rows="4"
-                    className="bg-black/[0.04] rounded-2xl px-4 py-3 w-full text-sm text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[126px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
+                    rows="3"
+                    className="bg-black/[0.04] rounded-xl sm:rounded-2xl px-3.5 py-2.5 sm:px-4 sm:py-3 w-full text-xs sm:text-sm text-black placeholder:text-black/50 tracking-tight outline-none resize-none h-[90px] sm:h-[126px] focus:ring-2 focus:ring-[#ffb200]/30 transition-shadow"
                     style={{ fontFamily: 'Inter' }}
                   ></textarea>
                 </div>
@@ -346,12 +346,12 @@ function ContactUs() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="rounded-2xl py-[15px] w-full flex items-center justify-center gap-3 text-white text-sm font-semibold tracking-tight border border-[#1a1a1a] bg-black btn-dark-fill cursor-pointer"
+                  className="rounded-xl sm:rounded-2xl py-2.5 sm:py-[15px] w-full flex items-center justify-center gap-2 sm:gap-3 text-white text-xs sm:text-sm font-semibold tracking-tight border border-[#1a1a1a] bg-black btn-dark-fill cursor-pointer"
                   style={{
                     fontFamily: 'Inter',
                   }}
                 >
-                  Submit Inquiry
+                  <span>Submit Inquiry</span>
                   <SubmitIcon />
                 </button>
               </form>

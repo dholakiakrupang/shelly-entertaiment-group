@@ -494,23 +494,23 @@ function ProductDetail() {
   return (
     <div className="bg-white text-[#0c0c0d]">
       {/* ════════════════ HERO ════════════════ */}
-      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-20 sm:pt-24 md:pt-32 lg:pt-[167px] pb-6 sm:pb-8 md:pb-[27px] min-h-[200px] sm:min-h-[300px] md:min-h-[420px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-4 sm:gap-6 md:gap-8 items-center relative w-full">
+      <section className="relative w-full bg-gradient-to-b from-[#0a0a0b] to-[#0f0f10] flex items-center justify-center pt-16 sm:pt-24 md:pt-32 lg:pt-[167px] pb-5 sm:pb-8 md:pb-[27px] min-h-[180px] sm:min-h-[300px] md:min-h-[420px]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 md:gap-8 items-center relative w-full">
           {/* Back link */}
           <Link
             to="/products"
-            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-2 text-[#777] text-sm tracking-tight hover:text-white transition-colors mb-4 lg:mb-0"
+            className="self-start lg:absolute lg:left-0 lg:top-0 flex items-center gap-1.5 text-[#777] text-xs sm:text-sm tracking-tight hover:text-white transition-colors mb-2 lg:mb-0"
           >
             <BackArrowIcon />
-            BACK TO CATALOG
+            <span>BACK TO CATALOG</span>
           </Link>
 
-          <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 items-center flex-1 max-w-3xl text-center w-full">
+          <div className="flex flex-col gap-2.5 sm:gap-6 md:gap-8 items-center flex-1 max-w-3xl text-center w-full">
             {/* Category pill */}
-            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-[15px] py-[7px] flex items-center gap-2 mb-[2px]">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
+            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-2.5 py-1 sm:px-[15px] sm:py-[7px] flex items-center gap-1.5 sm:gap-2">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-b from-[#ff6a00] to-[#ffb200] inline-block"></span>
               <span
-                className="text-[#b5b5b5] text-sm tracking-tight"
+                className="text-[#b5b5b5] text-[11px] sm:text-sm tracking-tight"
                 style={{ fontFamily: "Inter" }}
               >
                 {product.category}
@@ -519,7 +519,7 @@ function ProductDetail() {
 
             {/* Title */}
             <AnimateOnScroll animation="fade-up" as="h1"
-              className="font-adlam text-white text-2xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
+              className="font-adlam text-white text-xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[64px] font-normal leading-tight md:leading-[60px] lg:leading-[70px] xl:leading-[74px]"
               style={{ letterSpacing: "0.22px" }}
             >
               {product.title}
@@ -527,7 +527,7 @@ function ProductDetail() {
 
             {/* Description */}
             <AnimateOnScroll animation="fade-up" delay={150} as="p"
-              className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-xl"
+              className="text-[#FAFAFA] text-xs sm:text-base md:text-lg leading-snug sm:leading-6 md:leading-7 tracking-tight max-w-xl"
               style={{ fontFamily: "Inter", color: "#FAFAFA" }}
             >
               {product.description}
@@ -537,16 +537,17 @@ function ProductDetail() {
             <AnimateOnScroll animation="fade-up" delay={300}>
             <button
               onClick={() => setIsInquiryOpen(true)}
-              className="border border-[#ffb200] rounded-full px-[15px] py-[8px] sm:py-[11px] flex items-center gap-2 sm:gap-3 text-[#ffb200] font-bold text-sm sm:text-lg tracking-tight btn-outline-gold cursor-pointer"
+              className="border border-[#ffb200] rounded-full px-3.5 py-1.5 sm:px-[15px] sm:py-[11px] flex items-center gap-1.5 sm:gap-3 text-[#ffb200] font-bold text-xs sm:text-lg tracking-tight btn-outline-gold cursor-pointer"
               style={{ fontFamily: "Inter" }}
             >
-              Inquiry Now
+              <span>Inquiry Now</span>
               <svg
-                width="20"
-                height="20"
+                width="16"
+                height="16"
                 viewBox="0 0 20 20"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="sm:w-5 sm:h-5"
               >
                 <path
                   d="M4.16992 10H15.8366"
@@ -570,17 +571,17 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ PRODUCT OVERVIEW ════════════════ */}
-      <section className="bg-white w-full py-[60px] md:py-[100px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-12 lg:gap-16 items-start w-full">
+      <section className="bg-white w-full py-[24px] sm:py-[40px] md:py-[100px]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col lg:flex-row gap-6 sm:gap-12 lg:gap-16 items-start w-full">
           {/* ── Gallery ── */}
-          <AnimateOnScroll animation="fade-right" className="w-full lg:w-1/2 flex flex-col gap-6 items-start">
+          <AnimateOnScroll animation="fade-right" className="w-full lg:w-1/2 flex flex-col gap-4 sm:gap-6 items-start">
             {/* Main image */}
             <div
               onClick={() => {
                 setLightboxImageIndex(activeImage);
                 setIsLightboxOpen(true);
               }}
-              className="group/main rounded-[24px] w-full overflow-hidden aspect-[4/3] bg-[#111] relative shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#e2e2e2] cursor-pointer"
+              className="group/main rounded-[16px] sm:rounded-[24px] w-full overflow-hidden aspect-[4/3] bg-[#111] relative shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-[#e2e2e2] cursor-pointer"
             >
               <img
                 src={displayImage || product.gallery[0]}
@@ -624,7 +625,7 @@ function ProductDetail() {
                     key={idx}
                     onClick={() => handleImageChange(idx)}
                     onMouseEnter={() => handleImageChange(idx)}
-                    className={`group relative bg-white rounded-[14px] overflow-hidden shrink-0 w-[80px] h-[75px] sm:w-[100px] sm:h-[95px] md:w-[126px] md:h-[120px] transition-all duration-300 border-2 cursor-pointer ${
+                    className={`group relative bg-white rounded-[10px] sm:rounded-[14px] overflow-hidden shrink-0 w-[64px] h-[60px] sm:w-[100px] sm:h-[95px] md:w-[126px] md:h-[120px] transition-all duration-300 border-2 cursor-pointer ${
                       activeImage === idx
                         ? 'border-[#ffb200] shadow-[0_0_15px_rgba(255,178,0,0.35)] scale-[0.98]'
                         : 'border-[#e2e2e2] hover:border-[#ffb200]/60 hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:scale-[1.02]'
@@ -671,17 +672,17 @@ function ProductDetail() {
           </AnimateOnScroll>
 
           {/* ── Info ── */}
-          <AnimateOnScroll animation="fade-left" delay={200} className="w-full lg:w-1/2 flex flex-col gap-6 items-start justify-center">
-            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+          <AnimateOnScroll animation="fade-left" delay={200} className="w-full lg:w-1/2 flex flex-col gap-4 sm:gap-6 items-start justify-center">
+            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Product Overview
             </h2>
 
-            <div className="flex flex-col gap-3 items-start w-full">
-              <h3 className="font-adlam text-black text-xl tracking-wide">
+            <div className="flex flex-col gap-2 sm:gap-3 items-start w-full">
+              <h3 className="font-adlam text-black text-lg sm:text-xl tracking-wide">
                 {product.title}
               </h3>
               <p
-                className="text-[#989898] text-base leading-7 tracking-tight"
+                className="text-[#989898] text-xs sm:text-base leading-5 sm:leading-7 tracking-tight"
                 style={{ fontFamily: "Inter" }}
               >
                 {product.longDescription}
@@ -690,33 +691,33 @@ function ProductDetail() {
 
             {/* Technical Highlights card */}
             <div
-              className="bg-white border border-[#e2e2e2] rounded-2xl p-8 flex flex-col gap-6 w-full"
+              className="bg-white border border-[#e2e2e2] rounded-xl sm:rounded-2xl p-4 sm:p-8 flex flex-col gap-3 sm:gap-6 w-full"
               style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
             >
               <h3
-                className="font-semibold text-lg text-black tracking-tight"
+                className="font-semibold text-sm sm:text-lg text-black tracking-tight"
                 style={{ fontFamily: "Inter" }}
               >
                 Technical Highlights
               </h3>
               <div
-                className="flex flex-col gap-4 w-full text-sm tracking-tight"
+                className="flex flex-col gap-2 sm:gap-4 w-full text-xs sm:text-sm tracking-tight"
                 style={{ fontFamily: "Inter" }}
               >
                 {specEntries.map(([key, value], idx) => (
                   <div
                     key={key}
                     className="flex items-center justify-between w-full"
-                    style={{ paddingTop: "8.5px", paddingBottom: "8.5px" }}
+                    style={{ paddingTop: "4px", paddingBottom: "4px" }}
                   >
                     <span
-                      className="text-[14px] leading-[20px] text-[#989898] font-normal"
+                      className="text-xs sm:text-[14px] leading-[18px] sm:leading-[20px] text-[#989898] font-normal"
                       style={{ letterSpacing: "-0.15px" }}
                     >
                       {key}
                     </span>
                     <span
-                      className="text-[14px] leading-[20px] font-medium text-black text-right"
+                      className="text-xs sm:text-[14px] leading-[18px] sm:leading-[20px] font-medium text-black text-right"
                       style={{ letterSpacing: "-0.15px" }}
                     >
                       {value}
@@ -730,25 +731,25 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ PRODUCT RESOURCES ════════════════ */}
-      <section className="bg-white w-full py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-12 items-start">
-          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[24px] md:mb-[50px]">
+      <section className="bg-white w-full py-[24px] sm:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-6 sm:gap-12 items-start">
+          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
             Product Resources
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-16 w-full">
             {/* Docs list */}
-            <div className="flex flex-col gap-4 items-start w-full order-2 md:order-1">
+            <div className="flex flex-col gap-3 sm:gap-4 items-start w-full order-2 md:order-1">
               {resources.map((res, idx) => (
                 <div
                   key={idx}
                   onClick={() => handleResourceDownload(res, idx)}
-                  className="group bg-white border border-[#e2e2e2] rounded-[24px] h-[90px] flex items-center justify-between px-6 w-full hover:shadow-md hover:border-[#ffb200]/60 transition-all cursor-pointer select-none"
+                  className="group bg-white border border-[#e2e2e2] rounded-xl sm:rounded-[24px] h-[68px] sm:h-[90px] flex items-center justify-between px-4 sm:px-6 w-full hover:shadow-md hover:border-[#ffb200]/60 transition-all cursor-pointer select-none"
                   style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <div
-                      className="rounded-[10px] w-10 h-10 flex items-center justify-center border border-[rgba(255,138,0,0.1)] group-hover:scale-105 transition-transform"
+                      className="rounded-lg sm:rounded-[10px] w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center border border-[rgba(255,138,0,0.1)] group-hover:scale-105 transition-transform shrink-0"
                       style={{
                         backgroundImage:
                           "linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)",
@@ -758,13 +759,13 @@ function ProductDetail() {
                     </div>
                     <div>
                       <p
-                        className="text-sm font-medium text-black tracking-tight group-hover:text-[#ff8a00] transition-colors"
+                        className="text-xs sm:text-sm font-medium text-black tracking-tight group-hover:text-[#ff8a00] transition-colors"
                         style={{ fontFamily: "Inter" }}
                       >
                         {res.title}
                       </p>
                       <p
-                        className="text-xs text-[#989898]"
+                        className="text-[10px] sm:text-xs text-[#989898]"
                         style={{ fontFamily: "Inter" }}
                       >
                         {res.size}
@@ -791,7 +792,7 @@ function ProductDetail() {
               onClick={() => {
                 setIsVideoModalOpen(true);
               }}
-              className="group/video border border-[#1a1a1a] rounded-2xl flex items-center justify-center relative overflow-hidden w-full h-[303px] order-1 md:order-2 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group/video border border-[#1a1a1a] rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden w-full h-[180px] sm:h-[303px] order-1 md:order-2 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="absolute inset-0 bg-[#111]">
                 <img
@@ -803,7 +804,7 @@ function ProductDetail() {
               <div className="absolute inset-0 bg-black/20 group-hover/video:bg-black/40 transition-colors duration-300 flex items-center justify-center" />
               <button
                 type="button"
-                className="relative bg-[#0a0a0a]/80 border border-white/20 rounded-full w-16 h-16 flex items-center justify-center group-hover/video:scale-110 group-hover/video:bg-[#ffb200] group-hover/video:border-[#ffb200] transition-all duration-300 shadow-lg pointer-events-none"
+                className="relative bg-[#0a0a0a]/80 border border-white/20 rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center group-hover/video:scale-110 group-hover/video:bg-[#ffb200] group-hover/video:border-[#ffb200] transition-all duration-300 shadow-lg pointer-events-none"
               >
                 <PlayIcon />
               </button>
@@ -813,20 +814,20 @@ function ProductDetail() {
       </section>
 
       {/* ════════════════ TECHNOLOGY PARTNER ════════════════ */}
-      <section className="bg-[#f6f6f6] w-full py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-12 items-start">
-          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[24px] md:mb-[50px]">
+      <section className="bg-[#f6f6f6] w-full py-[24px] sm:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-8 lg:px-12 xl:px-[94px] w-full flex flex-col gap-6 sm:gap-12 items-start">
+          <AnimateOnScroll animation="fade-up" as="h2" className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide mb-[12px] md:mb-[50px]">
             Technology Partner
           </AnimateOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full stagger-children">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full stagger-children">
             {partners.map((partner, idx) => (
               <AnimateOnScroll key={idx} animation="fade-up" delay={idx * 120}
-                className="bg-white border border-[#e2e2e2] rounded-2xl p-5 sm:py-[31px] sm:px-8 flex gap-4 sm:gap-6 items-start hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-[#e2e2e2] rounded-xl sm:rounded-2xl p-3.5 sm:py-[31px] sm:px-8 flex gap-3 sm:gap-6 items-start hover:shadow-lg transition-shadow duration-300"
                 style={{ boxShadow: "0 0 5px rgba(0,0,0,0.05)" }}
               >
                 <div
-                  className="border border-[rgba(255,138,0,0.1)] rounded-2xl w-16 h-16 flex items-center justify-center overflow-hidden shrink-0"
+                  className="border border-[rgba(255,138,0,0.1)] rounded-xl sm:rounded-2xl w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center overflow-hidden shrink-0"
                   style={{
                     backgroundImage:
                       "linear-gradient(135deg, rgba(255,106,0,0.1) 0%, rgba(255,178,0,0.1) 100%)",
@@ -838,16 +839,16 @@ function ProductDetail() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="flex flex-col gap-4 items-start">
-                  <div className="flex flex-col gap-2 items-start">
+                <div className="flex flex-col gap-2 sm:gap-4 items-start">
+                  <div className="flex flex-col gap-1 sm:gap-2 items-start">
                     <h3
-                      className="font-semibold text-lg text-black tracking-tight"
+                      className="font-semibold text-sm sm:text-lg text-black tracking-tight"
                       style={{ fontFamily: "Inter" }}
                     >
                       {partner.name}
                     </h3>
                     <p
-                      className="text-sm text-[#989898] tracking-tight"
+                      className="text-xs sm:text-sm text-[#989898] tracking-tight"
                       style={{ fontFamily: "Inter" }}
                     >
                       {partner.description}
@@ -855,7 +856,7 @@ function ProductDetail() {
                   </div>
                   <a
                     href="#contact"
-                    className="text-sm font-medium text-[#ff8a00] tracking-tight hover:text-[#ffb200] transition-colors"
+                    className="text-xs sm:text-sm font-medium text-[#ff8a00] tracking-tight hover:text-[#ffb200] transition-colors"
                     style={{ fontFamily: "Inter" }}
                   >
                     Inquire Partner
@@ -887,13 +888,13 @@ function ProductDetail() {
           />
         </div>
 
-        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-6 items-center justify-center">
-          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-3 items-center text-center">
-            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 items-center justify-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-2 sm:gap-3 items-center text-center">
+            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Interested in this Product?
             </h2>
             <p
-              className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-[800px]"
+              className="text-[#989898] text-xs sm:text-base md:text-xl leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-[800px]"
               style={{ fontFamily: "Inter" }}
             >
               Our team is ready to provide specifications, compliance
@@ -903,16 +904,17 @@ function ProductDetail() {
 
           <button
             onClick={() => setIsInquiryOpen(true)}
-            className="border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight btn-gradient-primary cursor-pointer"
+            className="border border-[#ffb200] rounded-full px-4 py-2.5 sm:px-[23px] sm:py-[11px] flex items-center gap-2 sm:gap-3 text-white font-bold text-xs sm:text-lg tracking-tight btn-gradient-primary cursor-pointer"
             style={{ fontFamily: "Inter" }}
           >
-            Start Inquiry
+            <span>Start Inquiry</span>
             <svg
-              width="20"
-              height="20"
+              width="16"
+              height="16"
               viewBox="0 0 20 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="sm:w-5 sm:h-5"
             >
               <path
                 d="M4.16992 10H15.8366"
@@ -932,7 +934,7 @@ function ProductDetail() {
           </button>
 
           <p
-            className="text-[#b3b3b3] text-xs text-center"
+            className="text-[#b3b3b3] text-[10px] sm:text-xs text-center"
             style={{ fontFamily: "Inter" }}
           >
             This page is for informational purposes only

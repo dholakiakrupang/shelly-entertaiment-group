@@ -277,13 +277,13 @@ function Partners() {
           />
         </div>
 
-        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-6 items-center justify-center">
-          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-3 items-center text-center">
-            <h2 className="font-adlam text-black text-2xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
+        <div className="relative z-30 max-w-[1440px] mx-auto w-full py-[24px] sm:py-[40px] md:py-[80px] px-5 md:px-8 lg:px-12 xl:px-[94px] flex flex-col gap-3 sm:gap-6 items-center justify-center">
+          <AnimateOnScroll animation="fade-up" className="flex flex-col gap-2 sm:gap-3 items-center text-center">
+            <h2 className="font-adlam text-black text-xl sm:text-3xl md:text-[40px] leading-tight md:leading-[50px] tracking-wide">
               Explore Partnership Opportunities
             </h2>
             <p
-              className="text-[#989898] text-lg md:text-xl leading-7 tracking-tight max-w-[800px]"
+              className="text-[#989898] text-xs sm:text-base md:text-xl leading-4 sm:leading-6 md:leading-7 tracking-tight max-w-[800px]"
               style={{ fontFamily: 'Inter' }}
             >
               Interested in partnering with Liberty Rewards or learning more about our ecosystem? Reach out to
@@ -293,17 +293,17 @@ function Partners() {
 
           <button
             onClick={() => handleInquire('')}
-            className="border border-[#ffb200] rounded-full px-[23px] py-[11px] flex items-center gap-3 text-white font-bold text-lg tracking-tight btn-gradient-primary cursor-pointer"
+            className="border border-[#ffb200] rounded-full px-4 py-2.5 sm:px-[23px] sm:py-[11px] flex items-center gap-2 sm:gap-3 text-white font-bold text-xs sm:text-lg tracking-tight btn-gradient-primary cursor-pointer"
             style={{ fontFamily: 'Inter' }}
           >
-            General Inquiry
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <span>General Inquiry</span>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-5 sm:h-5">
               <path d="M4.16992 10H15.8366" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M10 4.16504L15.8333 9.99837L10 15.8317" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
-          <p className="text-[#b3b3b3] text-xs text-center" style={{ fontFamily: 'Inter' }}>
+          <p className="text-[#b3b3b3] text-[10px] sm:text-xs text-center" style={{ fontFamily: 'Inter' }}>
             Response time: Within 24 business hours
           </p>
         </div>
